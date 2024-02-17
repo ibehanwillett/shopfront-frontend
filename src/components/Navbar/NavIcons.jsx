@@ -11,7 +11,7 @@ const UserIcon = () => {
     };
 
     return (
-        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+        <svg version="1.1" id="user" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
             viewBox="0 0 48 48" style={{enableBackground: 'new 0 0 48 48'}} xmlSpace="preserve">
             <path style={commonStyle} d="M4.89,43.22h36.22c0,0-2.22-17.33-18.11-17.33S4.89,43.22,4.89,43.22z"/>
             <circle style={commonStyle} cx="23.53" cy="13.08" r="8.64"/>
@@ -44,7 +44,7 @@ const CartIcon = () => {
 
     return (
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style={{ enableBackground: 'new 0 0 48 48' }} xmlSpace="preserve">
-            <g id="user" style={hiddenStyle}>
+            <g id="cart" style={hiddenStyle}>
                 <path style={inlineStyle} d="M4.89,43.22h36.22c0,0-2.22-17.33-18.11-17.33S4.89,43.22,4.89,43.22z"/>
                 <circle style={inlineStyle} cx="23.53" cy="13.08" r="8.64"/>
             </g>

@@ -2,15 +2,15 @@ import react, { useRef } from 'react'
 import { Link } from "react-router-dom"
 import '../styles/navbar-styles.css'
 import '../../index.css'
-import UserIcon from './UserIcon.jsx'
+import { UserIcon, CartIcon } from './NavIcons.jsx'
 
 const Navbar = () => {
 
     const navBarRef = useRef()
 
     function toggleHamburger(evt) {
-        evt.target.classList.toggle("is-active")
-        navBarRef.current.classList.toggle("is-active")
+        evt.target.classNameList.toggle("is-active")
+        navBarRef.current.classNameList.toggle("is-active")
     }
 
     return (
@@ -29,6 +29,7 @@ const Navbar = () => {
 
             <div>
                 <UserIcon />
+                <CartIcon />
             </div>
 
             <div onClick={toggleHamburger} ref={navBarRef} className="navbar-menu">

@@ -43,7 +43,7 @@ const Navbar = () => {
         </div>
             
 
-            <Link to='/'>
+            <Link class='logo-container' to='/'>
                 <img id='sitelogo' src={siteLogo} alt="site logo" />
             </Link>
 

@@ -5,8 +5,8 @@ const UserIcon = () => {
     // Define the common style as an object
     const commonStyle = {
         fill: 'none',
-        stroke: '#000000',
-        strokeWidth: '3',
+        stroke: '#495057',
+        strokeWidth: '2',
         strokeMiterlimit: '10',
     };
 
@@ -25,20 +25,20 @@ const CartIcon = () => {
     const inlineStyle = {
         display: 'inline',
         fill: 'none',
-        stroke: '#000000',
-        strokeWidth: '3',
+        stroke: '#495057',
+        strokeWidth: '2',
         strokeMiterlimit: '10',
     };
     const fillStrokeStyle = {
         fill: 'none',
-        stroke: '#000000',
-        strokeWidth: '3',
+        stroke: '#495057',
+        strokeWidth: '2',
         strokeMiterlimit: '10',
     };
     const strokeStyle = {
         fill: 'none',
-        stroke: '#000000',
-        strokeWidth: '3',
+        stroke: '#495057',
+        strokeWidth: '2',
         strokeMiterlimit: '10',
     };
 

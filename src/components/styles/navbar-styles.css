@@ -1,36 +1,47 @@
 a {
-    margin : 0 1rem;
+    margin: 0 1rem;
     align-items: center;
 }
 
-svg, a#icons {
-    width: 30px;
-    height: 30px;
+a#icons {
+    margin: 0 0.5rem;
+}
+
+svg {
+    margin: 0;
+    width: 24px;
+    height: 24px;
     /* padding: 0.5rem;  */
 }
 
-nav {
-    display: grid;
-    grid-template-areas: "left-icon heading icons";
-    grid-template-columns: 1fr 2fr 1fr;
+div.navbar-start {
     align-items: center;
+}
+
+nav {
+    /* display: grid;
+    grid-template-columns: 1fr 2fr 1fr; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 1rem 0 1rem 0;
     width: 100%;
     border-bottom: solid 0.1rem; /* Placehold border to see bottom edge of nav */
+    border-color: #495057;
 }
 
 a span {
     display: block;
     width: 25px;
-    height: 3px;
+    height: 1px;
     background-color: #333;
-    margin: 5px 0;
+    margin: 6px 0;
     transition: 0.4s;
     pointer-events: none;
 }
 
 .is-active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 6px);
+    transform: rotate(-45deg) translate(-5px, 5px);
 }
 
 .is-active span:nth-child(2) {
@@ -38,7 +49,7 @@ a span {
 }
 
 .is-active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -6px);
+    transform: rotate(45deg) translate(-5px, -5px);
 }
 
 #sitelogo {
@@ -68,4 +79,8 @@ a span {
     nav {
         min-width: 100vmax;
     }
+}
+
+#sitelogo {
+    display: block;
 }

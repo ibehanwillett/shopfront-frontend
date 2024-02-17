@@ -29,14 +29,14 @@ const Navbar = () => {
                 <div className="navbar-start">
                     {/* Link to home "/" */}
                     <Link to='/' >
-                        Home
+                        HOME
                     </Link>
                     {/* Link to category "/category" */}
                     <Link id='nav-link' to='/shop' >
-                        Shop
+                        SHOP
                     </Link>
                     <Link to='/about' >
-                        About
+                        ABOUT
                     </Link>
                 </div>
             </div>

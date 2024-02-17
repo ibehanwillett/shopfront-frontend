@@ -15,18 +15,16 @@ const Navbar = () => {
     return (
         <>
         <nav role="navigation" aria-label="main navigation">
-            <div>
-                {/* Link to return home */}
-                <Link to="/">
-                    <h1>LOGO</h1>
-                </Link>
 
-                <a role="button" onClick={toggleHamburger} aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                    <span aria-hidden="true"></span>
-                </a>
-            </div>
+            <Link to="/">
+                <h1>LOGO</h1>
+            </Link>
+
+            <a role="button" onClick={toggleHamburger}>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
 
             <div onClick={toggleHamburger} ref={navBarRef} className="navbar-menu">
                 <div className="navbar-start">

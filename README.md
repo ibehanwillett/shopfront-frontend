@@ -103,6 +103,8 @@ After this iteration we went through the user stories and assigned a level of pr
 # R5
 
 ### Wireframes
+[Link to wireframes](https://www.figma.com/file/4uF1IZ9L19636HunD1y1ZW/E-Commerce-App?type=design&node-id=0-1&mode=design&t=VcPAqvdqVdBvmi28-0)
+
 We designed our wireframes using Figma. We kept the wireframes in monotone so that we had the option of easily making design changes later if needed. One of the key aspects of the site is that it is customised to suit the artist’s needs.
 
 Siteflow shows the relationships between the pages. The Home page acts as a base between all other pages, linking them from the hamburger menu (mobile/tablet) and menu (desktop). The main logo at the head of the page will also take the user to Home on click. 

@@ -1,3 +1,46 @@
 #nav-link {
     padding : 1rem
 }
+
+nav {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+a span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+    margin: 5px 0;
+    transition: 0.4s;
+    pointer-events: none;
+}
+
+.is-active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.is-active span:nth-child(2) {
+    opacity: 0;
+}
+
+.is-active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+
+.navbar-menu {
+    display: none;
+}
+
+.isactive .navbar-menu {
+    display: block;
+}
+
+@media (min-width: 1000px) {
+    .navbar-menu {
+        display: flex;
+    }
+}

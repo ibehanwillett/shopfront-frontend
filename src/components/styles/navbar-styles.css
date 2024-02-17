@@ -1,12 +1,22 @@
-#nav-link {
-    padding : 1rem
+a {
+    margin : 0 1rem;
+    align-items: center;
 }
 
+svg, a#icons {
+    width: 30px;
+    height: 30px;
+    /* padding: 0.5rem;  */
+}
 
 nav {
-    display: flex;
-    flex-direction: column;
-    justify-items: center;
+    display: grid;
+    grid-template-areas: "left-icon heading icons";
+    grid-template-columns: 1fr 2fr 1fr;
+    align-items: center;
+    padding: 1rem 0 1rem 0;
+    width: 100%;
+    border-bottom: solid 0.1rem; /* Placehold border to see bottom edge of nav */
 }
 
 a span {
@@ -31,9 +41,14 @@ a span {
     transform: rotate(45deg) translate(-5px, -6px);
 }
 
+#sitelogo {
+    width: 200px;
+    height: 100px;
+}
 
 .navbar-menu {
     display: none;
+    /* position: relative; */
 }
 
 .isactive .navbar-menu {
@@ -43,5 +58,14 @@ a span {
 @media (min-width: 1000px) {
     .navbar-menu {
         display: flex;
+        /* justify-content: space-between; */
+        /* display: none; */
+        /* pointer-events: none; */
+    }
+    a span {
+        display: none;
+    }
+    nav {
+        min-width: 100vmax;
     }
 }

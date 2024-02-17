@@ -18,26 +18,12 @@ const Navbar = () => {
     return (
         <>
         <nav role="navigation" aria-label="main navigation">
-
-            <Link to='/'>
-                <img src={siteLogo} alt="site logo" />
-            </Link>
-
+        <div>
             <a role="button" onClick={toggleHamburger}>
                 <span></span>
                 <span></span>
                 <span></span>
             </a>
-
-            <div>
-                <Link to='/'>
-                    <UserIcon />
-                </Link>
-                <Link to='/'>
-                    <CartIcon />
-                </Link>
-                
-            </div>
 
             <div onClick={toggleHamburger} ref={navBarRef} className="navbar-menu">
                 <div className="navbar-start">
@@ -54,6 +40,23 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
+        </div>
+            
+
+            <Link to='/'>
+                <img id='sitelogo' src={siteLogo} alt="site logo" />
+            </Link>
+
+            <div >
+                <Link id='icons' to='/'>
+                    <UserIcon />
+                </Link>
+                <Link id='icons' to='/'>
+                    <CartIcon />
+                </Link>
+                
+            </div>
+            
         </nav>
         </>
     )

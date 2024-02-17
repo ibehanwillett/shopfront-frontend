@@ -1,7 +1,8 @@
 import react, { useRef } from 'react'
 import { Link } from "react-router-dom"
-import './styles/navbar-styles.css'
-import '../index.css'
+import '../styles/navbar-styles.css'
+import '../../index.css'
+import UserIcon from './UserIcon.jsx'
 
 const Navbar = () => {
 
@@ -21,10 +22,14 @@ const Navbar = () => {
             </Link>
 
             <a role="button" onClick={toggleHamburger}>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
+                <span></span>
+                <span></span>
+                <span></span>
             </a>
+
+            <div>
+                <UserIcon />
+            </div>
 
             <div onClick={toggleHamburger} ref={navBarRef} className="navbar-menu">
                 <div className="navbar-start">

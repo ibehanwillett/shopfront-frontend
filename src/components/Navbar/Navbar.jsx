@@ -53,7 +53,7 @@ const Navbar = () => {
                 <Link id='icons' to='/'>
                     <UserIcon />
                 </Link>
-                <Link id='icons' to='/'>
+                <Link id='icons' to='/cart'>
                     <CartIcon />
                 </Link>
             </div>

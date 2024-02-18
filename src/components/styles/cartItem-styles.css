@@ -1,0 +1,28 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .cart-item-image {
+    width: 60px;
+    height: 60px;
+    background-color: #ddd;
+    margin-right: 15px;
+  }
+  
+  .cart-item-info p {
+    margin: 0;
+  }
+  
+  /* @media (max-width: 768px) {
+    .cart-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .cart-item-image {
+      margin-bottom: 10px;
+    }
+  }
+   */

@@ -18,6 +18,17 @@ div.navbar-start {
     align-items: center;
 }
 
+.nav-left, .logo-container, .nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-container {
+    flex-grow: 1;
+    justify-content: center;
+}
+
 nav {
     display: flex;
     align-items: center;
@@ -67,22 +78,21 @@ a span {
 @media (min-width: 1000px) {
     .navbar-menu {
         display: flex;
-        /* justify-content: space-between; */
-        /* display: none; */
-        /* pointer-events: none; */
+    }
+    .nav-right {
+        flex: 1;
+        justify-content: end;
+    }
+    .nav-left {
+        flex: 1;
+        justify-content: start;
+    }
+    .logo-container {
+        flex: 0 1 auto;
+        justify-content: center;
     }
     a span {
         display: none;
     }
 }
 
-#sitelogo {
-    display: block;
-    justify-self: center;
-}
-
-.logo-container {
-    display: flex;
-    align-self: center;
-    justify-self: center;
-}

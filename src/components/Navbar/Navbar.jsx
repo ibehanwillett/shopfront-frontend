@@ -18,43 +18,44 @@ const Navbar = () => {
     return (
         <>
         <nav role="navigation" aria-label="main navigation">
-        <div>
-            <a role="button" onClick={toggleHamburger}>
-                <span></span>
-                <span></span>
-                <span></span>
-            </a>
+            <div className='nav-left'>
+                <a role="button" onClick={toggleHamburger}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </a>
 
-            <div onClick={toggleHamburger} ref={navBarRef} className="navbar-menu">
-                <div className="navbar-start">
-                    {/* Link to home "/" */}
-                    <Link to='/' >
-                        HOME
-                    </Link>
-                    {/* Link to category "/category" */}
-                    <Link id='nav-link' to='/shop' >
-                        SHOP
-                    </Link>
-                    <Link to='/about' >
-                        ABOUT
-                    </Link>
+                <div onClick={toggleHamburger} ref={navBarRef} className="navbar-menu">
+                    <div className="navbar-start">
+                        {/* Link to home "/" */}
+                        <Link to='/' >
+                            HOME
+                        </Link>
+                        {/* Link to category "/category" */}
+                        <Link id='nav-link' to='/shop' >
+                            SHOP
+                        </Link>
+                        <Link to='/about' >
+                            ABOUT
+                        </Link>
+                    </div>
                 </div>
             </div>
-        </div>
+            
+            {/* <div className='nav-center'> */}
+                <Link className='logo-container' to='/'>
+                    <img id='sitelogo' src={siteLogo} alt="site logo" />
+                </Link>
+            {/* </div> */}
             
 
-            <Link class='logo-container' to='/'>
-                <img id='sitelogo' src={siteLogo} alt="site logo" />
-            </Link>
-
-            <div >
+            <div className='nav-right'>
                 <Link id='icons' to='/'>
                     <UserIcon />
                 </Link>
                 <Link id='icons' to='/'>
                     <CartIcon />
                 </Link>
-                
             </div>
             
         </nav>

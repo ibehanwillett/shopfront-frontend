@@ -11,7 +11,7 @@ const Navbar = () => {
     const navBarRef = useRef()
 
     function toggleHamburger(evt) {
-        evt.target.classList.toggle("is-active")
+        evt.currentTarget.classList.toggle("is-active")
         navBarRef.current.classList.toggle("is-active")
     }
 

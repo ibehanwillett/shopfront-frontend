@@ -76,7 +76,7 @@ a span {
     display: block;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 961px) {
     .navbar-menu {
         display: flex;
     }

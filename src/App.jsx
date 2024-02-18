@@ -4,6 +4,7 @@ import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home'
 import About from './components/About'
 import Cart from './components/Cart/Cart'; 
+import Checkout from './components/Checkout/Checkout'; 
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
                 <Route path="/shop" element={<ShopFront />}/>
                 <Route path="/about" element={<About />}/>
                 <Route path="/cart" element={<Cart />}/>
+                <Route path="/checkout" element={<Checkout />}/>
             </Routes>
         </BrowserRouter>
     </>

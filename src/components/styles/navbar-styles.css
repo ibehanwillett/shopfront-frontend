@@ -24,7 +24,8 @@ div.navbar-start {
     justify-content: center;
 }
 
-.logo-container {
+.logo-container a, .logo-container img {
+    display: block;
     flex-grow: 1;
     justify-content: center;
 }
@@ -79,12 +80,14 @@ a span {
     .navbar-menu {
         display: flex;
     }
-    .nav-right {
+    .nav-right, .nav-left {
         flex: 1;
+        max-width: 300px;
+    }
+    .nav-right {
         justify-content: end;
     }
     .nav-left {
-        flex: 1;
         justify-content: start;
     }
     .logo-container {

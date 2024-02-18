@@ -42,11 +42,11 @@ const Navbar = () => {
                 </div>
             </div>
             
-            {/* <div className='nav-center'> */}
-                <Link className='logo-container' to='/'>
+            <div className='logo-container'>
+                <Link to='/'>
                     <img id='sitelogo' src={siteLogo} alt="site logo" />
                 </Link>
-            {/* </div> */}
+            </div>
             
 
             <div className='nav-right'>

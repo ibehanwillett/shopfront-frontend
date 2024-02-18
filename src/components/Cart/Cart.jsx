@@ -1,14 +1,18 @@
-import React from 'react';
+import React, { useState} from 'react';
 import CartItem from './CartItem';
 import '../styles/cart.css'; 
 
 function Cart() {
-  // Static data for the cart items
-  const cartItems = [
+  const [cartItems, setCartItems] = useState([
     { id: 1, name: 'Item Name', price: 41.00 },
     { id: 2, name: 'Item Name', price: 29.00 },
-    { id: 3, name: 'Item Name', price: 13.00 },
-  ];
+    { id: 3, name: 'Item Name', price: 13.00 }
+  ]);
+
+  const handleDelete = (id) => {
+    const updatedCartItems = cartItems.filter(item => item.id !== id);
+    setCartItems(updatedCartItems);
+  };
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
 
@@ -16,7 +20,11 @@ function Cart() {
     <div className="cart-container">
       <h2>Cart</h2>
       {cartItems.map(item => (
-        <CartItem key={item.id} name={item.name} price={item.price} />
+        <CartItem 
+        key={item.id} 
+        name={item.name} 
+        price={item.price} 
+        onDelete={() => handleDelete(item.id)}/>
       ))}
       <div className="cart-subtotal">
         <p>Subtotal:</p>

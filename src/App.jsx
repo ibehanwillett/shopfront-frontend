@@ -24,10 +24,6 @@ function App() {
   new Item("ugly earrings", 2.00, "terribly ugly earrings", "https://placekitten.com/200/200")]
 
   const[cartItems, setCartItems] = useState([])
-  useEffect(() => {
-    console.log("loaded")
-    }, [cartItems]
-  )
 
   return (
     <>
@@ -35,7 +31,7 @@ function App() {
             <Navbar />
             <Routes>
                 <Route path="/" element={<Home />} />
-                <Route path="/shop" element={<ShopFront items={items} setCartItems= {setCartItems} />}/>
+                <Route path="/shop" element={<ShopFront items={items} />}/>
                 <Route path="/about" element={<About />}/>
                 <Route path="/cart" element={<Cart cartItems={cartItems} />}/>
             </Routes>

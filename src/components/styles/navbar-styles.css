@@ -3,12 +3,16 @@ a {
     align-items: center;
 }
 
-a#icons {
-    margin: 0 0.2rem;
+a#nav-link {
+    margin: 0 1rem;
+}
+
+svg#user {
+    margin-right: 0.5rem;
 }
 
 svg {
-    margin: 0;
+    margin: 0 0.5rem 0 0;
     width: 24px;
     height: 24px;
 }
@@ -17,7 +21,7 @@ div.navbar-start {
     align-items: center;
 }
 
-.nav-left, .logo-container, .nav-right {
+.nav-left, .nav-right {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,9 +37,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
+    padding: 0.5rem;
     border-bottom: solid 0.1rem;
-    border-color: #495057;
+    border-color: #000000;
 }
 
 a span {
@@ -46,11 +50,6 @@ a span {
     margin: 6px 0;
     transition: 0.4s;
     pointer-events: none;
-}
-
-.logo-container {
-    flex: 0 1 auto;
-    justify-content: center;
 }
 
 #sitelogo {
@@ -131,9 +130,6 @@ a span {
     }
     a span {
         display: none;
-    }
-    a {
-        margin: 0 1rem;
     }
 }
 

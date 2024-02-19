@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
 import { useContext } from "react";
-import CartContext from "../../app-context/CartContext";
+import useCartContext from "../../app-context/CartContext";
 
 function Cart() {
   // Static data for the cart items
@@ -13,14 +13,13 @@ function Cart() {
   //   { id: 3, name: 'Item Name', price: 13.00 },
   // ];
   
-    
+  const { cartItems, setCartItems, addToCart, removeFromCart } = useCartContext()
 
-  const cartItems= useContext(CartContext)
   
-  const handleDelete = (id) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== id);
-    setCartItems(updatedCartItems);
-  };
+  // const handleDelete = (id) => {
+  //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
+  //   setCartItems(updatedCartItems);
+  // };
 
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
@@ -34,7 +33,8 @@ function Cart() {
           key={item.id}
           name={item.name}
           price={item.price}
-          onDelete={() => handleDelete(item.id)}
+          onDelete={removeFromCart(item)}
+          // onDelete={() => handleDelete(item.id)}
         />
       ))}
       <div className="cart-subtotal">

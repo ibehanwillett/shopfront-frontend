@@ -1,8 +1,9 @@
 import React from 'react'
 import '../styles/cartItem-styles.css'
+import { useCartContext } from '../../app-context/CartContext'
 
 const ShopFront = ({ items }) => {
-
+  const { addToCart } = useCartContext()
   return (
     <>
     <h3>BROWSE ITEMS</h3>
@@ -15,7 +16,7 @@ const ShopFront = ({ items }) => {
         <h5>${item.price}</h5>
         <h6>{item.description}</h6>
         <img className="cart-item-image" src={item.image}/>
-        <button onClick={console.log("clicked!")}>Add to cart</button>
+        <button onClick={addToCart(item)}>Add to cart</button>
       </div>)
         })
       }

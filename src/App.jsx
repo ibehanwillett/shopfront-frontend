@@ -6,7 +6,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Checkout from './components/Checkout/Checkout'; 
 import Cart from './components/Cart/Cart'
-import CartContext, { defaultCartContextData } from "./app-context/CartContext"
+import CartContext, { CartProvider } from "./app-context/CartContext"
 
 
 
@@ -18,11 +18,12 @@ function App() {
   {id:3, name:"ugly earrings", price: 2.00, description: "terribly ugly earrings", image: "https://placekitten.com/200/200"}
   ]
 
-  const cartItems= useContext(CartContext)
+  // const { cartItems, setCartItems, addToCart, removeFromCart } = useCartContext()
+  // useEffect(() =>
 
   return (
     <>
-      <CartContext.Provider value={cartItems}>
+      <CartProvider>
         <BrowserRouter>
             <Navbar />
             <Routes>
@@ -33,7 +34,7 @@ function App() {
                 <Route path="/cart" element={<Cart />}/>
             </Routes>
         </BrowserRouter>
-      </CartContext.Provider>
+      </CartProvider>
     </>
   )
 }

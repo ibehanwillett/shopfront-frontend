@@ -33,7 +33,8 @@ function Cart() {
           key={item.id}
           name={item.name}
           price={item.price}
-          onDelete={()=>removeFromCart(item)}
+          image={item.image}
+          onDelete={()=>removeFromCart(item.id)}
           // onDelete={() => handleDelete(item.id)}
         />
       ))}

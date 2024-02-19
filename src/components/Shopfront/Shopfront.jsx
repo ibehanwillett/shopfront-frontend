@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import '../styles/cartItem-styles.css'
 import { useCartContext } from '../../app-context/CartContext'
 import ShopfrontItem from './ShopfrontItem'
@@ -6,10 +6,14 @@ import ShopfrontItem from './ShopfrontItem'
 
 
 const ShopFront = ({ items }) => {
-  // useEffect(() => {
-  //   const { addToCart } = useCartContext()
-  // },[])
+
   const { addToCart } = useCartContext()
+  const [buttonText, setButtonText] = useState("Add to cart")
+
+  const handleClick = (item) => {
+    setButtonText(buttonText === 'Add to cart' ? 'Added to cart!' : 'Add to cart')
+    addToCart(item)
+  }
 
   return (
     <>
@@ -24,16 +28,10 @@ const ShopFront = ({ items }) => {
           price={item.price}
           description={item.description}
           image={item.image}
-          onAdd={()=>addToCart(item)}
+          buttonText={buttonText}
+          onAdd={()=> handleClick(item)}
           /> 
         )
-      // <div key={index} className="cart-item">
-      //   <h4>{item.name}</h4>
-      //   <h5>${item.price}</h5>
-      //   <h6>{item.description}</h6>
-      //   <img className="cart-item-image" src={item.image}/>
-      //   <button onClick={console.log("clicked")}>Add to cart</button>
-      // </div>)
         })
       }
     </div>

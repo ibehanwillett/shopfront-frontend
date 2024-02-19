@@ -12,9 +12,9 @@ export const CartProvider = ({children}) => {
         setCartItems(cartItems.concat(item));
     }
 
-    function removeFromCart(item) {
-        const index = cartItems.indexOf(item);
-        setCartItems(cartItems.splice(index, 1));
+    function removeFromCart(id) {
+        const updatedCartItems = cartItems.filter((item) => item.id !== id);
+        setCartItems([...updatedCartItems]);
     }
 
     const value = { cartItems, setCartItems, addToCart, removeFromCart };

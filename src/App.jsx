@@ -18,8 +18,6 @@ function App() {
   {id:3, name:"ugly earrings", price: 2.00, description: "terribly ugly earrings", image: "https://placekitten.com/200/200"}
   ]
 
-  // const { cartItems, setCartItems, addToCart, removeFromCart } = useCartContext()
-  // useEffect(() =>
 
   return (
     <>

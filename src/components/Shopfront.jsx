@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ShopFront = () => {
+const ShopFront = (item) => {
   return (
     <>
     <h3>ITEMS</h3>

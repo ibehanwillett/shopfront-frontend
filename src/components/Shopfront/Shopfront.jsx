@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/cartItem-styles.css'
 
-const ShopFront = ({ items }) => {
+const ShopFront = ({ items, setCartItems }) => {
 
   
   
@@ -29,7 +29,7 @@ const ShopFront = ({ items }) => {
         <h5>${item.price}</h5>
         <h6>{item.description}</h6>
         <img className="cart-item-image" src={item.image}/>
-        <button>Add to cart</button>
+        <button onClick={setCartItems(cartItems => [...cartItems, item])}>Add to cart</button>
       </div>)
         })
       }

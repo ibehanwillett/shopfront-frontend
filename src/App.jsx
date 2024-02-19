@@ -1,13 +1,13 @@
 import { BrowserRouter, Route, Routes, useParams } from "react-router-dom"
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useContext } from 'react'
 import ShopFront from './components/Shopfront/Shopfront'
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home'
 import About from './components/About'
 import Checkout from './components/Checkout/Checkout'; 
 import Cart from './components/Cart/Cart'
-import ItemContext, { defaultItemContextData } from "./app-context/ItemContext"
-import { ItemInfo } from "./ItemInfo"
+import CartContext, { useShoppingCart } from "./app-context/CartContext"
+
 
 
 function App() {
@@ -25,22 +25,22 @@ function App() {
   new Item("weird shoes", 30.00, "very weird shoes", "https://placekitten.com/200/200"), 
   new Item("ugly earrings", 2.00, "terribly ugly earrings", "https://placekitten.com/200/200")]
 
-  const[cartItems, setCartItems] = useState([])
+  const cartItems= useContext(CartContext)
 
   return (
     <>
-      <ItemContext.Provider value={defaultItemContextData}>
+      <CartContext.Provider value={cartItems}>
         <BrowserRouter>
             <Navbar />
             <Routes>
-                <Route path="/" element={<ItemInfo />} />
+                <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<ShopFront items={items} />}/>
                 <Route path="/about" element={<About />}/>
                 <Route path="/checkout" element={<Checkout />}/>
-                <Route path="/cart" element={<Cart cartItems={cartItems} />}/>
+                <Route path="/cart" element={<Cart />}/>
             </Routes>
         </BrowserRouter>
-      </ItemContext.Provider>
+      </CartContext.Provider>
     </>
   )
 }

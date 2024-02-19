@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
 import { useContext } from "react";
-import useCartContext from "../../app-context/CartContext";
+import { useCartContext } from "../../app-context/CartContext";
 
 function Cart() {
   // Static data for the cart items
@@ -33,7 +33,7 @@ function Cart() {
           key={item.id}
           name={item.name}
           price={item.price}
-          onDelete={removeFromCart(item)}
+          onDelete={()=>removeFromCart(item)}
           // onDelete={() => handleDelete(item.id)}
         />
       ))}

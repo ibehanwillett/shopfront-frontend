@@ -7,7 +7,7 @@ export const defaultCartContextData =
     { id: 3, name: 'Item Name', price: 13.00 },
 ]
 
-const CartContext = createContext(defaultCartContextData);
+const CartContext = createContext([]);
 
 export function useShoppingCart() {
     return useContext(CartContext)

@@ -8,7 +8,7 @@ import Checkout from './components/Checkout/Checkout';
 import Cart from './components/Cart/Cart'
 import ItemContext, { defaultItemContextData } from "./app-context/ItemContext"
 import { ItemInfo } from "./ItemInfo"
-
+import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
 
 function App() {
   class Item {
@@ -36,6 +36,7 @@ function App() {
                 <Route path="/" element={<ItemInfo />} />
                 <Route path="/shop" element={<ShopFront items={items} />}/>
                 <Route path="/about" element={<About />}/>
+                <Route path="/artistportal" element={<ArtistPortal />}/>
                 <Route path="/checkout" element={<Checkout />}/>
                 <Route path="/cart" element={<Cart cartItems={cartItems} />}/>
             </Routes>

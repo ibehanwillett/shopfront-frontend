@@ -12,8 +12,8 @@ const ArtistPortal = ({ artist }) => {
                 <h2>Hi, Nicole{/*artist.fname*/}.</h2>
                 {/* <UpdateAbout /> */}
                 <AddItem />
-                <DeleteItem />
                 <UpdateItem />
+                <DeleteItem />
             </main>
         </>
     )

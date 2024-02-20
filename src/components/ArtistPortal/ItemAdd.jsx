@@ -3,11 +3,11 @@ import '../../index.css'
 import '../styles/artistportal-styles.css'
 
 
-
+// CREATE (POST) item to the DB
 const AddItem = ({ addItem }) => {
     return(
         <>
-            <div id="add-item">
+            <div id="components">
                 <h3>Add Item</h3>
                 <textarea 
                     name="name" 
@@ -32,7 +32,8 @@ const AddItem = ({ addItem }) => {
                         id="price"
                     ></textarea>
                     <button id="update-button">Upload Image</button>
-                </div>   
+                </div>
+                <button>Add</button>
             </div>
         </>
     )

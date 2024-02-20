@@ -4,7 +4,7 @@ import '../styles/artistportal-styles.css'
 
 
 // CREATE (POST) item to the DB
-const CreateItem = ({ setName, setPrice, setDescription,  }) => {
+const CreateItem = () => {
     return(
         <>
             <div id="components">
@@ -14,8 +14,8 @@ const CreateItem = ({ setName, setPrice, setDescription,  }) => {
                     placeholder="Name" 
                     id="name"
                 ></textarea>
-                <select name="category" id="drop-down">
-                    <option selected disabled>Item Category</option>
+                <select name="category" id="drop-down" defaultValue="disabled">
+                    <option value="disabled" disabled>Item Category</option>
                     <option value="tees">T-shirts</option>
                     <option value="hats">Hats</option>
                     <option value="art">Art</option>
@@ -47,4 +47,4 @@ const CreateItem = ({ setName, setPrice, setDescription,  }) => {
 }
 
 
-export default AddItem
+export default CreateItem

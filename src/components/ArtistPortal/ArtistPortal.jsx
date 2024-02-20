@@ -1,57 +1,55 @@
-import react, { useEffect, useState } from 'react'
-import UpdateAbout from './AboutUpdate.jsx'
-import CreateItem from './ItemCreate.jsx'
-import DeleteItem from './ItemDelete.jsx'
-import UpdateItem from './ItemUpdate.jsx'
+import react, { useEffect, useState } from "react"
+import UpdateAbout from "./AboutUpdate.jsx"
+import CreateItem from "./ItemCreate.jsx"
+import DeleteItem from "./ItemDelete.jsx"
+import UpdateItem from "./ItemUpdate.jsx"
+
+// [
+//     {
+//         id: "ObjectId",
+//         category: "Tees",
+//         name: "Another Tee Name",
+//         price: 39.00,
+//         description: "Item description",
+//         image: "url_to_image", 
+//         stock: 40
+//     },
+//     {
+//         id: "ObjectId",
+//         category: "Tees",
+//         name: "Another Tee Name",
+//         price: 39.00,
+//         description: "Item description",
+//         image: "url_to_image", 
+//         stock: 40
+//     },
+// ]
 
 
 const ArtistPortal = () => {
+    const [items, setItems] = useState([]);
 
-    
-    const [categories, setCategories] = useState([])
-    const [items, setItem] = useState([])
-    
     useEffect(() => {
-        fetch("https://pokeapi.co/api/v2/pokemon/")
-        .then((res) => res.json())
-        .then((data) => setCategories(data))
-
-        fetch("https://pokeapi.co/api/v2/pokemon/ditto/")
+        fetch("url") 
             .then((res) => res.json())
-            .then((data) => setItem(data))
-    }, [])
-    
-    // function not in use atm
-    async function addItem(cat_id, content) {
+            .then((data) => setItems(data))
+            .catch(error => console.error("Failed to load shop items", error))
+    }, []);
 
-        const newId = items.length
-        const newEntry = {
-            category: categories[cat_id]._id,
-            content: content,
-        }
-        const res = await fetch('https://pokeapi.co/api/v2/pokemon/ditto', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(newEntry)
-        })
-        const data = await res.json()
-        setItem([...items, data])
-        return newId
-    }
+    const handleItemDeleted = (deletedItemId) => {
+        setItems(prevItems => prevItems.filter(item => item.id !== deletedItemId));
+    };
 
     return (
         <>
             <main>
                 <h2 id="page-title">Hi, Nicole.</h2>
-                <AddItem />
-                <UpdateItem 
-                    item={items[name]} />
-                <DeleteItem />
+                <CreateItem />
+                <UpdateItem />
+                <DeleteItem items={items} onItemDeleted={handleItemDeleted} />
             </main>
         </>
-    )
-}
+    );
+};
 
-export default ArtistPortal
+export default ArtistPortal;

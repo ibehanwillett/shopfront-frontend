@@ -4,7 +4,7 @@ import '../styles/artistportal-styles.css'
 import AddItem from './ItemCreate';
 
 // UPDATE (PUT) item in DB
-const UpdateItem = ({ }) => {
+const UpdateItem = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,16 +16,16 @@ const UpdateItem = ({ }) => {
             <form onSubmit={handleSubmit}>
                 <div id="components">
                     <h3>Update Item</h3>
-                    <select name="category" id="drop-down">
-                        <option selected disabled>Select Item</option>
+                    <select name="category" id="drop-down" defaultValue="disabled">
+                        <option value="disabled" disabled>Select Item</option>
                     </select>
                     <textarea 
                         name="name" 
                         placeholder="Name" 
                         id="name"
                     ></textarea>
-                    <select name="category" id="drop-down">
-                        <option selected disabled>Item Category</option>
+                    <select name="category" id="drop-down" defaultValue="disabled">
+                        <option value="disabled" disabled>Item Category</option>
                         <option value="tees">T-shirts</option>
                         <option value="hats">Hats</option>
                         <option value="art">Art</option>

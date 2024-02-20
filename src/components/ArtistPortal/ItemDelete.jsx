@@ -1,33 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const DeleteItem = ({ items, onItemDeleted }) => {
+
+    const [selectedItem, setSelectedItem] = useState("disabled")
+
     const handleDelete = () => {
-        const selectedItem = document.getElementById("drop-down").value;
         if (selectedItem === "disabled") {
             alert("Please select an item to delete.");
             return;
         }
 
-        fetch(`REPLACE-ME/${selectedItem}`, { 
+        fetch(`http://localhost:4001/entries/${selectedItem}`, {
             method: "DELETE",
         })
         .then(response => {
             if (!response.ok) {
-                throw new Error('Failed to delete the item.');
+                throw new Error('Failed to delete the item.')
             }
-            onItemDeleted(selectedItem)
+            onItemDeleted(selectedItem); 
         })
-        .catch(error => console.error("Error deleting item:", error));
+        .catch(error => console.error("Error deleting item:", error))
+    };
+
+    // Update selectedItem state on selection change
+    const handleSelectionChange = (event) => {
+        setSelectedItem(event.target.value)
     };
 
     return (
         <>
             <div id="components">
                 <h3>Delete Item</h3>
-                <select id="drop-down" defaultValue="disabled">
+                <select id="drop-down" value={selectedItem} onChange={handleSelectionChange}>
                     <option value="disabled">Select Item</option>
                     {items.map((item) => (
-                        <option key={item.id} value={item.id}>{item.name}</option>
+                        <option key={item._id} value={item._id}>{item.content}</option>
                     ))}
                 </select>
                 <button id="delete-button" onClick={handleDelete}>Delete</button>

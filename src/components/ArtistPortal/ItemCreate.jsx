@@ -4,7 +4,7 @@ import '../styles/artistportal-styles.css'
 
 
 // CREATE (POST) item to the DB
-const AddItem = ({ setName, setPrice, setDescription,  }) => {
+const CreateItem = ({ setName, setPrice, setDescription,  }) => {
     return(
         <>
             <div id="components">
@@ -26,14 +26,20 @@ const AddItem = ({ setName, setPrice, setDescription,  }) => {
                     placeholder="Description" 
                     id="description"
                 ></textarea>
-                <div id="contain">
+                {/* <div id="contain"> */}
                     <textarea 
                         name="price" 
                         placeholder="Price" 
                         id="price"
                     ></textarea>
-                    <button id="update-button">Upload Image</button>
-                </div>
+                    {/* <textarea 
+                        name="image-url" 
+                        placeholder="Image URL" 
+                        id="image"
+                    ></textarea> */}
+                    {/* <button id="update-button">Upload Image</button> */}
+                {/* </div> */}
+                <input id="imgInput" type="file"/>
                 <button>Add</button>
             </div>
         </>

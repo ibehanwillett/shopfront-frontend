@@ -4,7 +4,7 @@ import '../styles/artistportal-styles.css'
 import AddItem from './ItemCreate';
 
 // UPDATE (PUT) item in DB
-const UpdateItem = () => {
+const UpdateItem = ({ }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -16,6 +16,9 @@ const UpdateItem = () => {
             <form onSubmit={handleSubmit}>
                 <div id="components">
                     <h3>Update Item</h3>
+                    <select name="category" id="drop-down">
+                        <option selected disabled>Select Item</option>
+                    </select>
                     <textarea 
                         name="name" 
                         placeholder="Name" 
@@ -33,14 +36,21 @@ const UpdateItem = () => {
                         placeholder="Description" 
                         id="description"
                     ></textarea>
-                    <div id="contain">
+                    {/* <div id="contain"> */}
                         <textarea 
                             name="price" 
                             placeholder="Price" 
                             id="price"
                         ></textarea>
-                        <button id="update-button">Upload Image</button>
-                    </div>
+                        {/* <textarea 
+                            name="image-url" 
+                            placeholder="Image URL" 
+                            id="image"
+                        ></textarea> */}
+                        
+                        {/* <button id="update-button">Upload Image</button> */}
+                    {/* </div> */}
+                    <input id="imgInput" type="file"/>
                     <button >Update</button>
                 </div>
             </form>

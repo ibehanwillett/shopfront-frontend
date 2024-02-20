@@ -1,24 +1,27 @@
 a {
-    margin: 0 1rem;
+    margin: 0 0rem;
     align-items: center;
 }
 
-a#icons {
-    margin: 0 0.2rem;
+a#nav-link {
+    margin: 0 1rem;
+}
+
+svg#user {
+    margin-right: 0.5rem;
 }
 
 svg {
-    margin: 0;
+    margin: 0 0.5rem 0 0;
     width: 24px;
     height: 24px;
-    /* padding: 0.5rem;  */
 }
 
 div.navbar-start {
     align-items: center;
 }
 
-.nav-left, .logo-container, .nav-right {
+.nav-left, .nav-right {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -34,10 +37,9 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 1rem;
-    /* width: 100%; */
-    border-bottom: solid 0.1rem; /* Placehold border to see bottom edge of nav */
-    border-color: #495057;
+    padding: 0.5rem;
+    border-bottom: solid 0.1rem;
+    border-color: #000000;
 }
 
 a span {
@@ -50,30 +52,62 @@ a span {
     pointer-events: none;
 }
 
-.is-active span:nth-child(1) {
-    transform: rotate(-45deg) translate(-5px, 5px);
-}
-
-.is-active span:nth-child(2) {
-    opacity: 0;
-}
-
-.is-active span:nth-child(3) {
-    transform: rotate(45deg) translate(-5px, -5px);
-}
-
 #sitelogo {
     width: 200px;
     height: 100px;
 }
 
-.navbar-menu {
-    display: none;
-    /* position: relative; */
-}
-
 .isactive .navbar-menu {
     display: block;
+}
+
+.close-menu {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    z-index: 1;
+}
+
+.close-menu span:first-child {
+    transform: rotate(45deg) translate(0px, 5px);
+}
+
+.close-menu span:last-child {
+    transform: rotate(-45deg) translate(0px, -5px);
+}
+
+@media (max-width: 960px) {
+    
+    .navbar-menu {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: -100%; 
+        width: 60vw; 
+        height: 100vh;
+        background-color: #fff; 
+        transition: left 0.3s ease; 
+        z-index: 10; 
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-start {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem;
+    }
+
+    .navbar-menu.is-active {
+        left: 0;
+    }
+
+    a#nav-link {
+        margin: 1rem;
+    }
 }
 
 @media (min-width: 961px) {

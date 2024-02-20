@@ -11,7 +11,8 @@ const Navbar = () => {
     const navBarRef = useRef()
 
     function toggleHamburger(evt) {
-        evt.target.classList.toggle("is-active")
+        evt.stopPropagation();
+        evt.currentTarget.classList.toggle("is-active")
         navBarRef.current.classList.toggle("is-active")
     }
 
@@ -27,35 +28,24 @@ const Navbar = () => {
 
                 <div onClick={toggleHamburger} ref={navBarRef} className="navbar-menu">
                     <div className="navbar-start">
-                        {/* Link to home "/" */}
-                        <Link to='/' >
-                            HOME
-                        </Link>
-                        {/* Link to category "/category" */}
-                        <Link id='nav-link' to='/shop' >
-                            SHOP
-                        </Link>
-                        <Link to='/about' >
-                            ABOUT
-                        </Link>
+                        <Link onClick={toggleHamburger} to='/'>HOME</Link>
+                        <Link onClick={toggleHamburger} id='nav-link' to='/shop'>SHOP</Link>
+                        <Link onClick={toggleHamburger} to='/about'>ABOUT</Link>
+                        <a className="close-menu" role="button" onClick={toggleHamburger}>
+                            <span></span>
+                            <span></span>
+                        </a>
                     </div>
                 </div>
             </div>
             
             <div className='logo-container'>
-                <Link to='/'>
-                    <img id='sitelogo' src={siteLogo} alt="site logo" />
-                </Link>
+                <Link to='/'><img id='sitelogo' src={siteLogo} alt="site logo" /></Link>
             </div>
-            
 
             <div className='nav-right'>
-                <Link id='icons' to='/'>
-                    <UserIcon />
-                </Link>
-                <Link id='icons' to='/cart'>
-                    <CartIcon />
-                </Link>
+                <Link id='icons' to='/artistportal'> <UserIcon /> </Link>
+                <Link id='icons' to='/cart'> <CartIcon /> </Link>
             </div>
             
         </nav>

@@ -7,7 +7,7 @@ import About from './components/About'
 import Checkout from './components/Checkout/Checkout'; 
 import Cart from './components/Cart/Cart'
 import CartContext, { CartProvider } from "./app-context/CartContext"
-
+import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
 
 
 function App() {
@@ -28,6 +28,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/shop" element={<ShopFront items={items} />}/>
                 <Route path="/about" element={<About />}/>
+                <Route path="/artistportal" element={<ArtistPortal />}/>
                 <Route path="/checkout" element={<Checkout />}/>
                 <Route path="/cart" element={<Cart />}/>
             </Routes>

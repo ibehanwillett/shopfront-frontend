@@ -2,13 +2,13 @@ import React from 'react';
 import CartItem from './CartItem';
 import '../styles/cart.css'; 
 
-function Cart() {
+function Cart({ cartItems }) {
   // Static data for the cart items
-  const cartItems = [
-    { id: 1, name: 'Item Name', price: 41.00 },
-    { id: 2, name: 'Item Name', price: 29.00 },
-    { id: 3, name: 'Item Name', price: 13.00 },
-  ];
+  // const cartItems = [
+  //   { id: 1, name: 'Item Name', price: 41.00 },
+  //   { id: 2, name: 'Item Name', price: 29.00 },
+  //   { id: 3, name: 'Item Name', price: 13.00 },
+  // ];
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
 

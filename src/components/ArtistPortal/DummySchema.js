@@ -3,8 +3,7 @@ const artistInfo = {
         _id: "ObjectId", 
         fname: "Nicole",
         lname: "Nightmare",
-        about: "This is a short paragraph that describes the artist and their work.",
-        image: "image/url"
+        bio: "This is a short paragraph that describes the artist and their work.",
     }
     
 export { artistInfo } 

@@ -3,6 +3,7 @@ import '../styles/artistportal-styles.css'
 import '../../index.css'
 
 
+// Update the existing artist title and bio which will be displayed on the about page.
 const UpdateAbout = () => {
 
     const [title, setTitle] = useState("") 
@@ -12,7 +13,7 @@ const UpdateAbout = () => {
         const userData = { title, bio }
         try {
             const res = await fetch("/placeholder-api/updateUser", {
-                method: "POST",
+                method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(userData)
             })

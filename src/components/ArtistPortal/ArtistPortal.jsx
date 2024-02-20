@@ -1,14 +1,16 @@
 import react from 'react'
 import UpdateAbout from './UpdateAbout'
+import AddItem from './AddItem.jsx'
 
-const ArtistPortal = () => {
+const ArtistPortal = ({ artist }) => {
     
    return (
         <>
-        <div id="main">
-            <h2>Hi, .</h2>
-            <UpdateAbout />
-        </div>
+            <main>
+                <h2>Hi, Nicole{/*artist.fname*/}.</h2>
+                <UpdateAbout />
+                <AddItem />
+            </main>
         </>
     )
 }

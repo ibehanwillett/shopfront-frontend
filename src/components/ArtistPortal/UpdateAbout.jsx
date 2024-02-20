@@ -36,14 +36,14 @@ const UpdateAbout = () => {
                     placeholder="Title" 
                     id="title"
                     value={ title }
-                    onClick={(e) => setTitle(e.target.value)}
+                    onChange={(e) => setTitle(e.target.value)}
                     ></textarea>
                 <textarea 
                     name="bio" 
                     placeholder="Bio" 
                     id="bio"
                     value={ bio }
-                    onClick={(e) => setBio(e.target.value)}
+                    onChange={(e) => setBio(e.target.value)}
                     ></textarea>
                 <button id="save-button" onClick={handleSave}>Save</button>
             </div>

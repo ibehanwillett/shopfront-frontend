@@ -3,17 +3,18 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
 
-function Cart() {
-  const [cartItems, setCartItems] = useState([
-    { id: 1, name: "Item Name", price: 41.0 },
-    { id: 2, name: "Item Name", price: 29.0 },
-    { id: 3, name: "Item Name", price: 13.0 },
-  ]);
-
-  const handleDelete = (id) => {
-    const updatedCartItems = cartItems.filter((item) => item.id !== id);
-    setCartItems(updatedCartItems);
-  };
+function Cart({ cartItems }) {
+  // Static data for the cart items
+  // const cartItems = [
+  //   { id: 1, name: 'Item Name', price: 41.00 },
+  //   { id: 2, name: 'Item Name', price: 29.00 },
+  //   { id: 3, name: 'Item Name', price: 13.00 },
+  // ];
+  
+  //   const handleDelete = (id) => {
+//     const updatedCartItems = cartItems.filter((item) => item.id !== id);
+//     setCartItems(updatedCartItems);
+//   };
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
 

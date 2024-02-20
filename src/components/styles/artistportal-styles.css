@@ -22,7 +22,6 @@ textarea, select {
     border-radius: 2px;
     font-family: Arial, sans-serif;
     font-size: medium;
-    /* color:#ccc; */
     resize: none; 
     margin: 0 0 0.5rem 0;
   }
@@ -36,8 +35,8 @@ textarea, select {
     width: 13.5rem;
 }
 
-h2 {
-    margin-top: 2rem;
+#page-title {
+    margin: 2rem;
 }
 
 h3 {

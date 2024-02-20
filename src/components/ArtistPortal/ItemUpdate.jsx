@@ -1,39 +1,49 @@
 import react from 'react';
 import '../../index.css'
 import '../styles/artistportal-styles.css'
+import AddItem from './ItemCreate';
 
 // UPDATE (PUT) item in DB
 const UpdateItem = () => {
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        AddItem({})
+    }
+
     return(
-        <>
-            <div id="components">
-                <h3>Update Item</h3>
-                <textarea 
-                    name="name" 
-                    placeholder="Name" 
-                    id="name"
-                ></textarea>
-                <select name="category" id="drop-down">
-                    <option value="tees">T-shirts</option>
-                    <option value="hats">Hats</option>
-                    <option value="art">Art</option>
-                    <option value="accessories">Accessories</option>
-                </select>
-                <textarea 
-                    name="description" 
-                    placeholder="Description" 
-                    id="description"
-                ></textarea>
-                <div id="contain">
+        <>  
+            <form onSubmit={handleSubmit}>
+                <div id="components">
+                    <h3>Update Item</h3>
                     <textarea 
-                        name="price" 
-                        placeholder="Price" 
-                        id="price"
+                        name="name" 
+                        placeholder="Name" 
+                        id="name"
                     ></textarea>
-                    <button id="update-button">Upload Image</button>
+                    <select name="category" id="drop-down">
+                        <option selected disabled>Item Category</option>
+                        <option value="tees">T-shirts</option>
+                        <option value="hats">Hats</option>
+                        <option value="art">Art</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
+                    <textarea 
+                        name="description" 
+                        placeholder="Description" 
+                        id="description"
+                    ></textarea>
+                    <div id="contain">
+                        <textarea 
+                            name="price" 
+                            placeholder="Price" 
+                            id="price"
+                        ></textarea>
+                        <button id="update-button">Upload Image</button>
+                    </div>
+                    <button >Update</button>
                 </div>
-                <button >Update</button>
-            </div>
+            </form>
         </>
     )
 }

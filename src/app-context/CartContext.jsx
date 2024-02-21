@@ -13,12 +13,11 @@ export const CartProvider = ({children}) => {
     }
 
     function removeFromCart(id, index) {
-        if (cartItems[index.id] === id) {
-           cartItems.splice(index, 1)
-           setCartItems(cartItems)
-        }
-        // const updatedCartItems = cartItems.filter((item) => item.id !== id);
-        // setCartItems(updatedCartItems);
+        // if (cartItems[index.id] === id) {
+        //    cartItems.splice(index, 1)
+        // }
+        const updatedCartItems = cartItems.filter((item) => item.id !== id);
+        setCartItems(updatedCartItems);
     }
 
     const value = { cartItems, setCartItems, addToCart, removeFromCart };

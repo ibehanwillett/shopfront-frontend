@@ -12,9 +12,11 @@ export const CartProvider = ({children}) => {
         setCartItems(cartItems.concat(item));
     }
 
-    function removeFromCart(id) {
-        const updatedCartItems = cartItems.filter((item) => item.id !== id);
-        setCartItems([...updatedCartItems]);
+    function removeFromCart(id, index) {
+        const removedItems = cartItems.splice(index, 1)
+        setCartItems(cartItems)
+        // const updatedCartItems = cartItems.filter((item) => item.id !== id);
+        // setCartItems(updatedCartItems);
     }
 
     const value = { cartItems, setCartItems, addToCart, removeFromCart };

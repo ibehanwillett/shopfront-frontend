@@ -23,7 +23,7 @@ const ShopFront = ({ items }) => {
       items.map((item, index) => {
         return (
           <ShopfrontItem
-          key={index}
+          key={item.id}
           name={item.name}
           price={item.price}
           description={item.description}

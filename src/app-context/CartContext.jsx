@@ -13,8 +13,10 @@ export const CartProvider = ({children}) => {
     }
 
     function removeFromCart(id, index) {
-        const removedItems = cartItems.splice(index, 1)
-        setCartItems(cartItems)
+        if (cartItems[index.id] === id) {
+           cartItems.splice(index, 1)
+           setCartItems(cartItems)
+        }
         // const updatedCartItems = cartItems.filter((item) => item.id !== id);
         // setCartItems(updatedCartItems);
     }

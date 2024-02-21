@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import AddToCartButton from './AddToCartButton'
 
-const ShopfrontItem = ({name, price, description, image, buttonText, onAdd}) => {
+const ShopfrontItem = ({item, name, price, description, image}) => {
 
   return (
     <div>
@@ -8,7 +9,7 @@ const ShopfrontItem = ({name, price, description, image, buttonText, onAdd}) => 
         <h5>${price}</h5>
         <h6>{description}</h6>
         <img src={image}/>
-        <button onClick={onAdd}>{buttonText}</button>
+        <AddToCartButton item={item}/>
     </div>
   )
 }

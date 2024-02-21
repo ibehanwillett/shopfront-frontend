@@ -12,12 +12,20 @@ export const CartProvider = ({children}) => {
         setCartItems(cartItems.concat(item));
     }
 
-    function removeFromCart(id, index) {
+    function removeFromCart(id) {
         // if (cartItems[index.id] === id) {
         //    cartItems.splice(index, 1)
         // }
-        const updatedCartItems = cartItems.filter((item) => item.id !== id);
-        setCartItems(updatedCartItems);
+        // const updatedCartItems = cartItems.filter((item) => item.id !== id);
+        // setCartItems(updatedCartItems);
+
+        const index = cartItems.findIndex(item => item.id === id);
+        
+        if (index !== -1) {
+            cartItems.splice(index, 1);
+        }
+        
+        setCartItems([...cartItems]);
     }
 
     const value = { cartItems, setCartItems, addToCart, removeFromCart };

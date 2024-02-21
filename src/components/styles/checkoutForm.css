@@ -38,19 +38,3 @@
     background-color: #555;
   }
   
-  ::placeholder {
-    color: #888;
-  }
-  
-  @media (max-width: 600px) {
-    .checkout-form {
-      width: auto;
-      padding: 10px;
-    }
-  
-    .credit-card-info input {
-      flex: none;
-      width: 30%;
-    }
-  }
-  

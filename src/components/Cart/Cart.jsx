@@ -28,13 +28,13 @@ function Cart() {
   return (
     <div className="cart-container">
       <h2>Cart</h2>
-      {cartItems.map((item) => (
+      {cartItems.map((item, index) => (
         <CartItem
-          key={item.id}
+          key={`${item.id}`+`${index}`}
           name={item.name}
           price={item.price}
           image={item.image}
-          onDelete={()=>removeFromCart(item.id)}
+          onDelete={()=>removeFromCart(item.id, index)}
           // onDelete={() => handleDelete(item.id)}
         />
       ))}

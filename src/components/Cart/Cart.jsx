@@ -5,7 +5,7 @@ import "../styles/cart.css";
 import { useContext } from "react";
 import { useCartContext } from "../../app-context/CartContext";
 
-function Cart() {
+function Cart({ hideCheckoutButton }) {
   // Static data for the cart items
   // const cartItems = [
   //   { id: 1, name: 'Item Name', price: 41.00 },
@@ -35,17 +35,17 @@ function Cart() {
           price={item.price}
           image={item.image}
           onDelete={()=>removeFromCart(item.id, index)}
-          // onDelete={() => handleDelete(item.id)}
         />
       ))}
       <div className="cart-subtotal">
         <p>Subtotal:</p>
         <p>${subtotal.toFixed(2)}</p>
       </div>
-      {/* <Link> Below breaks formatting for some reason */}
-      <Link to="/checkout">
-        <button className="checkout-button">Check Out</button>
-      </Link>
+      {!hideCheckoutButton && (
+        <Link to="/checkout">
+          <button className="checkout-button">Check Out</button>
+        </Link>
+      )}
     </div>
   );
 }

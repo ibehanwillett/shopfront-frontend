@@ -55,7 +55,6 @@ const CreateItem = () => {
                             <input id="imgInput" type="file"/>
                         </div>
                     </div>
-                    
                     <button>Add</button>
                 </div>
             </form>

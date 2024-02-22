@@ -3,10 +3,10 @@ main {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 1rem 0;
+    margin: 0;
 }
 
-#about, #add-item {
+#about, #components {
     display: flex;
     flex-direction:column;
     align-items: center;
@@ -14,31 +14,40 @@ main {
 }
 
 textarea, select {
-    width: 23rem;
-    height: 8rem;
-    padding: 0.3rem;
+    width: 22rem;
+    height: 6rem;
+    padding: 0.7rem 0.4rem 0.4rem 0.4rem;
     box-sizing: border-box;
     border: 1px solid #ccc;
     border-radius: 2px;
     font-family: Arial, sans-serif;
+    font-size: medium;
     resize: none; 
-    margin: 0 0 0.3rem 0;
-
+    margin: 0.2rem;
   }
 
-#title, #drop-down {
-    height: 2rem;
+#title, #drop-down, #name, #price, #image {
+    height: 2.5rem;
 }
 
-h2 {
-    margin-top: 2rem;
+#price, #image {
+    align-self: start;
+    width: 10.8rem;
+}
+
+#page-title {
+    margin: 6rem 4rem 3rem 4rem;
 }
 
 h3 {
+    margin-bottom: 0.3rem;
     align-self: start;
 }
 
-#save-button {
+#save-button, button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 8rem;
     margin: 0.5rem 0;
     padding: 10px;
@@ -48,3 +57,26 @@ h3 {
     border-radius: 4px;
     cursor: pointer;
   }
+
+#update-button {
+    padding: 0 0.3rem;
+    margin: 0 0 0 0.5rem;
+    height: 2.5rem;
+    align-content: center;
+    background-color: #000000;
+}
+
+#contain {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: baseline;
+}
+
+#imgInput {
+    border: none;
+    padding: 0;
+    align-self: start;
+    margin: 0.2rem
+
+}

@@ -14,6 +14,11 @@ const CreateItem = () => {
                     placeholder="Name" 
                     id="name"
                 ></textarea>
+                <textarea 
+                    name="description" 
+                    placeholder="Description" 
+                    id="description"
+                ></textarea>
                 <select name="category" id="drop-down" defaultValue="disabled">
                     <option value="disabled" disabled>Item Category</option>
                     <option value="tees">T-shirts</option>
@@ -21,25 +26,32 @@ const CreateItem = () => {
                     <option value="art">Art</option>
                     <option value="accessories">Accessories</option>
                 </select>
-                <textarea 
-                    name="description" 
-                    placeholder="Description" 
-                    id="description"
-                ></textarea>
-                {/* <div id="contain"> */}
+                <select name="size" id="drop-down" defaultValue="disabled">
+                    <option value="disabled" disabled>Item Size</option>
+                    <option value="S">XS</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="M">XL</option>
+                    <option value="L">OS</option>
+                    <option value="M">n/a</option>
+                </select>
+                <select name="featured" id="drop-down" defaultValue="disabled">
+                    <option value="disabled" disabled>Featured</option>
+                    <option value="true">Yes</option>
+                    <option value="false">No</option>
+                </select>
+                    
+                <div id="contain">
                     <textarea 
                         name="price" 
                         placeholder="Price" 
                         id="price"
                     ></textarea>
-                    {/* <textarea 
-                        name="image-url" 
-                        placeholder="Image URL" 
-                        id="image"
-                    ></textarea> */}
-                    {/* <button id="update-button">Upload Image</button> */}
-                {/* </div> */}
-                <input id="imgInput" type="file"/>
+                    <label for="imgInput" id="fileInputLabel">Upload Image</label>
+                    <input id="imgInput" type="file"/>
+                </div>
+                
                 <button>Add</button>
             </div>
         </>

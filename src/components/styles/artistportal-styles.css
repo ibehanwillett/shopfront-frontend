@@ -79,12 +79,12 @@ h3 {
     z-index: 2; /* Ensure the input is above the label */
     width: 100%; /* Match the label width */
     opacity: 0; /* Make the input invisible */
-    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    cursor: pointer; 
     top: 0; /* Align top with the label */
     left: 0; /* Align left with the label */
 }
 
-#fileInputLabel {
+#imgInputLabel {
     display: flex;
     justify-content: center;
     align-items: center;

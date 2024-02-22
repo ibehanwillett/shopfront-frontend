@@ -35,18 +35,18 @@ const UpdateItem = () => {
                     </select>
                     <select name="size" id="drop-down" defaultValue="disabled">
                         <option value="disabled" disabled>Item Size</option>
-                        <option value="S">XS</option>
+                        <option value="XS">XS</option>
                         <option value="S">S</option>
                         <option value="M">M</option>
                         <option value="L">L</option>
-                        <option value="M">XL</option>
-                        <option value="L">OS</option>
-                        <option value="M">n/a</option>
+                        <option value="XL">XL</option>
+                        <option value="OS">OS</option>
+                        <option value="n/a">n/a</option>
                     </select>
                     <select name="featured" id="drop-down" defaultValue="disabled">
                         <option value="disabled" disabled>Featured</option>
-                        <option value="true">Yes</option>
-                        <option value="false">No</option>
+                        <option value="true">Featured Item</option>
+                        <option value="false">Not Featured</option>
                     </select>
                         
                     <div id="contain">
@@ -55,8 +55,10 @@ const UpdateItem = () => {
                             placeholder="Price" 
                             id="price"
                         ></textarea>
-                        <label for="imgInput" id="imgInputLabel">Upload Image</label>
-                        <input id="imgInput" type="file"/>
+                        <div id="inputContainer">
+                            <label id="imgInputLabel">Upload Image</label>
+                            <input id="imgInput" type="file"/>
+                        </div> 
                     </div>
                     <button >Update</button>
                 </div>

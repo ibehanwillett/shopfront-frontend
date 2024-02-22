@@ -67,21 +67,24 @@ h3 {
     background-color: #000000;
 }
 
-#contain {
+#contain, #inputContainer {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 #imgInput {
     position: absolute;
-    z-index: 2; /* Ensure the input is above the label */
-    width: 100%; /* Match the label width */
-    opacity: 0; /* Make the input invisible */
-    cursor: pointer; 
-    top: 0; /* Align top with the label */
-    left: 0; /* Align left with the label */
+    z-index: 2; /* Keep this to ensure the input is above the label */
+    width: 100%; /* This ensures the input covers the label width */
+    height: 2.5rem; /* Match the label height or set to 100% if the label's height is dynamic */
+    opacity: 0; /* Keep this to make the input invisible */
+    cursor: pointer;
+    width: 10.8rem;
+    top: 0;
+    left: 0;
 }
 
 #imgInputLabel {
@@ -91,11 +94,11 @@ h3 {
     background-color: #afafaf;
     color: white;
     border-radius: 2px;
-    position: relative; /* Establish a stacking context */
-    z-index: 1; /* Ensure the label is under the input */
+    position: relative; /* Stacks the elements */
+    z-index: 1;
     cursor: pointer;
     width: 10.8rem;
-    text-align: center; /* Center the text */
+    text-align: center;
 }
 
 

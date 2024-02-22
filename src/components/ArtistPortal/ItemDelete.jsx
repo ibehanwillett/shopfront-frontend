@@ -9,7 +9,6 @@ const DeleteItem = ({ items, onItemDeleted }) => {
             alert("Please select an item to delete.");
             return;
         }
-        // update the URL once DB is setup
         fetch(`http://localhost:4001/items/${selectedItem}`, {
             method: "DELETE",
         })
@@ -34,7 +33,6 @@ const DeleteItem = ({ items, onItemDeleted }) => {
                 <select id="drop-down" value={selectedItem} onChange={handleSelectionChange}>
                     <option value="disabled">Select Item</option>
                     {items.map((item) => (
-                        // update item.content to item.name later
                         <option key={item._id} value={item._id}>{item.name}</option>
                     ))}
                 </select>

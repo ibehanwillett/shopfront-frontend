@@ -4,27 +4,6 @@ import CreateItem from "./ItemCreate.jsx"
 import DeleteItem from "./ItemDelete.jsx"
 import UpdateItem from "./ItemUpdate.jsx"
 
-// [
-//     {
-//         id: "ObjectId",
-//         category: "Tees",
-//         name: "Another Tee Name",
-//         price: 39.00,
-//         description: "Item description",
-//         image: "url_to_image", 
-//         stock: 40
-//     },
-//     {
-//         id: "ObjectId",
-//         category: "Tees",
-//         name: "Another Tee Name",
-//         price: 39.00,
-//         description: "Item description",
-//         image: "url_to_image", 
-//         stock: 40
-//     },
-// ]
-
 
 const ArtistPortal = () => {
     const [items, setItems] = useState([]);

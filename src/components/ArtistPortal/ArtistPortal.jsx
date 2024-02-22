@@ -30,7 +30,7 @@ const ArtistPortal = () => {
     const [items, setItems] = useState([]);
 
     useEffect(() => {
-        fetch("http://localhost:4001/entries") 
+        fetch("http://localhost:4001/items") 
             .then((res) => res.json())
             .then((data) => setItems(data))
             .catch(error => console.error("Failed to load shop items", error))

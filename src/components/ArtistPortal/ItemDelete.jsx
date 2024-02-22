@@ -10,7 +10,7 @@ const DeleteItem = ({ items, onItemDeleted }) => {
             return;
         }
         // update the URL once DB is setup
-        fetch(`http://localhost:4001/entries/${selectedItem}`, {
+        fetch(`http://localhost:4001/items/${selectedItem}`, {
             method: "DELETE",
         })
         .then(response => {
@@ -35,7 +35,7 @@ const DeleteItem = ({ items, onItemDeleted }) => {
                     <option value="disabled">Select Item</option>
                     {items.map((item) => (
                         // update item.content to item.name later
-                        <option key={item._id} value={item._id}>{item.content}</option>
+                        <option key={item._id} value={item._id}>{item.name}</option>
                     ))}
                 </select>
                 <button id="delete-button" onClick={handleDelete}>Delete</button>

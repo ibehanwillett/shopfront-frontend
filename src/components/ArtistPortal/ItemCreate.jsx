@@ -11,9 +11,9 @@ const CreateItem = () => {
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const [category, setCategory] = useState('Other')
-    const [size, setSize] = useState('n/a')
-    const [featured, setFeatured] = useState(false)
+    const [category, setCategory] = useState('disabled')
+    const [size, setSize] = useState('disabled')
+    const [featured, setFeatured] = useState('disabled')
     const [image, setImage] = useState(defaultImage)
     const [price, setPrice] = useState(0)
 
@@ -37,9 +37,9 @@ const CreateItem = () => {
             size,
             featured,
             price,
-            image
-            
+            image  
         }
+
         console.log(newItem)
         addItem(newItem)
         setName('') // Reset the name field to empty string
@@ -47,8 +47,8 @@ const CreateItem = () => {
         setCategory('disabled')
         setSize('disabled') // Reset the size
         setFeatured('disabled') // Reset the featured field to empty string
-        setPrice('') // Reset the price field to empty string
-        setImage('') // Reset the image field to empty string
+        setPrice(0) // Reset the price field to empty string
+        setImage(defaultImage) // Reset the image field to empty string
 
         setResetTrigger(prev => !prev)
     }
@@ -78,30 +78,45 @@ const CreateItem = () => {
                         resetTrigger={resetTrigger}
                     ></TextAreaField>
 
-                    <select name="category" id="drop-down" defaultValue="disabled" onChange={(e) => setCategory(e.target.value)}>
-                        <option value="disabled" disabled>Item Category</option>
-                        <option value="Tees">T-shirts</option>
-                        <option value="Hats">Hats</option>
-                        <option value="Art">Art</option>
-                        <option value="Accessories">Accessories</option>
-                        <option value="Other">Other</option>
+                    <select 
+                        name="category" 
+                        id="drop-down" 
+                        value={category} 
+                        defaultValue="disabled" 
+                        onChange={(e) => setCategory(e.target.value)}>
+                            <option value="disabled" disabled>Item Category</option>
+                            <option value="Tees">T-shirts</option>
+                            <option value="Hats">Hats</option>
+                            <option value="Art">Art</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Other">Other</option>
                     </select>
 
-                    <select name="size" id="drop-down" defaultValue="disabled" onChange={(e) => setSize(e.target.value)}>
-                        <option value="disabled" disabled>Item Size</option>
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="OS">OS</option>
-                        <option value="n/a">n/a</option>
+                    <select 
+                        name="size" 
+                        id="drop-down" 
+                        value={size}
+                        defaultValue="disabled" 
+                        onChange={(e) => setSize(e.target.value)}>
+                            <option value="disabled" disabled>Item Size</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="OS">OS</option>
+                            <option value="n/a">n/a</option>
                     </select>
 
-                    <select name="featured" id="drop-down" defaultValue="disabled" onChange={(e) => setFeatured(e.target.value)}>
-                        <option value="disabled" disabled>Featured</option>
-                        <option value="true">Featured Item</option>
-                        <option value="false">Not Featured</option>
+                    <select 
+                        name="featured" 
+                        id="drop-down" 
+                        value={featured} 
+                        defaultValue="disabled" 
+                        onChange={(e) => setFeatured(e.target.value)}>
+                            <option value="disabled" disabled>Featured</option>
+                            <option value="true">Featured Item</option>
+                            <option value="false">Not Featured</option>
                     </select>
                         
                     <div id="contain">

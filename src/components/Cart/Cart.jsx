@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
 import { useCartContext } from "../../app-context/CartContext";
+import { useItems } from '../../app-context/ItemsContext';
 
 function Cart({ hideCheckoutButton }) {
   // Static data for the cart items
@@ -11,16 +12,31 @@ function Cart({ hideCheckoutButton }) {
   //   { id: 2, name: 'Item Name', price: 29.00 },
   //   { id: 3, name: 'Item Name', price: 13.00 },
   // ];
+  
 
+  const { items } = useItems()
   const { cartItems, setCartItems, addToCart, removeFromCart, subtotal } =
     useCartContext();
+
 
   // const handleDelete = (id) => {
   //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
   //   setCartItems(updatedCartItems);
   // };
 
-  console.log(cartItems[0]);
+
+  //Updates the cart items to reflect any updates made in teh ItemsContext.jsx
+  useEffect(() => {
+    const updatedCartItems = cartItems.filter(cartItem => 
+      items.some(item => item._id === cartItem._id))
+    if (updatedCartItems.length !== cartItems.length) {
+      setCartItems(updatedCartItems)
+    }
+  }, [items, cartItems, setCartItems])
+
+
+  const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
+  console.log(cartItems[0])
 
   return (
     <div className="cart-container">

@@ -26,8 +26,9 @@ textarea, select {
     margin: 0.2rem;
   }
 
-#title, #drop-down, #name, #price, #image {
+#title, #drop-down, #name, #price, #image, label, #imgInput {
     height: 2.5rem;
+    margin: 0.2rem;
 }
 
 #price, #image {
@@ -66,17 +67,41 @@ h3 {
     background-color: #000000;
 }
 
-#contain {
+#contain, #inputContainer {
     display: flex;
     flex-direction: row;
-    /* justify-content: center; */
-    align-items: baseline;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 }
 
 #imgInput {
-    border: none;
-    padding: 0;
-    align-self: start;
-    margin: 0.2rem
-
+    position: absolute;
+    z-index: 2; /* Keep this to ensure the input is above the label */
+    width: 100%; /* This ensures the input covers the label width */
+    height: 2.5rem; /* Match the label height or set to 100% if the label's height is dynamic */
+    opacity: 0; /* Keep this to make the input invisible */
+    cursor: pointer;
+    width: 10.8rem;
+    top: 0;
+    left: 0;
 }
+
+#imgInputLabel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #afafaf;
+    color: white;
+    border-radius: 2px;
+    position: relative; /* Stacks the elements */
+    z-index: 1;
+    cursor: pointer;
+    width: 10.8rem;
+    text-align: center;
+}
+
+
+
+
+

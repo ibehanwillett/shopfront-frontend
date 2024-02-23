@@ -22,6 +22,7 @@ function Cart({ hideCheckoutButton }) {
   //   setCartItems(updatedCartItems);
   // };
 
+  //Updates the cart items to reflect any updates made in teh ItemsContext.jsx
   useEffect(() => {
     const updatedCartItems = cartItems.filter(cartItem => 
       items.some(item => item._id === cartItem._id))

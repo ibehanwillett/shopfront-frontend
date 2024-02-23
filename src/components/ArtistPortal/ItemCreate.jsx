@@ -1,8 +1,8 @@
 import react, { useState } from 'react'
 import '../../index.css'
 import '../styles/artistportal-styles.css'
-import { useItems } from '../../app-context/ItemsContext.jsx'
-import TextAreaField from './ItemComponents/TextAreaField.jsx'
+import { useItems } from '../../app-context/ItemsContext'
+import TextAreaField from './ItemComponents/TextAreaField'
 
 
 // CREATE (POST) item to the DB

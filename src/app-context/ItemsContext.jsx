@@ -26,6 +26,24 @@ export const ItemsProvider = ({ children }) => {
         .catch(error => console.error("Error deleting item: ", error))
     }
 
+    const addItem = (newItem) => {
+            fetch("http://localhost:4001/items", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify(newItem),
+            })
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error("Failed to add new item")
+                }
+                return res.json()
+            })
+            .then(addedItem => {
+                setItems(prevItems => [...prevItems, addedItem])
+            })
+            .catch(error => console.error("Error adding item: " + error))
+    }
+
     useEffect(() => {
         fetch("http://localhost:4001/items") 
             .then((res) => res.json())

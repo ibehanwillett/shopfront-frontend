@@ -21,6 +21,7 @@
     border: none;
     cursor: pointer;
     font-size: 24px; /* Adjust size as needed */
+    color: black;
   }
   
   /* @media (max-width: 768px) {

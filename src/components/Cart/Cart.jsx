@@ -35,7 +35,6 @@ function Cart({ hideCheckoutButton }) {
   }, [items, cartItems, setCartItems])
 
 
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
   console.log(cartItems[0])
 
   return (

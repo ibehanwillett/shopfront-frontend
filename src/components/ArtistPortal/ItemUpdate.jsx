@@ -1,19 +1,14 @@
 import react from 'react';
 import '../../index.css'
 import '../styles/artistportal-styles.css'
-import AddItem from './ItemCreate';
+
 
 // UPDATE (PUT) item in DB
 const UpdateItem = () => {
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        AddItem({})
-    }
-
     return(
         <>  
-            <form onSubmit={handleSubmit}>
+            <form>
                 <div id="components">
                     <h3>Update Item</h3>
                     <textarea 

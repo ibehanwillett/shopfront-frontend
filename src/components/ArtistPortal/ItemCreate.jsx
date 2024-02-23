@@ -1,21 +1,52 @@
-import react from 'react'
+import react, { useState } from 'react'
 import '../../index.css'
 import '../styles/artistportal-styles.css'
+import { useItems } from '../../app-context/ItemsContext.jsx'
+import TextAreaField from './ItemComponents/TextAreaField.jsx'
 
 
 // CREATE (POST) item to the DB
 const CreateItem = () => {
 
+    const [name, setName] = useState('')
+
+    const { addItem } = useItems()
+    
+
+    const handleSubmit = (event) => {
+        event.preventDefault()
+
+        const newItem = {
+            name,
+            // description,
+            // category,
+            // size,
+            // featured,
+            // price,
+            // image
+            
+        }
+
+        addItem(newItem)
+        setName('') // Reset the name field to empty string
+    }
+
+    // const handleNameChange = (event) => {
+    //     setName(event.target.value);
+    // };
+
     return(
         <>
-            <form action="">
+            <form action="" onSubmit={handleSubmit}>
                 <div id="components">
                     <h3>Create Item</h3>
-                    <textarea 
+                    <TextAreaField id="name" placeholder="Name" onChange={setName}></TextAreaField>
+                    {/* <textarea 
                         name="name" 
                         placeholder="Name" 
                         id="name"
-                    ></textarea>
+                        onSubmit={handleNameChange}
+                    ></textarea> */}
                     <textarea 
                         name="description" 
                         placeholder="Description" 
@@ -55,12 +86,11 @@ const CreateItem = () => {
                             <input id="imgInput" type="file"/>
                         </div>
                     </div>
-                    <button>Add</button>
+                    <button type="submit">Add</button>
                 </div>
             </form>
         </>
     )
 }
-
 
 export default CreateItem

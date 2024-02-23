@@ -13,6 +13,19 @@ export const ItemsProvider = ({ children }) => {
         setItems(prevItems => prevItems.filter(item => item._id !== deletedItemId))
     };
 
+    const deleteItem = (itemId) => {
+        fetch(`http://localhost:4001/items/${itemId}`, {
+            method: "DELETE",
+        })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("Failed to delete the item")
+            }
+            handleItemDeleted(itemId)
+        })
+        .catch(error => console.error("Error deleting item: ", error))
+    }
+
     useEffect(() => {
         fetch("http://localhost:4001/items") 
             .then((res) => res.json())
@@ -21,7 +34,7 @@ export const ItemsProvider = ({ children }) => {
     }, []);
 
     return (
-        <ItemsContext.Provider value={{ items, handleItemDeleted }}>
+        <ItemsContext.Provider value={{ items, handleItemDeleted, deleteItem }}>
             {children}
         </ItemsContext.Provider>
     )

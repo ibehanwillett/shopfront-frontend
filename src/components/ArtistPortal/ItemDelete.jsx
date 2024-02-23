@@ -4,7 +4,7 @@ import { useItems } from '../../app-context/ItemsContext'
 const DeleteItem = () => {
 
     const [selectedItem, setSelectedItem] = useState("disabled")
-    const { items, handleItemDeleted } = useItems()
+    const { items, deleteItem } = useItems()
 
     const handleDelete = () => {
 
@@ -12,22 +12,13 @@ const DeleteItem = () => {
             alert("Please select an item to delete.");
             return;
         }
-        fetch(`http://localhost:4001/items/${selectedItem}`, {
-            method: "DELETE",
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Failed to delete the item.')
-            }
-            handleItemDeleted(selectedItem); 
-        })
-        .catch(error => console.error("Error deleting item:", error))
-    };
+        deleteItem(selectedItem)
+    }
 
     // Update selectedItem state on selection change
     const handleSelectionChange = (event) => {
         setSelectedItem(event.target.value)
-    };
+    }
 
     return (
         <>
@@ -42,7 +33,7 @@ const DeleteItem = () => {
                 <button id="delete-button" onClick={handleDelete}>Delete</button>
             </div>
         </>
-    );
-};
+    )
+}
 
 export default DeleteItem;

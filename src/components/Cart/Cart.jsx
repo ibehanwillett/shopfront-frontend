@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
-import { useContext } from "react";
 import { useCartContext } from "../../app-context/CartContext";
 
 function Cart({ hideCheckoutButton }) {
@@ -12,29 +11,27 @@ function Cart({ hideCheckoutButton }) {
   //   { id: 2, name: 'Item Name', price: 29.00 },
   //   { id: 3, name: 'Item Name', price: 13.00 },
   // ];
-  
-  const { cartItems, setCartItems, addToCart, removeFromCart } = useCartContext()
 
-  
+  const { cartItems, setCartItems, addToCart, removeFromCart, subtotal } =
+    useCartContext();
+
   // const handleDelete = (id) => {
   //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
   //   setCartItems(updatedCartItems);
   // };
 
-
-  const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);
-  console.log(cartItems[0])
+  console.log(cartItems[0]);
 
   return (
     <div className="cart-container">
       <h2>Cart</h2>
       {cartItems.map((item, index) => (
         <CartItem
-          key={`${item.id}`+`${index}`}
+          key={`${item.id}` + `${index}`}
           name={item.name}
           price={item.price}
           image={item.image}
-          onDelete={()=>removeFromCart(item.id, index)}
+          onDelete={() => removeFromCart(item.id, index)}
         />
       ))}
       <div className="cart-subtotal">

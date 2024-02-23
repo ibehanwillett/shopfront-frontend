@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
+import { useCartContext } from '../../app-context/CartContext';
 import "../styles/checkoutForm.css";
 
 
@@ -30,6 +31,8 @@ const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
 
+  const { subtotal } = useCartContext(); 
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -48,6 +51,7 @@ const CheckoutForm = () => {
       console.log('[error]', error);
     } else {
       console.log('[PaymentMethod]', paymentMethod);
+      console.log('Subtotal:', subtotal); 
       // pass paymentMethod.id to backend to process the payment
     }
   };
@@ -60,6 +64,7 @@ const CheckoutForm = () => {
       <input type="text" className="full-width-input" placeholder="Last Name" />
       <input type="text" className="full-width-input" placeholder="Address" />
       <input type="text" className="full-width-input" placeholder="Phone" />
+      <p>TEST_Subtotal: ${subtotal.toFixed(2)}</p>
       <button type="submit">Pay Now</button>
     </form>
   );

@@ -11,11 +11,13 @@ const CreateItem = () => {
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
-    const [category, setCategory] = useState('Tees')
-    const [size, setSize] = useState('')
+    const [category, setCategory] = useState('Other')
+    const [size, setSize] = useState('n/a')
     const [featured, setFeatured] = useState(false)
     const [image, setImage] = useState(defaultImage)
     const [price, setPrice] = useState(0)
+
+    const [resetTrigger, setResetTrigger] = useState(false)
 
     const { addItem } = useItems()
     
@@ -23,10 +25,10 @@ const CreateItem = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        if (name === '') {
-            alert('Please provide a name for the item.');
-            return; // Stop the form from submitting
-        }
+        // if (name === '' || description === '' || category === '' || size === '' || featured === '' || price === '') {
+        //     alert('Please make sure to fill in all the fields.');
+        //     return; // Stop the form from submitting
+        // }
 
         const newItem = {
             name,
@@ -41,6 +43,14 @@ const CreateItem = () => {
         console.log(newItem)
         addItem(newItem)
         setName('') // Reset the name field to empty string
+        setDescription('') // Reset the description field to empty string
+        setCategory('disabled')
+        setSize('disabled') // Reset the size
+        setFeatured('disabled') // Reset the featured field to empty string
+        setPrice('') // Reset the price field to empty string
+        setImage('') // Reset the image field to empty string
+
+        setResetTrigger(prev => !prev)
     }
 
     // const handleNameChange = (event) => {
@@ -51,28 +61,33 @@ const CreateItem = () => {
         <>
             <form action="" onSubmit={handleSubmit}>
                 <div id="components">
+
                     <h3>Create Item</h3>
-                    <TextAreaField id="name" placeholder="Name" onChange={setName}></TextAreaField>
-                    {/* <textarea 
-                        name="name" 
+
+                    <TextAreaField 
+                        id="name" 
                         placeholder="Name" 
-                        id="name"
-                        onSubmit={handleNameChange}
-                    ></textarea> */}
-                    <TextAreaField id="description" placeholder="Description" onChange={setDescription}></TextAreaField>
-                    {/* <textarea 
-                        name="description" 
+                        onChange={setName} 
+                        resetTrigger={resetTrigger}
+                    ></TextAreaField>
+
+                    <TextAreaField 
+                        id="description" 
                         placeholder="Description" 
-                        id="description"
-                    ></textarea> */}
-                    <select name="category" id="drop-down" defaultValue="disabled">
+                        onChange={setDescription} 
+                        resetTrigger={resetTrigger}
+                    ></TextAreaField>
+
+                    <select name="category" id="drop-down" defaultValue="disabled" onChange={(e) => setCategory(e.target.value)}>
                         <option value="disabled" disabled>Item Category</option>
-                        <option value="tees">T-shirts</option>
-                        <option value="hats">Hats</option>
-                        <option value="art">Art</option>
-                        <option value="accessories">Accessories</option>
+                        <option value="Tees">T-shirts</option>
+                        <option value="Hats">Hats</option>
+                        <option value="Art">Art</option>
+                        <option value="Accessories">Accessories</option>
+                        <option value="Other">Other</option>
                     </select>
-                    <select name="size" id="drop-down" defaultValue="disabled">
+
+                    <select name="size" id="drop-down" defaultValue="disabled" onChange={(e) => setSize(e.target.value)}>
                         <option value="disabled" disabled>Item Size</option>
                         <option value="XS">XS</option>
                         <option value="S">S</option>
@@ -82,25 +97,32 @@ const CreateItem = () => {
                         <option value="OS">OS</option>
                         <option value="n/a">n/a</option>
                     </select>
-                    <select name="featured" id="drop-down" defaultValue="disabled">
+
+                    <select name="featured" id="drop-down" defaultValue="disabled" onChange={(e) => setFeatured(e.target.value)}>
                         <option value="disabled" disabled>Featured</option>
                         <option value="true">Featured Item</option>
                         <option value="false">Not Featured</option>
                     </select>
                         
                     <div id="contain">
-                        <TextAreaField id="price" placeholder="Price" onChange={setPrice}></TextAreaField>
-                        {/* <textarea 
-                            name="price" 
+
+                        <TextAreaField 
+                            id="price" 
+                            type="number" 
                             placeholder="Price" 
-                            id="price"
-                        ></textarea> */}
+                            onChange={setPrice} 
+                            resetTrigger={resetTrigger}
+                        ></TextAreaField>
+
                          <div id="inputContainer">
                             <label id="imgInputLabel">Upload Image</label>
                             <input id="imgInput" type="file"/>
                         </div>
+
                     </div>
+
                     <button type="submit">Add</button>
+
                 </div>
             </form>
         </>

@@ -3,12 +3,19 @@ import '../../index.css'
 import '../styles/artistportal-styles.css'
 import { useItems } from '../../app-context/ItemsContext'
 import TextAreaField from './ItemComponents/TextAreaField'
+import defaultImage from '../../assets/no-image.png'
 
 
 // CREATE (POST) item to the DB
 const CreateItem = () => {
 
     const [name, setName] = useState('')
+    const [description, setDescription] = useState('')
+    const [category, setCategory] = useState('Tees')
+    const [size, setSize] = useState('')
+    const [featured, setFeatured] = useState(false)
+    const [image, setImage] = useState(defaultImage)
+    const [price, setPrice] = useState(0)
 
     const { addItem } = useItems()
     
@@ -16,17 +23,22 @@ const CreateItem = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        const newItem = {
-            name,
-            // description,
-            // category,
-            // size,
-            // featured,
-            // price,
-            // image
-            
+        if (name === '') {
+            alert('Please provide a name for the item.');
+            return; // Stop the form from submitting
         }
 
+        const newItem = {
+            name,
+            description,
+            category,
+            size,
+            featured,
+            price,
+            image
+            
+        }
+        console.log(newItem)
         addItem(newItem)
         setName('') // Reset the name field to empty string
     }
@@ -47,11 +59,12 @@ const CreateItem = () => {
                         id="name"
                         onSubmit={handleNameChange}
                     ></textarea> */}
-                    <textarea 
+                    <TextAreaField id="description" placeholder="Description" onChange={setDescription}></TextAreaField>
+                    {/* <textarea 
                         name="description" 
                         placeholder="Description" 
                         id="description"
-                    ></textarea>
+                    ></textarea> */}
                     <select name="category" id="drop-down" defaultValue="disabled">
                         <option value="disabled" disabled>Item Category</option>
                         <option value="tees">T-shirts</option>
@@ -76,11 +89,12 @@ const CreateItem = () => {
                     </select>
                         
                     <div id="contain">
-                        <textarea 
+                        <TextAreaField id="price" placeholder="Price" onChange={setPrice}></TextAreaField>
+                        {/* <textarea 
                             name="price" 
                             placeholder="Price" 
                             id="price"
-                        ></textarea>
+                        ></textarea> */}
                          <div id="inputContainer">
                             <label id="imgInputLabel">Upload Image</label>
                             <input id="imgInput" type="file"/>

@@ -27,7 +27,7 @@ export const ItemsProvider = ({ children }) => {
     }
 
     const addItem = (newItem) => {
-            fetch("http://localhost:4001/items", {
+            fetch("http://localhost:4001/items/", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newItem),
@@ -52,7 +52,7 @@ export const ItemsProvider = ({ children }) => {
     }, []);
 
     return (
-        <ItemsContext.Provider value={{ items, handleItemDeleted, deleteItem }}>
+        <ItemsContext.Provider value={{ items, handleItemDeleted, deleteItem, addItem }}>
             {children}
         </ItemsContext.Provider>
     )

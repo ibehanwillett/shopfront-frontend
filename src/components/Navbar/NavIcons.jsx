@@ -19,7 +19,7 @@ const UserIcon = () => {
     );
 }
 
-const CartIcon = () => {
+const CartIcon = ( { itemCount } ) => {
     // Define styles as objects
     const hiddenStyle = { display: 'none' };
     const inlineStyle = {
@@ -41,6 +41,13 @@ const CartIcon = () => {
         strokeWidth: '2',
         strokeMiterlimit: '10',
     };
+    const notificationDotStyle = {
+        fill: '#FFFFFF',
+        fontSize: '0.8em',
+        fontFamily: 'Arial, sans-serif',
+        fontWeight: 'bold',
+        textAnchor: 'middle',
+    };
 
     return (
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 48 48" style={{ enableBackground: 'new 0 0 48 48' }} xmlSpace="preserve">
@@ -53,6 +60,12 @@ const CartIcon = () => {
                 <circle style={strokeStyle} cx="16.71" cy="38.2" r="4.16"/>
                 <circle style={strokeStyle} cx="32.94" cy="38.2" r="4.16"/>
             </g>
+            {itemCount > 0 && (
+                <g>
+                    <circle cx="37.7" cy="9.5" r="9" style={{ fill: 'red' }} />
+                    <text x="38" y="13" style={notificationDotStyle}>{itemCount}</text>
+                </g>
+            )}
         </svg>
     );
 }

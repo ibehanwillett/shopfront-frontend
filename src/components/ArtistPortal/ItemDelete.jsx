@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useItems } from './ItemsContext'
+import { useItems } from '../../app-context/ItemsContext'
 
 const DeleteItem = () => {
 

@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
 import { useContext } from "react";
 import { useCartContext } from "../../app-context/CartContext";
+import { useItems } from '../../app-context/ItemsContext';
 
 function Cart({ hideCheckoutButton }) {
   // Static data for the cart items
@@ -14,12 +15,20 @@ function Cart({ hideCheckoutButton }) {
   // ];
   
   const { cartItems, setCartItems, addToCart, removeFromCart } = useCartContext()
-
+  const { items } = useItems()
   
   // const handleDelete = (id) => {
   //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
   //   setCartItems(updatedCartItems);
   // };
+
+  useEffect(() => {
+    const updatedCartItems = cartItems.filter(cartItem => 
+      items.some(item => item._id === cartItem._id))
+    if (updatedCartItems.length !== cartItems.length) {
+      setCartItems(updatedCartItems)
+    }
+  }, [items, cartItems, setCartItems])
 
 
   const subtotal = cartItems.reduce((acc, item) => acc + item.price, 0);

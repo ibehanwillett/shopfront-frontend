@@ -1,0 +1,31 @@
+/* OrderConfirmation.css */
+
+.order-confirmation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #333; 
+    font-family: Arial, sans-serif; 
+    margin-top: 10em;
+  }
+  
+  .order-confirmation {
+    padding: 20px;
+    background-color: rgb(230, 228, 228);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    width: 80%; 
+    max-width: 500px; 
+    margin: auto; 
+  }
+  
+  .order-confirmation p {
+    margin: 10px 0;
+  }
+  
+  .order-confirmation a {
+    color: #0066cc; 
+  }
+  

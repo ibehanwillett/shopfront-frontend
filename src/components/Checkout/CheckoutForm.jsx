@@ -1,37 +1,37 @@
-import React from 'react';
-import { useStripe, useElements, CardElement } from '@stripe/react-stripe-js';
-import { useCartContext } from '../../app-context/CartContext';
+import React from "react";
+import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
+import { useCartContext } from "../../app-context/CartContext";
+import { useNavigate } from "react-router-dom";
 import "../styles/checkoutForm.css";
 
-
 const CARD_ELEMENT_OPTIONS = {
-    style: {
-      base: {
-        iconColor: '#666EE8',
-        color: '#31325F',
-        fontWeight: '300',
-        fontFamily: 'Arial, sans-serif',
-        fontSize: '14px',
-        fontSmoothing: 'antialiased',
-        ':-webkit-autofill': { color: '#fce883' },
-        '::placeholder': { color: '#121212' },
-        backgroundColor: '#ffffff', 
-      },
-      invalid: {
-        iconColor: '#ffc7ee',
-        color: '#ffc7ee',
-      },
-      complete: {
-        color: '#30e189',
-      },
+  style: {
+    base: {
+      iconColor: "#666EE8",
+      color: "#31325F",
+      fontWeight: "300",
+      fontFamily: "Arial, sans-serif",
+      fontSize: "14px",
+      fontSmoothing: "antialiased",
+      ":-webkit-autofill": { color: "#fce883" },
+      "::placeholder": { color: "#121212" },
+      backgroundColor: "#ffffff",
     },
-  };
+    invalid: {
+      iconColor: "#ffc7ee",
+      color: "#ffc7ee",
+    },
+    complete: {
+      color: "#30e189",
+    },
+  },
+};
 
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
-
-  const { subtotal } = useCartContext(); 
+  const navigate = useNavigate();
+  const { subtotal } = useCartContext();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -42,18 +42,25 @@ const CheckoutForm = () => {
 
     const cardElement = elements.getElement(CardElement);
 
-    const {error, paymentMethod} = await stripe.createPaymentMethod({
-      type: 'card',
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
       card: cardElement,
     });
 
     if (error) {
-      console.log('[error]', error);
+      console.log("[error]", error);
     } else {
-      console.log('[PaymentMethod]', paymentMethod);
-      console.log('Subtotal:', subtotal); 
-      // pass paymentMethod.id to backend to process the payment
+      console.log("[PaymentMethod]", paymentMethod);
+      console.log("Subtotal:", subtotal);
+      const orderId = "123456";
+      navigate(`/order-confirmation/${orderId}`);
+      // pass paymentMethod.id and subtotal to backend to process the payment
     }
+
+    // if (payment successful) {
+    //   const orderId = '123456';
+    //   navigate(`/order-confirmation/${orderId}`);
+    // }
   };
 
   return (

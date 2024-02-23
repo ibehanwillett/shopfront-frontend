@@ -6,6 +6,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Checkout from './components/Checkout/Checkout'; 
 import Cart from './components/Cart/Cart'
+import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 import CartContext, { CartProvider } from "./app-context/CartContext"
 import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
 import { useItems, ItemsProvider } from './app-context/ItemsContext'
@@ -29,11 +30,12 @@ function App() {
               <Navbar />
               <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/shop" element={<ShopFront />}/>
+                  <Route path="/shop" element={<ShopFront items={items} />}/>
                   <Route path="/about" element={<About />}/>
                   <Route path="/artistportal" element={<ArtistPortal />}/>
                   <Route path="/checkout" element={<Checkout />}/>
                   <Route path="/cart" element={<Cart />}/>
+                  <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
               </Routes>
           </BrowserRouter>
         </CartProvider>

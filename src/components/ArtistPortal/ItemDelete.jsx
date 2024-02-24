@@ -13,6 +13,8 @@ const DeleteItem = () => {
             return;
         }
         deleteItem(selectedItem)
+
+        alert("Item deleted!")
     }
 
     // Update selectedItem state on selection change

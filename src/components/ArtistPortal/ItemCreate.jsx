@@ -15,7 +15,7 @@ const CreateItem = () => {
     const [size, setSize] = useState('disabled')
     const [featured, setFeatured] = useState('disabled')
     const [image, setImage] = useState(defaultImage)
-    const [price, setPrice] = useState(0)
+    const [price, setPrice] = useState('')
 
     const [resetTrigger, setResetTrigger] = useState(false)
 
@@ -25,10 +25,10 @@ const CreateItem = () => {
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        // if (name === '' || description === '' || category === '' || size === '' || featured === '' || price === '') {
-        //     alert('Please make sure to fill in all the fields.');
-        //     return; // Stop the form from submitting
-        // }
+        if (name === '' || description === '' || category === '' || size === '' || featured === '' || price === '') {
+            alert('Please make sure to fill in all the fields.');
+            return; // Stop the form from submitting
+        }
 
         const newItem = {
             name,
@@ -47,15 +47,14 @@ const CreateItem = () => {
         setCategory('disabled')
         setSize('disabled') // Reset the size
         setFeatured('disabled') // Reset the featured field to empty string
-        setPrice(0) // Reset the price field to empty string
+        setPrice('') // Reset the price field to empty string
         setImage(defaultImage) // Reset the image field to empty string
 
         setResetTrigger(prev => !prev)
-    }
 
-    // const handleNameChange = (event) => {
-    //     setName(event.target.value);
-    // };
+        alert("Item created!")
+
+    }
 
     return(
         <>
@@ -82,7 +81,7 @@ const CreateItem = () => {
                         name="category" 
                         id="drop-down" 
                         value={category} 
-                        defaultValue="disabled" 
+                        // defaultValue="disabled" 
                         onChange={(e) => setCategory(e.target.value)}>
                             <option value="disabled" disabled>Item Category</option>
                             <option value="Tees">T-shirts</option>
@@ -96,7 +95,7 @@ const CreateItem = () => {
                         name="size" 
                         id="drop-down" 
                         value={size}
-                        defaultValue="disabled" 
+                        // defaultValue="disabled" 
                         onChange={(e) => setSize(e.target.value)}>
                             <option value="disabled" disabled>Item Size</option>
                             <option value="XS">XS</option>
@@ -112,7 +111,7 @@ const CreateItem = () => {
                         name="featured" 
                         id="drop-down" 
                         value={featured} 
-                        defaultValue="disabled" 
+                        // defaultValue="disabled" 
                         onChange={(e) => setFeatured(e.target.value)}>
                             <option value="disabled" disabled>Featured</option>
                             <option value="true">Featured Item</option>
@@ -121,14 +120,20 @@ const CreateItem = () => {
                         
                     <div id="contain">
 
-                        <TextAreaField 
+                        {/* <TextAreaField 
                             id="price" 
                             type="number" 
                             placeholder="Price" 
                             onChange={setPrice} 
                             resetTrigger={resetTrigger}
-                        ></TextAreaField>
-
+                        ></TextAreaField> */}
+                        <input 
+                            id="price" 
+                            type="number"
+                            value={price}
+                            placeholder="Price" 
+                            onChange={(event) => setPrice(event.target.value ? parseFloat(event.target.value) : '')} 
+                        />
                          <div id="inputContainer">
                             <label id="imgInputLabel">Upload Image</label>
                             <input id="imgInput" type="file"/>

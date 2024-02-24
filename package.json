@@ -12,9 +12,12 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^2.5.0",
     "@stripe/stripe-js": "^3.0.4",
+    "axios": "^1.6.7",
+    "firebase": "^10.8.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "^6.22.1"
+    "react-router-dom": "^6.22.1",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/react": "^18.2.55",

@@ -9,7 +9,7 @@ import { v4 } from 'uuid'
 
 
 // CREATE (POST) item to the DB
-const CreateItem = () => {
+const ItemCreate = () => {
 
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
@@ -57,7 +57,7 @@ const CreateItem = () => {
             featured,
             price,
             image: downloadURL 
-        };
+        }
 
         // Add the newItem to your database or state
         console.log(newItem)
@@ -79,7 +79,7 @@ const CreateItem = () => {
 
     return(
         <>
-            <form action="" onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <div id="components">
 
                     <h3>Create Item</h3>
@@ -102,7 +102,8 @@ const CreateItem = () => {
                         name="category" 
                         id="drop-down" 
                         value={category} 
-                        onChange={(e) => setCategory(e.target.value)}>
+                        onChange={(e) => setCategory(e.target.value)}
+                    >
                             <option value="disabled" disabled>Item Category</option>
                             <option value="Tees">T-shirts</option>
                             <option value="Hats">Hats</option>
@@ -159,4 +160,4 @@ const CreateItem = () => {
     )
 }
 
-export default CreateItem
+export default ItemCreate

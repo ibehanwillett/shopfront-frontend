@@ -13,7 +13,7 @@ main {
     margin: 2rem 0;
 }
 
-textarea, select {
+textarea, select, input {
     width: 22rem;
     height: 6rem;
     padding: 0.7rem 0.4rem 0.4rem 0.4rem;

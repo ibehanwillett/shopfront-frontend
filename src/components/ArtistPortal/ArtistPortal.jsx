@@ -1,8 +1,8 @@
 import react, { useEffect, useState } from "react"
 import UpdateAbout from "./AboutUpdate.jsx"
-import CreateItem from "./ItemCreate.jsx"
-import DeleteItem from "./ItemDelete.jsx"
-import UpdateItem from "./ItemUpdate.jsx"
+import ItemCreate from "./ItemCreate.jsx"
+import ItemDelete from "./ItemDelete.jsx"
+import ItemUpdate from "./ItemUpdate.jsx"
 
 
 
@@ -12,9 +12,9 @@ const ArtistPortal = () => {
         <>
             <main>
                 <h2 id="page-title">Hi, Nicole.</h2>
-                <CreateItem />
-                <UpdateItem />
-                <DeleteItem />
+                <ItemCreate />
+                <ItemUpdate />
+                <ItemDelete />
             </main>
         </>
     );

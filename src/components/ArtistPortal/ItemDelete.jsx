@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useItems } from '../../app-context/ItemsContext'
 
-const DeleteItem = () => {
+const ItemDelete = () => {
 
     const [selectedItem, setSelectedItem] = useState("disabled")
     const { items, deleteItem } = useItems()
@@ -9,10 +9,12 @@ const DeleteItem = () => {
     const handleDelete = () => {
 
         if (selectedItem === "disabled") {
-            alert("Please select an item to delete.");
+            alert("Please select an item to delete.")
             return;
         }
         deleteItem(selectedItem)
+
+        alert("Item deleted!")
     }
 
     // Update selectedItem state on selection change
@@ -36,4 +38,4 @@ const DeleteItem = () => {
     )
 }
 
-export default DeleteItem;
+export default ItemDelete

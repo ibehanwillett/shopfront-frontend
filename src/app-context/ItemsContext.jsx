@@ -44,6 +44,37 @@ export const ItemsProvider = ({ children }) => {
             .catch(error => console.error("Error adding item: " + error))
     }
 
+    const updateItem = (itemToUpdate) => {
+        
+        if (!itemToUpdate._id) {
+            console.error("Error updating item: missing item ID");
+            return
+        }
+        fetch(`http://localhost:4001/items/${itemToUpdate._id}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(itemToUpdate),
+        })
+        .then(res => {
+            if (!res.ok) {
+                throw new Error("Failed to update item")
+            }
+            return res.json()
+        })
+        .then(updatedItem => {
+            setItems(prevItems => {
+                return prevItems.map(item => {
+                    if (item._id === updatedItem._id) {
+                        return updatedItem; // Replace the old item with the updated one
+                    }
+                    return item; // Leave all other items unchanged
+                });
+            });
+        })
+        .catch(error => console.error("Error updating item: " + error));
+    };
+    
+
     useEffect(() => {
         fetch("http://localhost:4001/items") 
             .then((res) => res.json())
@@ -52,7 +83,7 @@ export const ItemsProvider = ({ children }) => {
     }, []);
 
     return (
-        <ItemsContext.Provider value={{ items, handleItemDeleted, deleteItem, addItem }}>
+        <ItemsContext.Provider value={{ items, handleItemDeleted, deleteItem, addItem, updateItem }}>
             {children}
         </ItemsContext.Provider>
     )

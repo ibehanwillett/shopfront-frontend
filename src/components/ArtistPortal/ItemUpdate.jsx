@@ -2,13 +2,18 @@ import react, { useState } from 'react';
 import '../../index.css'
 import '../styles/artistportal-styles.css'
 import { useItems } from '../../app-context/ItemsContext'
+import { storage } from '../../Firebase.js'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { v4 } from 'uuid'
+
 
 
 // UPDATE (PUT) item in DB
 const ItemUpdate = () => {
 
-    const [selectedItem, setSelectedItem] = useState("disabled")
     const { items, setItems } = useItems()
+
+    const [selectedItem, setSelectedItem] = useState("disabled")
     const [selectName, setSelectName] = useState('')
     const [selectCategory, setSelectCategory] = useState('disabled')
     const [selectPrice, setSelectPrice] = useState('')
@@ -42,6 +47,7 @@ const ItemUpdate = () => {
             setSelectSize('disabled')
             setSelectFeatured('disabled')
             setSelectPrice('')
+            setSelectedItem('disabled')
 
             alert('Failed to update item')
         }
@@ -58,31 +64,52 @@ const ItemUpdate = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        if (selectName === '') {
-            alert('Please make sure all fields are filled in.')
-        }
-        const updatedItem = {
-            _id: selectedItem,
-            name: selectName,
-            description: selectDescription,
-            image: selectImage,
-            category: selectCategory,
-            price: selectPrice,
-            featured: selectFeatured,
-            size: selectSize,
+        if (
+            selectName === '' ||
+            selectDescription === '' ||
+            selectCategory === '' ||
+            selectSize === '' ||
+            selectFeatured === '' ||
+            selectPrice === '') {
+            alert('Please make sure to fill in all the fields.')
+            return;
         }
 
-        console.log(updatedItem)
+        const imageRef = ref(storage, `images/${selectImage.name + v4()}`)
+        uploadBytes(imageRef, selectImage).then((uploadResult) => {
+            // After successful upload, get the download URL
+            return getDownloadURL(uploadResult.ref)
+        }).then((downloadURL) => {
+            alert('Upload successful')
 
-        updateItem(updatedItem)
+            // Now, include the downloadURL in the updatedItem object
+            const updatedItem = {
+                _id: selectedItem, // Make sure this is the ID of the item being updated
+                name: selectName,
+                description: selectDescription,
+                image: downloadURL, // Use the URL from the upload
+                category: selectCategory,
+                price: selectPrice,
+                featured: selectFeatured,
+                size: selectSize,
+            };
 
-        setSelectName('')
-        setSelectDescription('')
-        setSelectCategory('disabled')
-        setSelectSize('disabled')
-        setSelectFeatured('disabled')
-        setSelectPrice('')
-        setSelectImage(null)
+            // Then, call the update function from your context
+            updateItem(updatedItem)
+
+            // Reset form fields after successful update
+            setSelectName('')
+            setSelectDescription('')
+            setSelectCategory('disabled')
+            setSelectSize('disabled')
+            setSelectFeatured('disabled')
+            setSelectPrice('')
+            setSelectImage(null)
+            setSelectedItem('disabled')
+        }).catch((error) => {
+            console.error("Error uploading image: ", error)
+            alert('Upload failed. Please try again.')
+        })
     }
 
     return(

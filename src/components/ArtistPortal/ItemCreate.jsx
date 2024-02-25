@@ -3,8 +3,9 @@ import '../../index.css'
 import '../styles/artistportal-styles.css'
 import { useItems } from '../../app-context/ItemsContext'
 import TextAreaField from './ItemComponents/TextAreaField'
-import defaultImage from '../../assets/no-image.png'
-import axios from 'axios'
+import { storage } from '../../Firebase.js'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
+import { v4 } from 'uuid'
 
 
 // CREATE (POST) item to the DB
@@ -23,18 +24,31 @@ const CreateItem = () => {
     const { addItem } = useItems()
 
     const handleImageChange = (event) => {
-        const imageURL = 'https://example.com/path/to/image.jpg' // Replace this with the actual URL 
-        setImage(imageURL)
+        setImage(event.target.files[0])
     };
     
     const handleSubmit = async (event) => {
         event.preventDefault()
 
-        if (name === '' || description === '' || category === '' || size === '' || featured === '' || price === '') {
+        if (
+            name === '' ||
+            description === '' ||
+            category === '' ||
+            size === '' ||
+            featured === '' ||
+            price === '') {
             alert('Please make sure to fill in all the fields.')
             return;
         }
 
+        const imageRef = ref(storage, `images/${image.name + v4()}`)
+        uploadBytes(imageRef, image).then((uploadResult) => {
+            // After successful upload, get the download URL
+            return getDownloadURL(uploadResult.ref)
+        }).then((downloadURL) => {
+            alert('Upload successful')
+
+        // Create newItem object with the download URL
         const newItem = {
             name,
             description,
@@ -42,24 +56,12 @@ const CreateItem = () => {
             size,
             featured,
             price,
-            image  // This is now just a string, the file name
+            image: downloadURL 
         };
 
-        try {
-            const response = await axios.post('http://localhost:4001/items/', newItem, {
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-
-            addItem(response.data)
-            alert("Item created successfully!")
-        } catch (error) {
-            console.error('Error uploading item: ', error);
-            alert("There was a problem creating the item.")
-        }
-
-        // Reset form fields
+        // Add the newItem to your database or state
+        console.log(newItem)
+        addItem(newItem)
         setName('')
         setDescription('')
         setCategory('disabled')
@@ -68,7 +70,12 @@ const CreateItem = () => {
         setPrice('')
         setImage(null)
         setResetTrigger(prev => !prev)
-    };
+        }).catch((error) => {
+            // Handle any errors that occur during upload or URL retrieval
+            console.error("Error uploading image: ", error)
+            alert('Upload failed. Please try again.')
+        });
+};
 
     return(
         <>

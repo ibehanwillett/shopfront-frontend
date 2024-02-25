@@ -45,6 +45,11 @@ export const ItemsProvider = ({ children }) => {
     }
 
     const updateItem = (itemToUpdate) => {
+        
+        if (!itemToUpdate._id) {
+            console.error("Error updating item: missing item ID");
+            return
+        }
         fetch(`http://localhost:4001/items/${itemToUpdate._id}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},

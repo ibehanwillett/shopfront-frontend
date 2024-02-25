@@ -102,8 +102,7 @@ const ItemCreate = () => {
                         name="category" 
                         id="drop-down" 
                         value={category} 
-                        onChange={(e) => setCategory(e.target.value)}
-                    >
+                        onChange={(e) => setCategory(e.target.value)}>
                             <option value="disabled" disabled>Item Category</option>
                             <option value="Tees">T-shirts</option>
                             <option value="Hats">Hats</option>
@@ -133,8 +132,8 @@ const ItemCreate = () => {
                         value={featured} 
                         onChange={(e) => setFeatured(e.target.value)}>
                             <option value="disabled" disabled>Featured</option>
-                            <option value="true">Featured Item</option>
-                            <option value="false">Not Featured</option>
+                            <option value="true">true</option>
+                            <option value="false">false</option>
                     </select>
                         
                     <div id="contain">
@@ -143,7 +142,7 @@ const ItemCreate = () => {
                             type="number"
                             value={price}
                             placeholder="Price" 
-                            onChange={(event) => setPrice(event.target.value ? parseFloat(event.target.value) : '')} 
+                            onChange={(e) => setPrice(e.target.value ? parseFloat(e.target.value) : '')} 
                         />
                          <div id="inputContainer">
                             <label id="imgInputLabel">Upload Image</label>

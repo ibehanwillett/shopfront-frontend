@@ -31,11 +31,18 @@ const ItemUpdate = () => {
             setSelectDescription(selectedItem.description)
             setSelectImage(selectedItem.image)
             setSelectCategory(selectedItem.category)
+            setSelectSize(selectedItem.size)
+            setSelectFeatured(selectedItem.featured)
+            setSelectPrice(selectedItem.price)
         } else {
             setSelectName('')
             setSelectDescription('')
             setSelectCategory('disabled')
             setSelectImage(null)
+            setSelectSize('disabled')
+            setSelectFeatured('disabled')
+            setSelectPrice('')
+
             alert('Failed to update item')
         }
     }
@@ -55,16 +62,27 @@ const ItemUpdate = () => {
             alert('Please make sure all fields are filled in.')
         }
         const updatedItem = {
+            _id: selectedItem,
             name: selectName,
             description: selectDescription,
             image: selectImage,
-            category: selectCategory
+            category: selectCategory,
+            price: selectPrice,
+            featured: selectFeatured,
+            size: selectSize,
         }
 
         console.log(updatedItem)
+
         updateItem(updatedItem)
+
         setSelectName('')
         setSelectDescription('')
+        setSelectCategory('disabled')
+        setSelectSize('disabled')
+        setSelectFeatured('disabled')
+        setSelectPrice('')
+        setSelectImage(null)
     }
 
     return(
@@ -100,33 +118,39 @@ const ItemUpdate = () => {
                     <select 
                         name="category" 
                         id="drop-down" 
-                        defaultValue="disabled"
                         value={selectCategory} 
-                        onChange={(e) => setSelectCategory(e.target.value)}
-                    >
-                        <option value="disabled" disabled>Item Category</option>
-                        <option value="Tees">Tees</option>
-                        <option value="Hats">Hats</option>
-                        <option value="Art">Art</option>
-                        <option value="Accessories">Accessories</option>
-                        <option value="Other">Other</option>
+                        onChange={(e) => setSelectCategory(e.target.value)}>
+                            <option value="disabled" disabled>Item Category</option>
+                            <option value="Tees">Tees</option>
+                            <option value="Hats">Hats</option>
+                            <option value="Art">Art</option>
+                            <option value="Accessories">Accessories</option>
+                            <option value="Other">Other</option>
                     </select>
 
-                    <select name="size" id="drop-down" defaultValue="disabled">
-                        <option value="disabled" disabled>Item Size</option>
-                        <option value="XS">XS</option>
-                        <option value="S">S</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="XL">XL</option>
-                        <option value="OS">OS</option>
-                        <option value="n/a">n/a</option>
+                    <select 
+                        name="size" 
+                        id="drop-down" 
+                        value={selectSize}
+                        onChange={(e) => setSelectSize(e.target.value)}>
+                            <option value="disabled" disabled>Item Size</option>
+                            <option value="XS">XS</option>
+                            <option value="S">S</option>
+                            <option value="M">M</option>
+                            <option value="L">L</option>
+                            <option value="XL">XL</option>
+                            <option value="OS">OS</option>
+                            <option value="n/a">n/a</option>
                     </select>
 
-                    <select name="featured" id="drop-down" defaultValue="disabled">
-                        <option value="disabled" disabled>Featured</option>
-                        <option value="true">Featured Item</option>
-                        <option value="false">Not Featured</option>
+                    <select 
+                        name="featured"
+                        id="drop-down"
+                        value={selectFeatured}
+                        onChange={(e) => setSelectFeatured(e.target.value)}>
+                            <option value="disabled" disabled>Featured</option>
+                            <option value="true">true</option>
+                            <option value="false">false</option>
                     </select>
                         
                     <div id="contain">
@@ -135,7 +159,7 @@ const ItemUpdate = () => {
                             placeholder="Price" 
                             id="price"
                             value={selectPrice}
-                            onChange={(event) => setSelectPrice(event.target.value)}
+                            onChange={(e) => setSelectPrice(e.target.value ? parseFloat(e.target.value) : '')}
                         ></textarea>
 
                         <div id="inputContainer">

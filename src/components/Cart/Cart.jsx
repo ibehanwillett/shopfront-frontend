@@ -5,7 +5,6 @@ import "../styles/cart.css";
 import { useCartContext } from "../../app-context/CartContext";
 import { useItems } from '../../app-context/ItemsContext';
 
-<<<<<<< HEAD
 function Cart({ hideCheckoutButton }) {
   // Static data for the cart items
   // const cartItems = [
@@ -13,12 +12,8 @@ function Cart({ hideCheckoutButton }) {
   //   { id: 2, name: 'Item Name', price: 29.00 },
   //   { id: 3, name: 'Item Name', price: 13.00 },
   // ];
-=======
-function Cart() {
->>>>>>> 0bb4ec12613c9406ec816067b16826c0da417c66
   
 
-<<<<<<< HEAD
   const { items } = useItems()
   const { cartItems, setCartItems, addToCart, removeFromCart, subtotal } =
     useCartContext();
@@ -29,8 +24,6 @@ function Cart() {
   //   setCartItems(updatedCartItems);
   // };
 
-=======
->>>>>>> 0bb4ec12613c9406ec816067b16826c0da417c66
 
   //Updates the cart items to reflect any updates made in teh ItemsContext.jsx
   useEffect(() => {

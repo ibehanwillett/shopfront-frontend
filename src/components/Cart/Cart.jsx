@@ -5,6 +5,7 @@ import "../styles/cart.css";
 import { useCartContext } from "../../app-context/CartContext";
 import { useItems } from '../../app-context/ItemsContext';
 
+
 function Cart({ hideCheckoutButton }) {
   // Static data for the cart items
   // const cartItems = [
@@ -19,10 +20,6 @@ function Cart({ hideCheckoutButton }) {
     useCartContext();
 
 
-  // const handleDelete = (id) => {
-  //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
-  //   setCartItems(updatedCartItems);
-  // };
 
 
   //Updates the cart items to reflect any updates made in teh ItemsContext.jsx

@@ -20,12 +20,6 @@ export const CartProvider = ({children}) => {
     }
 
     function removeFromCart(id) {
-        // if (cartItems[index.id] === id) {
-        //    cartItems.splice(index, 1)
-        // }
-        // const updatedCartItems = cartItems.filter((item) => item.id !== id);
-        // setCartItems(updatedCartItems);
-
         const index = cartItems.findIndex(item => item.id === id);
         
         if (index !== -1) {
@@ -44,12 +38,6 @@ export const CartProvider = ({children}) => {
         )
 }
 
-export const defaultCartContextData = 
-[
-    { id: 1, name: 'Item Name', price: 41.00 },
-    { id: 2, name: 'Item Name', price: 29.00 },
-    { id: 3, name: 'Item Name', price: 13.00 },
-]
  
 
 export default CartContext;

@@ -13,14 +13,14 @@ const InputField = ({ id, placeholder, onChange, type, resetTrigger }) => {
     }, [resetTrigger])
 
     return (
-        <textarea 
+        <textarea
             id={id}
-            placeholder={placeholder} 
-            value={value} 
+            placeholder={placeholder}
+            value={value}
             onChange={handleChange}
             type={type}
         ></textarea>
-    );
-};
+    )
+}
 
 export default InputField;

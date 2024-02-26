@@ -14,7 +14,7 @@ export const ItemsProvider = ({ children }) => {
     };
 
     const deleteItem = (itemId) => {
-        fetch(`http://localhost:4001/items/${itemId}`, {
+        fetch(`https://shopfront-backend.onrender.com/items/${itemId}`, {
             method: "DELETE",
         })
         .then(res => {
@@ -27,7 +27,7 @@ export const ItemsProvider = ({ children }) => {
     }
 
     const addItem = (newItem) => {
-            fetch("http://localhost:4001/items/", {
+            fetch("https://shopfront-backend.onrender.com/items/", {
                 method: "POST",
                 headers: {"Content-Type": "application/json"},
                 body: JSON.stringify(newItem),
@@ -50,7 +50,7 @@ export const ItemsProvider = ({ children }) => {
             console.error("Error updating item: missing item ID");
             return
         }
-        fetch(`http://localhost:4001/items/${itemToUpdate._id}`, {
+        fetch(`https://shopfront-backend.onrender.com/items/${itemToUpdate._id}`, {
             method: "PUT",
             headers: {"Content-Type": "application/json"},
             body: JSON.stringify(itemToUpdate),
@@ -76,7 +76,7 @@ export const ItemsProvider = ({ children }) => {
     
 
     useEffect(() => {
-        fetch("http://localhost:4001/items") 
+        fetch("https://shopfront-backend.onrender.com/items") 
             .then((res) => res.json())
             .then((data) => setItems(data))
             .catch(error => console.error("Failed to load shop items", error))

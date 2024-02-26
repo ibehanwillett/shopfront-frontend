@@ -6,6 +6,7 @@ import Home from './components/Home'
 import About from './components/About'
 import Checkout from './components/Checkout/Checkout'; 
 import Cart from './components/Cart/Cart'
+import LoginForm from "./components/LoginForm/LoginForm.jsx"
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 import CartContext, { CartProvider } from "./app-context/CartContext"
 import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
@@ -24,6 +25,7 @@ function App() {
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<ShopFront/>}/>
                   <Route path="/about" element={<About />}/>
+                  <Route path="/login" element={<LoginForm />}/>
                   <Route path="/artistportal" element={<ArtistPortal />}/>
                   <Route path="/checkout" element={<Checkout />}/>
                   <Route path="/cart" element={<Cart />}/>

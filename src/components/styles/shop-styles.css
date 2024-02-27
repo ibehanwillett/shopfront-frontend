@@ -16,6 +16,10 @@
     max-width: 600px;
 }
 
+#category-items a:hover {
+    text-decoration: none;
+}
+
 #item-info {
     display: flex;
     padding: 1rem;
@@ -37,7 +41,6 @@ div.category-section {
 #category-title {
     margin: 3rem 0 0 1rem;
     text-decoration: underline;
-
 }
 
 #item-name, #itemprice {
@@ -45,23 +48,36 @@ div.category-section {
     font-weight: 400
 }
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 963px) {
     /* CSS styles for tablets */
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 960px) {
     div#shop-items {
-        max-width: 24rem;
-        margin: 0.5rem
+        max-width: 26rem;
+        margin: 0rem 0.7rem;
+    }
+
+    #item-image {
+        max-width: 26rem;
     }
 
     #category-items {
         display: flex;
         margin: 2rem;
-        max-width: 80vw;
+        /* max-width: 80vw; */
     }
 
     #category-title {
         margin: 3rem 0 0 3rem;
+    }
+
+    #shop-items {
+        transition: 0.3s;
+    }
+
+    #shop-items:hover {
+        transform: scale(1.02);
+        transition: 0.3s ease-out;
     }
 }

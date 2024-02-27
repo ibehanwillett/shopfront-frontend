@@ -99,7 +99,7 @@ a span {
     transform: rotate(-45deg) translate(0px, -5px);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 960px) {
     
     .navbar-menu {
         display: block;
@@ -129,7 +129,7 @@ a span {
     }
 }
 
-@media (min-width: 1025) {
+@media (min-width: 961px) {
     .navbar-menu {
         display: flex;
     }

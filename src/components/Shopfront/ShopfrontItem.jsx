@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import AddToCartButton from './AddToCartButton'
+import { Link } from 'react-router-dom'
 import '../styles/shop-styles.css'
 
 
-const ShopfrontItem = ({item, name, price, description, image}) => {
+const ShopfrontItem = ({link, item, name, price, description, image}) => {
 
   return (
     <>
     <div id="shop-items">
-        <img id="item-image" src={image} alt="No Image available"/>
+        <Link id="image-link" to={link}>
+          <img id="item-image" src={image} alt="No Image available"/>
+        </Link>
+        
         <div id="item-info">
           <div>
             <h3 id="item-name">{name}</h3>
@@ -18,7 +22,6 @@ const ShopfrontItem = ({item, name, price, description, image}) => {
           <AddToCartButton item={item}/>
         </div>
     </div>
-        
     </>
   )
 }

@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import '../styles/cartItem-styles.css'
 import ShopfrontItem from './ShopfrontItem'
 import { ItemsContext } from '../../app-context/ItemsContext'
@@ -23,22 +24,22 @@ const ShopFront = () => {
                 {items
                   .filter(item => item.category === category)
                   .map((item, index) => (
-                    <ShopfrontItem
-                      id={`shop-item-${category}-${index}`} // Ensuring unique id for each item
-                      key={index}
-                      item={item}
-                      name={item.name}
-                      price={item.price}
-                      description={item.description}
-                      image={item.image}
-                    />
+                      <ShopfrontItem
+                        id={`shop-item-${category}-${index}`} // Ensuring unique id for each item
+                        key={index}
+                        item={item}
+                        name={item.name}
+                        price={item.price}
+                        description={item.description}
+                        image={item.image}
+                        link={`/item/${item._id}`}
+                      />
                   ))}
               </div>
             </div>
           ))}
         </div>
     </main>
-      
     </>
   );
 };

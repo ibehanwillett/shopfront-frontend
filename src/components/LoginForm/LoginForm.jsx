@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
+import userLogin from './UserLogin.jsx'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
@@ -13,11 +14,12 @@ const LoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    await userLogin(email, password)
   }
 
   return (
     <>
-    <form>
+    <form onSubmit={handleSubmit}>
       <div>
         <TextAreaField
         id="email" 
@@ -29,7 +31,7 @@ const LoginForm = () => {
         <TextAreaField
         id="password" 
         placeholder="Password" 
-        onChange={setEmail} 
+        onChange={setPassword} 
         resetTrigger={resetTrigger} />
       </div>  
       <button type="submit" disabled={!validateForm()}>Log In</button>

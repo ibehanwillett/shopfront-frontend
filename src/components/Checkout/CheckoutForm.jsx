@@ -52,15 +52,40 @@ const CheckoutForm = () => {
     } else {
       console.log("[PaymentMethod]", paymentMethod);
       console.log("Subtotal:", subtotal);
-      const orderId = "123456";
-      navigate(`/order-confirmation/${orderId}`);
-      // pass paymentMethod.id and subtotal to backend to process the payment
-    }
 
-    // if (payment successful) {
-    //   const orderId = '123456';
-    //   navigate(`/order-confirmation/${orderId}`);
-    // }
+      const paymentData = {
+        paymentMethodId: paymentMethod.id,
+        amount: Math.round(subtotal * 100), 
+      };
+
+      const authToken = "JWT TOKEN HERE";
+
+      fetch("http://localhost:4001/payment/process-payment", { 
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "Authorization": `Bearer ${authToken}`
+        },
+        body: JSON.stringify(paymentData),
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        if (data.success) {
+          console.log("Payment Intent:", data.paymentIntent);
+          navigate(`/order-confirmation/${data.paymentIntent.id}`);
+        } else {
+          console.error("Payment failed:", data.message);
+        }
+      })
+      .catch(error => {
+        console.error("Error:", error);
+      });
+    }
   };
 
   return (

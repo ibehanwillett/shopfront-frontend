@@ -5,6 +5,7 @@ import "../styles/cart.css";
 import { useCartContext } from "../../app-context/CartContext";
 // import { useItems } from '../../app-context/useItems';
 
+
 function Cart({ hideCheckoutButton }) {
   // Static data for the cart items
   // const cartItems = [
@@ -19,13 +20,10 @@ function Cart({ hideCheckoutButton }) {
     useCartContext();
 
 
-  // const handleDelete = (id) => {
-  //   const updatedCartItems = cartItems.filter((item) => item.id !== id);
-  //   setCartItems(updatedCartItems);
-  // };
 
 
-  // Updates the cart items to reflect any updates made in teh ItemsContext.jsx such as items deleted 
+
+  //Updates the cart items to reflect any updates made in teh ItemsContext.jsx
   // useEffect(() => {
   //   const updatedCartItems = cartItems.filter(cartItem => 
   //     items.some(item => item._id === cartItem._id))
@@ -35,7 +33,7 @@ function Cart({ hideCheckoutButton }) {
   // }, [items, cartItems, setCartItems])
 
 
-  console.log(cartItems[0])
+  // console.log(cartItems[0])
 
   return (
     <div className="cart-container">

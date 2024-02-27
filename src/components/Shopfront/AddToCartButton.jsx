@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useCartContext } from '../../app-context/CartContext'
+import '../styles/shop-styles.css'
 
 
 const AddToCartButton = ({ item }) => {
@@ -13,7 +14,7 @@ const AddToCartButton = ({ item }) => {
     }
 
   return (
-    <button onClick={()=>handleClick(item)}>{buttonText}</button>
+    <button id="submit-button" onClick={()=>handleClick(item)}>{buttonText}</button>
   )
 }
 

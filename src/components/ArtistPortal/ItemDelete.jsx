@@ -32,7 +32,7 @@ const ItemDelete = () => {
                         <option key={item._id} value={item._id}>{item.name}</option>
                     ))}
                 </select>
-                <button id="delete-button" onClick={handleDelete}>Delete</button>
+                <button id="submit-button" onClick={handleDelete}>Delete</button>
             </div>
         </>
     )

@@ -104,7 +104,7 @@ const ItemCreate = () => {
                         value={category} 
                         onChange={(e) => setCategory(e.target.value)}>
                             <option value="disabled" disabled>Item Category</option>
-                            <option value="Tees">T-shirts</option>
+                            <option value="Tees">Tees</option>
                             <option value="Hats">Hats</option>
                             <option value="Art">Art</option>
                             <option value="Accessories">Accessories</option>
@@ -151,7 +151,7 @@ const ItemCreate = () => {
 
                     </div>
 
-                    <button type="submit">Add</button>
+                    <button id="submit-button" type="submit">Add</button>
 
                 </div>
             </form>

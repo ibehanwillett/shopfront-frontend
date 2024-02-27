@@ -16,9 +16,10 @@ const LogOut = () => {
   return (
     <>
     <h3>You're logged in</h3>
-    <button onClick={handleClick}>Log out?</button>
+    <button onClick={handleClick}>Log out?</button> 
     </>
   )
 }
 
 export default LogOut
+// add edit account w/  delete funtionality

@@ -8,6 +8,7 @@ import Checkout from './components/Checkout/Checkout';
 import Cart from './components/Cart/Cart'
 import LoginForm from "./components/LoginForm/LoginForm.jsx"
 import LogOut from "./components/LogOut/LogOut.jsx"
+import RegisterUser from "./components/RegisterUser/RegisterUser.jsx"
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 import CartContext, { CartProvider } from "./app-context/CartContext"
 import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
@@ -28,6 +29,7 @@ function App() {
                   <Route path="/about" element={<About />}/>
                   <Route path="/login" element={<LoginForm />}/>
                   <Route path="/logout" element={<LogOut />}/>
+                  <Route path="/register" element={<RegisterUser />}/>
                   <Route path="/artistportal" element={<ArtistPortal />}/>
                   <Route path="/checkout" element={<Checkout />}/>
                   <Route path="/cart" element={<Cart />}/>

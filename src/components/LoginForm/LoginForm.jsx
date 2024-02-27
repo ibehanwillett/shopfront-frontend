@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from "react-router-dom"
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
 import userLogin from './UserLogin.jsx'
+import { Link } from "react-router-dom"
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
@@ -53,6 +54,7 @@ const LoginForm = () => {
       </div>  
       <button type="submit" disabled={!validateForm()}>Log In</button>
   </form>
+  <Link to='/register'>Make new account</Link>
     </>
   )
 }

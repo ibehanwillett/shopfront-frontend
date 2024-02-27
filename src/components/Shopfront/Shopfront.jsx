@@ -19,13 +19,13 @@ const ShopFront = () => {
         <div id="items-list">
           {categories.map((category, idx) => (
             <div key={idx} className="category-section">
-              <h2 id="category-title">{category}</h2> {/* Display the category name as h3 */}
+              <h2 id="category-title">{category}</h2>
               <div id="category-items">
                 {items
                   .filter(item => item.category === category)
                   .map((item, index) => (
                       <ShopfrontItem
-                        id={`shop-item-${category}-${index}`} // Ensuring unique id for each item
+                        id={`shop-item-${category}-${index}`}
                         key={index}
                         item={item}
                         name={item.name}
@@ -33,6 +33,7 @@ const ShopFront = () => {
                         description={item.description}
                         image={item.image}
                         link={`/item/${item._id}`}
+                        // disableLink={false}
                       />
                   ))}
               </div>

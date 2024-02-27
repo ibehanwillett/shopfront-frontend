@@ -10,6 +10,7 @@ import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation'
 import CartContext, { CartProvider } from "./app-context/CartContext"
 import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
 import { ItemsProvider } from './app-context/ItemsContext'
+import ItemDetails from './components/Shopfront/ItemDetails.jsx'
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<ShopFront/>}/>
+                  <Route path="/item/:id" element={<ItemDetails/>}/>
                   <Route path="/about" element={<About />}/>
                   <Route path="/artistportal" element={<ArtistPortal />}/>
                   <Route path="/checkout" element={<Checkout />}/>

@@ -1,13 +1,13 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import '../styles/cartItem-styles.css'
 import ShopfrontItem from './ShopfrontItem'
-import { useItems } from '../../app-context/ItemsContext'
+import { ItemsContext } from '../../app-context/ItemsContext'
 
 
 
 const ShopFront = () => {
   
-  const { items } = useItems()
+  const { items } = useContext(ItemsContext)
 
   return (
     <>

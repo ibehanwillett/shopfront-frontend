@@ -1,12 +1,11 @@
-import { createContext, useContext, useState, useEffect } from 'react'
+import { createContext, useState, useEffect } from 'react'
 
-const ItemsContext = createContext()
-
-export const useItems = () => useContext(ItemsContext)
+export const ItemsContext = createContext({})
 
 export const ItemsProvider = ({ children }) => {
     
     const [items, setItems] = useState([])
+
 
     const handleItemDeleted = (deletedItemId) => {
         // Update items state to exclude the deleted item
@@ -74,13 +73,13 @@ export const ItemsProvider = ({ children }) => {
         .catch(error => console.error("Error updating item: " + error));
     };
     
-
     useEffect(() => {
         fetch("https://shopfront-backend.onrender.com/items") 
             .then((res) => res.json())
             .then((data) => setItems(data))
             .catch(error => console.error("Failed to load shop items", error))
-    }, []);
+    }, [])
+
 
     return (
         <ItemsContext.Provider value={{ items, handleItemDeleted, deleteItem, addItem, updateItem }}>

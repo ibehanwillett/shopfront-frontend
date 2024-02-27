@@ -24,7 +24,7 @@ const UserLogin = async (submittedEmail, submittedPassword, navigate) => {
   })
  
    if (response.status === 200) {
-    navigate("/cart")
+    navigate("/")
     console.log("worked")
  }
 }

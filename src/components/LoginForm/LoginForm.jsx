@@ -9,21 +9,21 @@ const LoginForm = () => {
   const [resetTrigger, setResetTrigger] = useState(false)
   const navigate = useNavigate()
 
-  // useEffect(() => {
-  //   async function autoLogin() {
-  //     const response = await fetch("http://localhost:4001/user/autoLogin", {
-  //       method: "GET",
-  //       credentials: "include",
-  //     });
-  //     if (response.status === 200) {
-  //       // navigate("/");
+  useEffect(() => {
+    async function autoLogin() {
+      const response = await fetch("http://localhost:4001/users/autoLogin", {
+        method: "GET",
+        credentials: "include",
+      });
+      if (response.status === 200) {
+        navigate("/logout");
 
-  //     } else {
-  //       navigate("/user/login");
-  //     }
-  //   }
-  //   autoLogin();
-  // }, []);
+      } else {
+        navigate("/login");
+      }
+    }
+    autoLogin();
+  }, []);
 
   const validateForm = () => {
     return email.length > 0 && password.length > 0;

@@ -1,7 +1,7 @@
-import react, { useState } from 'react';
+import react, { useState, useContext } from 'react';
 import '../../index.css'
 import '../styles/artistportal-styles.css'
-import { useItems } from '../../app-context/ItemsContext'
+import { ItemsContext } from '../../app-context/ItemsContext'
 import { storage } from '../../Firebase.js'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { v4 } from 'uuid'
@@ -11,7 +11,7 @@ import { v4 } from 'uuid'
 // UPDATE (PUT) item in DB
 const ItemUpdate = () => {
 
-    const { items, setItems } = useItems()
+    const { items, updateItem } = useContext(ItemsContext)
 
     const [selectedItem, setSelectedItem] = useState("disabled")
     const [selectName, setSelectName] = useState('')
@@ -21,8 +21,6 @@ const ItemUpdate = () => {
     const [selectSize, setSelectSize] = useState('disabled')
     const [selectFeatured, setSelectFeatured] = useState('disabled')
     const [selectImage, setSelectImage] = useState(null)
-
-    const { updateItem } = useItems()
 
    
     // Update selectedItem state on selection change

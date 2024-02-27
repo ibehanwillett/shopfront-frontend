@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
 import { useCartContext } from "../../app-context/CartContext";
-import { useItems } from '../../app-context/ItemsContext';
+// import { useItems } from '../../app-context/useItems';
 
 
 function Cart({ hideCheckoutButton }) {
@@ -15,9 +15,10 @@ function Cart({ hideCheckoutButton }) {
   // ];
   
 
-  const { items } = useItems()
+  // const { items } = useItems()
   const { cartItems, setCartItems, addToCart, removeFromCart, subtotal } =
     useCartContext();
+
 
 
 

@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { useItems } from '../../app-context/ItemsContext'
+import React, { useState, useContext } from 'react';
+import { ItemsContext } from '../../app-context/ItemsContext'
 
 const ItemDelete = () => {
 
     const [selectedItem, setSelectedItem] = useState("disabled")
-    const { items, deleteItem } = useItems()
+    const { items, deleteItem } = useContext(ItemsContext)
 
     const handleDelete = () => {
 
@@ -13,7 +13,7 @@ const ItemDelete = () => {
             return;
         }
         deleteItem(selectedItem)
-
+        setSelectedItem("disabled")
         alert("Item deleted!")
     }
 

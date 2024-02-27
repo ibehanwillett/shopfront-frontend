@@ -9,7 +9,7 @@ import Cart from './components/Cart/Cart'
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 import CartContext, { CartProvider } from "./app-context/CartContext"
 import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
-import { useItems, ItemsProvider } from './app-context/ItemsContext'
+import { ItemsProvider } from './app-context/ItemsContext'
 
 
 function App() {

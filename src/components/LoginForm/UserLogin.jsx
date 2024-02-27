@@ -1,6 +1,7 @@
 import React from 'react'
+import { useNavigate } from "react-router-dom"
 
-const UserLogin = async (submittedEmail, submittedPassword) => {
+const UserLogin = async (submittedEmail, submittedPassword, navigate) => {
     const credentials = {
         email: submittedEmail,
         password: submittedPassword
@@ -8,10 +9,10 @@ const UserLogin = async (submittedEmail, submittedPassword) => {
 
     console.log(JSON.stringify(credentials))
 // 'https://shopfront-backend.onrender.com/users/login'
-    return fetch('http://localhost:4001/users/login', {
+    const response =  await fetch('http://localhost:4001/users/login', {
 
     method: 'POST',
- 
+    credentials: "include",
     headers: {
  
       'Content-Type': 'application/json'
@@ -22,7 +23,10 @@ const UserLogin = async (submittedEmail, submittedPassword) => {
  
   })
  
-    .then(data => data.json())
+   if (response.status === 200) {
+    navigate("/cart")
+    console.log("worked")
+ }
 }
 
 export default UserLogin

@@ -1,12 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useNavigate } from "react-router-dom"
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
 import userLogin from './UserLogin.jsx'
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-
   const [resetTrigger, setResetTrigger] = useState(false)
+  const navigate = useNavigate()
+
+  // useEffect(() => {
+  //   async function autoLogin() {
+  //     const response = await fetch("http://localhost:4001/user/autoLogin", {
+  //       method: "GET",
+  //       credentials: "include",
+  //     });
+  //     if (response.status === 200) {
+  //       // navigate("/");
+
+  //     } else {
+  //       navigate("/user/login");
+  //     }
+  //   }
+  //   autoLogin();
+  // }, []);
 
   const validateForm = () => {
     return email.length > 0 && password.length > 0;
@@ -14,7 +31,7 @@ const LoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await userLogin(email, password)
+    await userLogin(email, password, navigate)
   }
 
   return (

@@ -7,13 +7,6 @@ import { useCartContext } from "../../app-context/CartContext";
 
 
 function Cart({ hideCheckoutButton }) {
-  // Static data for the cart items
-  // const cartItems = [
-  //   { id: 1, name: 'Item Name', price: 41.00 },
-  //   { id: 2, name: 'Item Name', price: 29.00 },
-  //   { id: 3, name: 'Item Name', price: 13.00 },
-  // ];
-  
 
   // const { items } = useItems()
   const { cartItems, setCartItems, addToCart, removeFromCart, subtotal } =

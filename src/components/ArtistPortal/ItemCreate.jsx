@@ -1,7 +1,7 @@
-import react, { useState } from 'react'
+import react, { useState, useContext } from 'react'
 import '../../index.css'
 import '../styles/artistportal-styles.css'
-import { useItems } from '../../app-context/ItemsContext'
+import { ItemsContext } from '../../app-context/ItemsContext'
 import TextAreaField from './ItemComponents/TextAreaField'
 import { storage } from '../../Firebase.js'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
@@ -21,7 +21,7 @@ const ItemCreate = () => {
 
     const [resetTrigger, setResetTrigger] = useState(false)
 
-    const { addItem } = useItems()
+    const { addItem } = useContext(ItemsContext)
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0])

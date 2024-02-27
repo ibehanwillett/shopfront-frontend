@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import CartItem from "./CartItem";
 import "../styles/cart.css";
 import { useCartContext } from "../../app-context/CartContext";
-import { useItems } from '../../app-context/ItemsContext';
+// import { useItems } from '../../app-context/useItems';
 
 function Cart({ hideCheckoutButton }) {
   // Static data for the cart items
@@ -14,7 +14,7 @@ function Cart({ hideCheckoutButton }) {
   // ];
   
 
-  const { items } = useItems()
+  // const { items } = useItems()
   const { cartItems, setCartItems, addToCart, removeFromCart, subtotal } =
     useCartContext();
 
@@ -25,14 +25,14 @@ function Cart({ hideCheckoutButton }) {
   // };
 
 
-  //Updates the cart items to reflect any updates made in teh ItemsContext.jsx
-  useEffect(() => {
-    const updatedCartItems = cartItems.filter(cartItem => 
-      items.some(item => item._id === cartItem._id))
-    if (updatedCartItems.length !== cartItems.length) {
-      setCartItems(updatedCartItems)
-    }
-  }, [items, cartItems, setCartItems])
+  // Updates the cart items to reflect any updates made in teh ItemsContext.jsx such as items deleted 
+  // useEffect(() => {
+  //   const updatedCartItems = cartItems.filter(cartItem => 
+  //     items.some(item => item._id === cartItem._id))
+  //   if (updatedCartItems.length !== cartItems.length) {
+  //     setCartItems(updatedCartItems)
+  //   }
+  // }, [items, cartItems, setCartItems])
 
 
   console.log(cartItems[0])

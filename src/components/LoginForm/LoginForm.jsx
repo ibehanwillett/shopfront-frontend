@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from "react-router-dom"
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
 import { useUserContext } from '../../app-context/UserContext.jsx'
-// import userLogin from './UserLogin.jsx'
+
 
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [resetTrigger, setResetTrigger] = useState(false)
-  const { UserLogin } = useUserContext()
+  const { UserLogin, adminAndUserSet } = useUserContext()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -19,6 +19,8 @@ const LoginForm = () => {
         credentials: "include",
       });
       if (response.status === 200) {
+        const user = await response.json()
+        adminAndUserSet(user)
         navigate("/logout");
 
       } else {

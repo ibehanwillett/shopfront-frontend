@@ -50,7 +50,7 @@ const UserProvider = ({children}) => {
      }
     }
 
-    const value = { activeUser, isAdmin, adminAndUserSet, UserLogin }
+    const value = { activeUser, isAdmin, adminAndUserSet, UserLogin, setActiveUser, setIsAdmin }
   return (
     <UserContextProvider value={value}>
                 {children}

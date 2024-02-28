@@ -23,8 +23,10 @@ div.navbar-start {
 
 .nav-left, .nav-right {
     display: flex;
+    width: 3rem;
     align-items: center;
     justify-content: center;
+    margin: 0 1rem;
 }
 
 .logo-container a, .logo-container img {
@@ -35,11 +37,11 @@ div.navbar-start {
 
 nav {
     display: flex;
+    height: 9rem;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
-    border-bottom: solid 0.1rem;
-    border-color: #000000;
+
 }
 
 .nav-icon-notification-dot {

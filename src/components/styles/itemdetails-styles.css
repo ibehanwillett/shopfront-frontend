@@ -36,3 +36,20 @@
 #item-descr {
     margin: 1rem 0;
 }
+
+#item-details-image, .item-info {
+    margin: 0 1rem;
+    max-width: 400px;
+}
+
+@media (min-width: 961px) {
+    #item-details, .section01 {
+        justify-content: center;
+        align-items: start;
+        min-width: 18rem;
+    }
+
+    .section01 {
+        margin: 0;
+    }
+}

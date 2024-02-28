@@ -18,9 +18,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0.6rem;
+    margin-bottom: 4rem;
     background-color: rgb(255, 255, 255);
-    padding: 1.5rem;
+    /* padding: 1.5rem; */
 }
 
 /* .container {
@@ -36,9 +36,19 @@
 }
 
 #text-container {
-    margin: 0 0 1rem 0;
+    margin: 1rem 1.5rem;
 }
 
 #body-text {
     font-size: 1.2em
+}
+
+#items-heading {
+    margin: 1.5rem;
+    font-size: 2em;
+    font-weight: 500;
+    /* text-decoration: underline; */
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
 }

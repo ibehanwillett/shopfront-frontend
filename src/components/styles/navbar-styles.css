@@ -4,7 +4,7 @@ a {
 }
 
 a#nav-link {
-    margin: 0 1rem;
+    margin: 0 1.2rem;
 }
 
 svg#user {
@@ -18,7 +18,9 @@ svg {
 }
 
 div.navbar-start {
+    margin-top: 3rem;
     align-items: center;
+    font-size: 1.3em;
 }
 
 .nav-left, .nav-right {
@@ -41,7 +43,6 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
-
 }
 
 .nav-icon-notification-dot {
@@ -127,7 +128,7 @@ a span {
     }
 
     a#nav-link {
-        margin: 1rem;
+        margin: 2rem 0;
     }
 }
 
@@ -151,6 +152,11 @@ a span {
     }
     a span {
         display: none;
+    }
+    div.navbar-start {
+        margin: 1rem;
+        align-items: center;
+        justify-content: center;
     }
 }
 

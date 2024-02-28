@@ -197,7 +197,7 @@ const ItemUpdate = () => {
                         </div> 
                     </div>
 
-                    <button >Update</button>
+                    <button id="submit-button">Update</button>
 
                 </div>
             </form>

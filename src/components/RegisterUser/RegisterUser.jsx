@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
 import NewUser from './NewUser.jsx'
+import { useUserContext } from '../../app-context/UserContext.jsx'
 
 const RegisterUser = () => {
     const [email, setEmail] = useState('')

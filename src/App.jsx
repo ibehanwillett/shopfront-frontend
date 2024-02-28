@@ -12,6 +12,7 @@ import RegisterUser from "./components/RegisterUser/RegisterUser.jsx"
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 import CartContext, { CartProvider } from "./app-context/CartContext"
 import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
+import Protected from "./components/Protected.jsx"
 import { ItemsProvider } from './app-context/ItemsContext'
 import UserProvider from './app-context/UserContext'
 
@@ -32,7 +33,11 @@ function App() {
                   <Route path="/login" element={<LoginForm />}/>
                   <Route path="/logout" element={<LogOut />}/>
                   <Route path="/register" element={<RegisterUser />}/>
-                  <Route path="/artistportal" element={<ArtistPortal />}/>
+                  <Route path="/artistportal" element={
+                    <Protected>
+                      <ArtistPortal />
+                  </Protected> 
+                  }/>
                   <Route path="/checkout" element={<Checkout />}/>
                   <Route path="/cart" element={<Cart />}/>
                   <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />

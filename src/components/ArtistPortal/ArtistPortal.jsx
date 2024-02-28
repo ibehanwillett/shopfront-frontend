@@ -7,7 +7,6 @@ import ItemUpdate from "./ItemUpdate.jsx"
 
 
 const ArtistPortal = () => {
-
     return (
         <>
             <main>

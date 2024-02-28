@@ -1,42 +1,48 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import '../styles/cartItem-styles.css'
-import { useCartContext } from '../../app-context/CartContext'
 import ShopfrontItem from './ShopfrontItem'
+import { ItemsContext } from '../../app-context/ItemsContext'
+import '../styles/shop-styles.css'
 
 
 
-const ShopFront = ({ items }) => {
-
-  const { addToCart } = useCartContext()
-  const [buttonText, setButtonText] = useState("Add to cart")
-
-  const handleClick = (item) => {
-    setButtonText(buttonText === 'Add to cart' ? 'Added to cart!' : 'Add to cart')
-    addToCart(item)
-  }
+const ShopFront = () => {
+  
+  const { items } = useContext(ItemsContext)
+  const categories = ['Tees', 'Hats', 'Art', 'Accessories', 'Other']
 
   return (
     <>
-    <h3>BROWSE ITEMS</h3>
-    <div>
-      {
-      items.map((item, index) => {
-        return (
-          <ShopfrontItem
-          key={index}
-          name={item.name}
-          price={item.price}
-          description={item.description}
-          image={item.image}
-          buttonText={buttonText}
-          onAdd={()=> handleClick(item)}
-          /> 
-        )
-        })
-      }
-    </div>
+    <main>
+      <h1 id="page-title">SHOP</h1>
+        <div id="items-list">
+          {categories.map((category, idx) => (
+            <div key={idx} className="category-section">
+              <h2 id="category-title">{category}</h2>
+              <div id="category-items">
+                {items
+                  .filter(item => item.category === category)
+                  .map((item, index) => (
+                      <ShopfrontItem
+                        id={`shop-item-${category}-${index}`}
+                        key={index}
+                        item={item}
+                        name={item.name}
+                        price={item.price}
+                        description={item.description}
+                        image={item.image}
+                        link={`/item/${item._id}`}
+                        // disableLink={false}
+                      />
+                  ))}
+              </div>
+            </div>
+          ))}
+        </div>
+    </main>
     </>
-  )
-}
+  );
+};
 
 export default ShopFront

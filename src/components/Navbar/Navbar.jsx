@@ -1,5 +1,6 @@
 import react, { useRef } from 'react'
 import { Link } from "react-router-dom"
+import { useCartContext } from "../../app-context/CartContext"
 import '../styles/navbar-styles.css'
 import '../../index.css'
 import { UserIcon, CartIcon } from './NavIcons.jsx'
@@ -9,6 +10,9 @@ import siteLogo from '../../assets/site-logo.png'
 const Navbar = () => {
 
     const navBarRef = useRef()
+    const { cartItems } = useCartContext();
+    const itemCount = cartItems.length; 
+
 
     function toggleHamburger(evt) {
         evt.stopPropagation();
@@ -45,7 +49,7 @@ const Navbar = () => {
 
             <div className='nav-right'>
                 <Link id='icons' to='/artistportal'> <UserIcon /> </Link>
-                <Link id='icons' to='/cart'> <CartIcon /> </Link>
+                <Link id='icons' to='/cart'> <CartIcon itemCount={itemCount} /> </Link>
             </div>
             
         </nav>

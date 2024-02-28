@@ -1,15 +1,33 @@
 import React, { useState } from 'react'
+import AddToCartButton from './AddToCartButton'
+import { Link } from 'react-router-dom'
+import '../styles/shop-styles.css'
 
-const ShopfrontItem = ({name, price, description, image, buttonText, onAdd}) => {
+
+const ShopfrontItem = ({link, item, name, price, description, image, disableLink}) => {
+
 
   return (
-    <div>
-        <h4>{name}</h4>
-        <h5>${price}</h5>
-        <h6>{description}</h6>
-        <img src={image}/>
-        <button onClick={onAdd}>{buttonText}</button>
+    <>
+    <div id="shop-items">
+      {/* { disableLink ? (
+        <img id="item-image" src={image} alt="No Image available"/>
+      ) : ( */}
+        <Link id="image-link" to={link}>
+          <img id="item-image" src={image} alt="No Image available"/>
+        </Link>
+        {/* )} */}
+        
+        <div id="item-info">
+          <div>
+            <h3 id="item-name">{name}</h3>
+            <h2 id="item-price">${price}</h2>
+          </div>
+          {/* <h6>{description}</h6> */}
+          <AddToCartButton item={item}/>
+        </div>
     </div>
+    </>
   )
 }
 

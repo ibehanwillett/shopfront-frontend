@@ -1,18 +1,23 @@
-import react from 'react'
-import UpdateAbout from './UpdateAbout'
-import AddItem from './AddItem.jsx'
+import react, { useEffect, useState } from "react"
+import UpdateAbout from "./AboutUpdate.jsx"
+import ItemCreate from "./ItemCreate.jsx"
+import ItemDelete from "./ItemDelete.jsx"
+import ItemUpdate from "./ItemUpdate.jsx"
 
-const ArtistPortal = ({ artist }) => {
-    
-   return (
+
+
+const ArtistPortal = () => {
+
+    return (
         <>
             <main>
-                <h2>Hi, Nicole{/*artist.fname*/}.</h2>
-                <UpdateAbout />
-                <AddItem />
+                <h2 id="page-title">Hi, Nicole.</h2>
+                <ItemCreate />
+                <ItemUpdate />
+                <ItemDelete />
             </main>
         </>
-    )
-}
+    );
+};
 
-export default ArtistPortal
+export default ArtistPortal;

@@ -9,8 +9,8 @@ const NewUser =  async (submittedEmail, submittedFirstName, submittedLastName, s
       }
 
     console.log(JSON.stringify(credentials))
-// 'https://shopfront-backend.onrender.com/users/login'
-    const response =  await fetch('http://localhost:4001/users/register', {
+// 'https://shopfront-backend.onrender.com/users/'
+    const response =  await fetch('http://localhost:4001/users/', {
 
     method: 'POST',
     credentials: "include",
@@ -24,7 +24,7 @@ const NewUser =  async (submittedEmail, submittedFirstName, submittedLastName, s
  
   })
  
-   if (response.status === 200) {
+   if (response.status === 201) {
     navigate("/")
     console.log("worked")
  }

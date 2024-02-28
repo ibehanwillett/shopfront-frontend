@@ -13,12 +13,14 @@ import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation'
 import CartContext, { CartProvider } from "./app-context/CartContext"
 import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
 import { ItemsProvider } from './app-context/ItemsContext'
+import UserProvider from './app-context/UserContext'
 
 
 function App() {
 
   return (
     <>
+    <UserProvider>
       <ItemsProvider>
         <CartProvider>
           <BrowserRouter>
@@ -38,6 +40,7 @@ function App() {
           </BrowserRouter>
         </CartProvider>
       </ItemsProvider>
+    </UserProvider>
     </>
   )
 }

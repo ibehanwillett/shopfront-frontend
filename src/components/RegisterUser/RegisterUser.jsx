@@ -51,7 +51,7 @@ const RegisterUser = () => {
         onChange={setPassword} 
         resetTrigger={resetTrigger} />
       </div>  
-      <button type="submit" disabled={!validateForm()}>Log In</button>
+      <button type="submit" disabled={!validateForm()}>Make account</button>
   </form>
     </>
   )

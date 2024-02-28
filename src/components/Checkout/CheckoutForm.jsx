@@ -57,7 +57,7 @@ const CheckoutForm = () => {
         paymentMethodId: paymentMethod.id,
         amount: Math.round(subtotal * 100), 
       };
-
+        // add authenticateToken middleware to route
       const authToken = "JWT TOKEN HERE";
 
       fetch("http://localhost:4001/payment/process-payment", { 

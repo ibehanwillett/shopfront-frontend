@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from "react-router-dom"
 
 const UserLogin = async (submittedEmail, submittedPassword, navigate) => {
     const credentials = {
@@ -24,6 +23,10 @@ const UserLogin = async (submittedEmail, submittedPassword, navigate) => {
   })
  
    if (response.status === 200) {
+    const user = await response.json()
+    console.log(user)
+    console.log(user.admin)
+    adminAndUserSet(user)
     navigate("/")
     console.log("worked")
  }

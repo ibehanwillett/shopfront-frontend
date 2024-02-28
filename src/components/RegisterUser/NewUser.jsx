@@ -25,8 +25,8 @@ const NewUser =  async (submittedEmail, submittedFirstName, submittedLastName, s
   })
  
    if (response.status === 201) {
-    navigate("/")
-    console.log("worked")
+    const user = await response.json()
+    return user
  }
 }
 

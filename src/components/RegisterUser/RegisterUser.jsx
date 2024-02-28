@@ -9,6 +9,7 @@ const RegisterUser = () => {
     const [lastName, setLastName] = useState('')
     const [password, setPassword] = useState('')
     const [resetTrigger, setResetTrigger] = useState(false)
+    const { adminAndUserSet } = useUserContext()
     const navigate = useNavigate()
 
   const validateForm = () => {
@@ -17,7 +18,11 @@ const RegisterUser = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await NewUser(email, firstName, lastName, password, navigate)
+    const user = await NewUser(email, firstName, lastName, password)
+    if (user) {
+      adminAndUserSet(user)
+      navigate('/')
+    }
   }
 
   return (

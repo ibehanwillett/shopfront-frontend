@@ -9,7 +9,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [resetTrigger, setResetTrigger] = useState(false)
-  const { UserLogin, adminAndUserSet } = useUserContext()
+  const { UserLogin, adminAndUserSet, isAdmin } = useUserContext()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -41,6 +41,8 @@ const LoginForm = () => {
       navigate("/")
       }
   }
+
+  
 
   return (
     <>

@@ -48,7 +48,7 @@ const Navbar = () => {
             </div>
 
             <div className='nav-right'>
-                <Link id='icons' to='/artistportal'> <UserIcon /> </Link>
+                <Link id='icons' to='/login'> <UserIcon /> </Link>
                 <Link id='icons' to='/cart'> <CartIcon itemCount={itemCount} /> </Link>
             </div>
             

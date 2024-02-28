@@ -6,7 +6,7 @@ const UserIcon = () => {
     const commonStyle = {
         fill: 'none',
         stroke: 'black',
-        strokeWidth: '2',
+        strokeWidth: '3',
         strokeMiterlimit: '10',
     };
 
@@ -26,19 +26,19 @@ const CartIcon = ( { itemCount } ) => {
         display: 'inline',
         fill: 'none',
         stroke: 'black',
-        strokeWidth: '2',
+        strokeWidth: '3',
         strokeMiterlimit: '10',
     };
     const fillStrokeStyle = {
         fill: 'none',
         stroke: 'black',
-        strokeWidth: '2',
+        strokeWidth: '3',
         strokeMiterlimit: '10',
     };
     const strokeStyle = {
         fill: 'none',
         stroke: 'black',
-        strokeWidth: '2',
+        strokeWidth: '3',
         strokeMiterlimit: '10',
     };
     const notificationDotStyle = {
@@ -67,7 +67,7 @@ const CartIcon = ( { itemCount } ) => {
                 </g>
             )}
         </svg>
-    );
+    )
 }
 
 export  { UserIcon, CartIcon } 

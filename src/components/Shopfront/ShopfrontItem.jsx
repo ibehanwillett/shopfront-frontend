@@ -6,7 +6,6 @@ import '../styles/shop-styles.css'
 
 const ShopfrontItem = ({link, item, name, price, description, image, disableLink}) => {
 
-
   return (
     <>
     <div id="shop-items">

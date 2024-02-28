@@ -15,7 +15,7 @@ const ShopFront = () => {
   return (
     <>
     <main>
-      <h1 id="page-title">SHOP</h1>
+      <h1 className="page-title">SHOP</h1>
         <div id="items-list">
           {categories.map((category, idx) => (
             <div key={idx} className="category-section">

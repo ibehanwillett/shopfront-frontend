@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import DeleteBtn from './DeleteBtn.jsx'
 import { useNavigate, Link } from "react-router-dom"
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
 import { useUserContext } from '../../app-context/UserContext.jsx'
@@ -36,7 +37,7 @@ const EditForm = () => {
         <button>Submit</button>
       </form>
     
-        <button>Delete Account</button>
+        <DeleteBtn />
     </>
   )
 }

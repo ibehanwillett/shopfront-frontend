@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from 'react'
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
-import userLogin from './UserLogin.jsx'
+import { useUserContext } from '../../app-context/UserContext.jsx'
+
+
 
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [resetTrigger, setResetTrigger] = useState(false)
+  const { UserLogin, adminAndUserSet } = useUserContext()
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -16,6 +19,8 @@ const LoginForm = () => {
         credentials: "include",
       });
       if (response.status === 200) {
+        const user = await response.json()
+        adminAndUserSet(user)
         navigate("/logout");
 
       } else {
@@ -31,7 +36,10 @@ const LoginForm = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    await userLogin(email, password, navigate)
+    const worked = await UserLogin(email, password)
+    if (worked) {
+      navigate("/")
+      console.log("worked")}
   }
 
   return (
@@ -53,6 +61,7 @@ const LoginForm = () => {
       </div>  
       <button type="submit" disabled={!validateForm()}>Log In</button>
   </form>
+  <Link to='/register'>Make new account</Link>
     </>
   )
 }

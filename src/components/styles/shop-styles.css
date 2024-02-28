@@ -14,9 +14,9 @@
     flex-direction: column;
     margin: 2rem 0;
     /* border: 6px solid rgb(0, 0, 0); */
-    box-shadow: 5px;
+    /* box-shadow: 5px; */
     max-width: 100vw;
-    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5)
+    /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5) */
 }
 
 #item-image {
@@ -40,8 +40,9 @@
     padding: 0;
 }
 
-h1#page-title {
-    font-size: 5em;
+.page-title {
+    margin-top: 5rem;
+    font-size: 4em;
 }
 
 div.category-section {

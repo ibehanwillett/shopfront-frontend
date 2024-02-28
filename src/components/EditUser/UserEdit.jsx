@@ -1,4 +1,4 @@
-import React from 'react'
+/* import React from 'react'
 
 const UserEdit = async(submittedPassword) => {
         const credentials = {
@@ -28,4 +28,4 @@ const UserEdit = async(submittedPassword) => {
      
 }
 
-export default UserEdit
+export default UserEdit */

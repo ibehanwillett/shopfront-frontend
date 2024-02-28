@@ -40,8 +40,9 @@
     padding: 0;
 }
 
-h1#page-title {
-    font-size: 5em;
+.page-title {
+    margin-top: 5rem;
+    font-size: 4em;
 }
 
 div.category-section {

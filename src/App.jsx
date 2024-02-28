@@ -15,6 +15,7 @@ import ArtistPortal from './components/ArtistPortal/ArtistPortal.jsx'
 import Protected from "./components/Protected.jsx"
 import { ItemsProvider } from './app-context/ItemsContext'
 import UserProvider from './app-context/UserContext'
+import ItemDetails from './components/Shopfront/ItemDetails.jsx'
 
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
               <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<ShopFront/>}/>
+                  <Route path="/item/:id" element={<ItemDetails/>}/>
                   <Route path="/about" element={<About />}/>
                   <Route path="/login" element={<LoginForm />}/>
                   <Route path="/logout" element={<LogOut />}/>

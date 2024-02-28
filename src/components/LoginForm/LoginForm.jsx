@@ -39,7 +39,7 @@ const LoginForm = () => {
     const worked = await UserLogin(email, password)
     if (worked) {
       navigate("/")
-      console.log("worked")}
+      }
   }
 
   return (

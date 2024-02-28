@@ -50,7 +50,34 @@ const UserProvider = ({children}) => {
      }
     }
 
-    const value = { activeUser, isAdmin, adminAndUserSet, UserLogin, setActiveUser, setIsAdmin }
+    const UserEdit = async(submittedPassword) => {
+        const credentials = {
+            password: submittedPassword
+          }
+    
+        console.log(JSON.stringify(credentials))
+    // 'https://shopfront-backend.onrender.com/users/login'
+        const response =  await fetch(`http://localhost:4001/users/${activeUser._id}`, {
+    
+        method: 'PATCH',
+        credentials: "include",
+        headers: {
+     
+          'Content-Type': 'application/json'
+     
+        },
+     
+        body: JSON.stringify(credentials)
+     
+      })
+     
+       if (response.status === 200) {
+        return true
+     }
+     
+}
+
+    const value = { activeUser, isAdmin, adminAndUserSet, UserLogin, UserEdit, setActiveUser, setIsAdmin }
   return (
     <UserContextProvider value={value}>
                 {children}

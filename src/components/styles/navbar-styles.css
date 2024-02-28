@@ -13,8 +13,8 @@ svg#user {
 
 svg {
     margin: 0 0.5rem 0 0;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
 }
 
 div.navbar-start {
@@ -37,7 +37,7 @@ div.navbar-start {
 
 nav {
     display: flex;
-    height: 9rem;
+    height: 12rem;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
@@ -60,13 +60,13 @@ nav {
     border-radius: 50%;
     font-size: 12px;
     text-align: center;
-    line-height: 20px; 
+    line-height: 20px;
 }
 
 a span {
     display: block;
     width: 25px;
-    height: 1px;
+    height: 2px;
     background-color: #333;
     margin: 6px 0;
     transition: 0.4s;

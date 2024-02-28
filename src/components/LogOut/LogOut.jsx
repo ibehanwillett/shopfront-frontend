@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom"
 
 const LogOut = () => {
   const navigate = useNavigate()
-  const { setActiveUser, setIsAdmin } = useUserContext()
+  const { setActiveUser, setIsAdmin, isAdmin } = useUserContext()
   const [ show, setShow ] = useState(false)
 
   const handleClick = async () => {
@@ -23,12 +23,23 @@ const LogOut = () => {
     const showEdit = () => {
       setShow((show)=>!show)
     }
+
+    const DashboardBtn = () => {
+      const goToDashboard = () => {
+        navigate("/artistportal")
+      }
+      return (
+        <button onClick={goToDashboard}>Your Dashboard</button>
+      )
+  
+    }
   return (
     <>
     <h3>You're logged in</h3>
     <button onClick={handleClick}>Log out?</button> 
     <button onClick={showEdit}>Account Settings</button>
     {show && <EditForm/>}
+    {isAdmin && <DashboardBtn/>}
     </>
   )
 }

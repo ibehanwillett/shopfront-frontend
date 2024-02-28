@@ -10,13 +10,13 @@ const ShopfrontItem = ({link, item, name, price, description, image, disableLink
   return (
     <>
     <div id="shop-items">
-      { disableLink ? (
+      {/* { disableLink ? (
         <img id="item-image" src={image} alt="No Image available"/>
-      ) : (
+      ) : ( */}
         <Link id="image-link" to={link}>
           <img id="item-image" src={image} alt="No Image available"/>
         </Link>
-        )}
+        {/* )} */}
         
         <div id="item-info">
           <div>

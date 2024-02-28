@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { ItemsContext } from '../../app-context/ItemsContext'
 import AddToCartButton from './AddToCartButton'
 import '../styles/shop-styles.css'
+import '../styles/itemdetails-styles.css'
 
 
 const ItemDetails = () => {
@@ -17,11 +18,27 @@ const ItemDetails = () => {
 
     return (
         <div id="item-details">
-            <img src={item.image} alt={item.name} />
-            <h2>{item.name}</h2>
-            <p>{item.description}</p>
-            <p>{item.price}</p>
-            <AddToCartButton item={item}/>
+            
+            <img id="item-image" src={item.image} alt={item.name} />
+            <div className="item-info">
+                <div className="section01">
+                    <h2 id="details-name">{item.name}</h2>
+                    <p id="item-price">${item.price}</p>
+                </div>
+                
+                <p>{item.description}</p>
+                <div className="price-add">
+                    <div>
+                        <p>Size</p>
+                        <div className="item-size">
+                            <p id="size">{item.size}</p>
+                        </div>
+                    </div>
+                    <AddToCartButton item={item}/>
+                </div>
+                
+            </div>
+            
         </div>
     )
 }

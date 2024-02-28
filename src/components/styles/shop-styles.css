@@ -2,6 +2,13 @@
     display: grid
 }
 
+#item-details {
+    display: flex;
+
+    flex-direction: column;
+    margin: 2rem;
+}
+
 #shop-items {
     display: flex;
     flex-direction: column;
@@ -83,5 +90,11 @@ div.category-section {
     #shop-items:hover {
         transform: scale(1.02);
         transition: 0.3s ease-out;
+    }
+
+    #item-details {
+        display: flex;
+        align-items: flex-end;
+        flex-direction: row;
     }
 }

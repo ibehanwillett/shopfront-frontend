@@ -25,7 +25,7 @@ const ItemCreate = () => {
 
     const handleImageChange = (event) => {
         setImage(event.target.files[0])
-    };
+    }
     
     const handleSubmit = async (event) => {
         event.preventDefault()

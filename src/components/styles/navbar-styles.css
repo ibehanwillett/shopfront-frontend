@@ -13,8 +13,8 @@ svg#user {
 
 svg {
     margin: 0 0.5rem 0 0;
-    width: 24px;
-    height: 24px;
+    width: 28px;
+    height: 28px;
 }
 
 div.navbar-start {
@@ -23,8 +23,10 @@ div.navbar-start {
 
 .nav-left, .nav-right {
     display: flex;
+    width: 3rem;
     align-items: center;
     justify-content: center;
+    margin: 0 1rem;
 }
 
 .logo-container a, .logo-container img {
@@ -35,11 +37,11 @@ div.navbar-start {
 
 nav {
     display: flex;
+    height: 12rem;
     align-items: center;
     justify-content: space-between;
     padding: 0.5rem;
-    border-bottom: solid 0.1rem;
-    border-color: #000000;
+
 }
 
 .nav-icon-notification-dot {
@@ -58,13 +60,13 @@ nav {
     border-radius: 50%;
     font-size: 12px;
     text-align: center;
-    line-height: 20px; 
+    line-height: 20px;
 }
 
 a span {
     display: block;
     width: 25px;
-    height: 1px;
+    height: 2px;
     background-color: #333;
     margin: 6px 0;
     transition: 0.4s;

@@ -3,7 +3,7 @@ import { useEffect, useState, useContext } from 'react'
 import ShopFront from './components/Shopfront/Shopfront'
 import Navbar from './components/Navbar/Navbar'
 import Home from './components/Home/Home'
-import About from './components/About'
+import About from './components/About/About'
 import Checkout from './components/Checkout/Checkout'; 
 import Cart from './components/Cart/Cart'
 import LoginForm from "./components/LoginForm/LoginForm.jsx"

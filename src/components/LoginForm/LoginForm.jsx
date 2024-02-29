@@ -48,18 +48,20 @@ const LoginForm = () => {
     <>
     <form onSubmit={handleSubmit}>
       <div>
-        <TextAreaField
-        id="email" 
-        placeholder="Email" 
-        onChange={setEmail} 
-        resetTrigger={resetTrigger} />
+      <input 
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
       <div>
-        <TextAreaField
-        id="password" 
-        placeholder="Password" 
-        onChange={setPassword} 
-        resetTrigger={resetTrigger} />
+        <input 
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        />
       </div>  
       <button type="submit" disabled={!validateForm()}>Log In</button>
   </form>

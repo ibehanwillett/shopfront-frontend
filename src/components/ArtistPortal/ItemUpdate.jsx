@@ -5,8 +5,7 @@ import { ItemsContext } from '../../app-context/ItemsContext'
 import { storage } from '../../Firebase.js'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { v4 } from 'uuid'
-
-
+// import defaultImage from '../../assets/no-image'
 
 // UPDATE (PUT) item in MongoDB.
 const ItemUpdate = () => {
@@ -33,6 +32,7 @@ const ItemUpdate = () => {
         const newSelectedItemId = event.target.value;
         setSelectedItem(event.target.value)
         const selectedItem = items.find(item => item._id === newSelectedItemId)
+        console.log(selectedItem.image)
         if (selectedItem) {
             setSelectName(selectedItem.name)
             setSelectDescription(selectedItem.description)
@@ -122,7 +122,7 @@ const ItemUpdate = () => {
     }
 
 
-    // JSX for the component. There are multiple textareas, selects,
+    // There are multiple textareas, selects,
     // and inputs that display in the user interface. ALl of them 
     // provide a means to gather the user input which is gathered
     // to construct the object in MongoDB.
@@ -196,8 +196,7 @@ const ItemUpdate = () => {
                             <option value="false">false</option>
                     </select>
                         
-                    <div id="contain">
-                        
+                    <div id="contain-price">  
                         <input 
                             id="price" 
                             type="number"

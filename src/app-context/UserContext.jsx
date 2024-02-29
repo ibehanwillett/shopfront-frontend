@@ -15,7 +15,7 @@ const UserProvider = ({children}) => {
     const adminAndUserSet = (dbUser) => {
         setActiveUser(dbUser)
         if (dbUser.admin) {
-            console.log('admin')
+            // console.log('admin')
             setIsAdmin(true)
         }
     }
@@ -26,7 +26,7 @@ const UserProvider = ({children}) => {
             password: submittedPassword
           }
     
-        console.log(JSON.stringify(credentials))
+        // console.log(JSON.stringify(credentials))
         const response =  await fetch('https://shopfront-backend.onrender.com/users/login', {
     
         method: 'POST',
@@ -43,8 +43,8 @@ const UserProvider = ({children}) => {
      
        if (response.status === 200) {
         const user = await response.json()
-        console.log(user)
-        console.log(user.admin)
+        // console.log(user)
+        // console.log(user.admin)
         adminAndUserSet(user)
         return true
      } else if (response.status === 401) {
@@ -60,7 +60,7 @@ const UserProvider = ({children}) => {
             password: submittedPassword
           }
     
-        console.log(JSON.stringify(credentials))
+        // console.log(JSON.stringify(credentials))
         const response =  await fetch(`https://shopfront-backend.onrender.com/users/${activeUser._id}`, {
     
         method: 'PATCH',

@@ -9,8 +9,11 @@ import { v4 } from 'uuid'
 
 
 // CREATE (POST) item to the DB
+// Very Similar to ItemUpdate component, minus the drop-down 
+// selector to choose an existing item in MongoDB.
 const ItemCreate = () => {
 
+    // initial states are set for each of the item props.
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [category, setCategory] = useState('disabled')
@@ -19,10 +22,11 @@ const ItemCreate = () => {
     const [image, setImage] = useState(null)
     const [price, setPrice] = useState('')
 
+    // Reset trigger is used to set the state of the TextAreaField
     const [resetTrigger, setResetTrigger] = useState(false)
-
+    
     const { addItem } = useContext(ItemsContext)
-
+    // handler for the image change onClick
     const handleImageChange = (event) => {
         setImage(event.target.files[0])
     }
@@ -98,6 +102,7 @@ const ItemCreate = () => {
                         id="description" 
                         placeholder="Description" 
                         onChange={setDescription} 
+                        maxLength="50"
                         resetTrigger={resetTrigger}
                     ></TextAreaField>
 
@@ -144,7 +149,8 @@ const ItemCreate = () => {
                             id="price" 
                             type="number"
                             value={price}
-                            placeholder="Price" 
+                            placeholder="Price"
+                            maxLength="5"
                             onChange={(e) => setPrice(e.target.value ? parseFloat(e.target.value) : '')} 
                         />
                          <div id="inputContainer">

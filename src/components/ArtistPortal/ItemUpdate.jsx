@@ -63,7 +63,8 @@ const ItemUpdate = () => {
             setSelectImage(null)
         }
     }
-
+    // Checks are made to make sure there are no empty values
+    // for all required fields.
     const handleSubmit = async (event) => {
         event.preventDefault()
 
@@ -79,6 +80,10 @@ const ItemUpdate = () => {
             return;
         }
 
+        // Images are given a unique identifier via the imported v4() function
+        // THe imagesare stored in Firebase storage, the name of the image is
+        // then assigned to downloadURL which is stored as  value for image
+        // in the object.
         const imageRef = ref(storage, `images/${selectImage.name + v4()}`)
         uploadBytes(imageRef, selectImage).then((uploadResult) => {
             // After successful upload, get the download URL
@@ -116,6 +121,11 @@ const ItemUpdate = () => {
         })
     }
 
+
+    // JSX for the component. There are multiple textareas, selects,
+    // and inputs that display in the user interface. ALl of them 
+    // provide a means to gather the user input which is gathered
+    // to construct the object in MongoDB.
     return(
         <>  
             <form onSubmit={handleSubmit}>
@@ -143,6 +153,7 @@ const ItemUpdate = () => {
                         name="description" 
                         placeholder="Description" 
                         id="description"
+                        maxLength="50"
                         value={selectDescription}
                         onChange={(e) => setSelectDescription(e.target.value)}
                     ></textarea>
@@ -190,6 +201,7 @@ const ItemUpdate = () => {
                             name="price" 
                             placeholder="Price" 
                             id="price"
+                            maxLength="5"
                             value={selectPrice}
                             onChange={(e) => setSelectPrice(e.target.value ? parseFloat(e.target.value) : '')}
                         ></textarea>

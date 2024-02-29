@@ -8,7 +8,6 @@ import "../styles/login-style.css"
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [resetTrigger, setResetTrigger] = useState(false)
   const { UserLogin, adminAndUserSet, isAdmin } = useUserContext()
   const navigate = useNavigate()
 

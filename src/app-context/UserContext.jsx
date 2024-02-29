@@ -44,8 +44,11 @@ const UserProvider = ({children}) => {
         console.log(user.admin)
         adminAndUserSet(user)
         return true
-     } else {
+     } else if (response.status === 401) {
+        alert("Incorrect username or password")
         return false
+     } else {
+      console.error("Unknown error")
      }
     }
 

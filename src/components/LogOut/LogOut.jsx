@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import EditForm from '../EditUser/EditForm'
 import { useUserContext } from '../../app-context/UserContext'
 import { useNavigate } from "react-router-dom"
+import "../styles/logout-style.css"
 
 
 const LogOut = () => {
@@ -36,11 +37,13 @@ const LogOut = () => {
     }
   return (
     <>
-    <h3>You're logged in</h3>
+    <h3 id="log-title">You're logged in</h3>
+    <div class="flex-container">
     <button onClick={handleClick}>Log out?</button> 
     <button onClick={showEdit}>Account Settings</button>
     {show && <EditForm/>}
     {isAdmin && <DashboardBtn/>}
+    </div>
     </>
   )
 }

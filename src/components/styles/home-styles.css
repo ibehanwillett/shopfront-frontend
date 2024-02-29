@@ -26,12 +26,13 @@
 }
 
 
-#welcome {
+.welcome {
     display: flex;
     justify-content: start;
     align-items: start;
     font-size: 2em;
-    font-weight: 400;
+    font-weight: 450;
+    font-style: italic
 }
 
 #text-container {
@@ -40,8 +41,10 @@
     align-self: center;
 }
 
-#body-text {
-    font-size: 1.2em
+.body-text {
+    font-size: 1.1em;
+    line-height: 1.9rem;
+    letter-spacing: 1px;
 }
 
 #items-heading {

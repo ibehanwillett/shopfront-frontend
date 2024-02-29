@@ -80,7 +80,7 @@ const UserProvider = ({children}) => {
      
       })
         // If the response.status of the response is 200 the function returns true
-       if (response.status === 200) {
+       if (response.status === 201) {
         return true
      }
      

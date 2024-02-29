@@ -26,7 +26,9 @@ const ItemDelete = () => {
         <>
             <div id="components">
                 <h3>Delete Item</h3>
-                <select id="drop-down" value={selectedItem} onChange={handleSelectionChange}>
+                <select     
+                    data-testid="drop-down" 
+                    id="drop-down" value={selectedItem} onChange={handleSelectionChange}>
                     <option value="disabled">Select Item</option>
                     {items && items.map((item) => (
                         <option key={item._id} value={item._id}>{item.name}</option>

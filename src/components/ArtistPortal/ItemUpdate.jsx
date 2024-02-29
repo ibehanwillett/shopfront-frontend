@@ -68,7 +68,8 @@ const ItemUpdate = () => {
             selectCategory === '' ||
             selectSize === '' ||
             selectFeatured === '' ||
-            selectPrice === '') {
+            selectPrice === '' ||
+            selectImage === null) {
             alert('Please make sure to fill in all the fields.')
             return;
         }
@@ -188,7 +189,7 @@ const ItemUpdate = () => {
                         ></textarea>
 
                         <div id="inputContainer">
-                            <label id="imgInputLabel">Upload Image</label>
+                            <label id="imgInputLabel" htmlFor="imgInput">Upload Image</label>
                             <input 
                                 id="imgInput" 
                                 type="file"

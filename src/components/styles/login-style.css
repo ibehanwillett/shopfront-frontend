@@ -27,3 +27,9 @@ div {
 #new-account-link:hover {
     text-decoration-line: underline;
 }
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+  }
+  

@@ -9,9 +9,10 @@ const LoginForm = () => {
   const [email, setEmail] = useState('')
   // Sets a state to hold the password
   const [password, setPassword] = useState('')
-  // UserLogin and adminAndUserSet are defined and managed by UserContext
-  const { UserLogin, adminAndUserSet  } = useUserContext()
-  //  Intializes a shorthand way to call the useNavigate hook
+  //  Sets a state to hold the error message
+  const [errorMessage, setErrorMessage] = useState('')
+    // UserLogin and adminAndUserSet are defined and managed by UserContext
+  const { UserLogin, adminAndUserSet, isAdmin } = useUserContext()
   const navigate = useNavigate()
 
   // When the LoginForm  component is mounted, this function automatically sends a request to the autoLogin API endpoint.
@@ -51,8 +52,10 @@ const LoginForm = () => {
     const worked = await UserLogin(email, password)
     // If worked evaluates to true then navigate to the home page.
     if (worked) {
-      navigate("/")
-      }
+      navigate("/");
+    } else {
+      setErrorMessage("Email or password incorrect. Please try again.");
+    }
   }
 
   
@@ -79,7 +82,8 @@ const LoginForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
-      </div>  
+      </div> 
+      {errorMessage && <div className="error-message">{errorMessage}</div>} 
       <button id="login-btn" type="submit" disabled={!validateForm()}>Log In</button>
       <Link to='/register' id="new-account-link">Make new account</Link>
   </form>

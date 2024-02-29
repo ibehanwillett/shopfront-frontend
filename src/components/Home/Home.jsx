@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import '../../index.css'
 import { ItemsContext } from '../../app-context/ItemsContext'
-// import '../styles/shop-styles.css'
+import '../styles/shop-styles.css'
 import '../styles/home-styles.css'
 import picture from '../../assets/watercolour_square.png'
 import ShopfrontItem from '../Shopfront/ShopfrontItem'
@@ -16,7 +16,9 @@ const Home = () => {
     <>
     <div className="container">
       <div className="section">
-        <img id="home-image" src={picture} alt="Nicole Nightmare Home Image" />
+        <div id="image-container">
+          <img id="home-image" src={picture} alt="Nicole Nightmare Home Image" />
+        </div>
         <div id="text-container">
           <h2 id="welcome">WELCOME</h2>
           <p id="body-text">

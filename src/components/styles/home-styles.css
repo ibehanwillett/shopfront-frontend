@@ -1,13 +1,15 @@
 #home-image {
-    /* max-width: 100vw; */
-    max-width: 100%; 
+    max-width: 100%;
     height: auto;
+}
+
+#image-container {
+    max-width: 32rem;
 }
 
 #home-title {
     display: flex;
     justify-content: center;
-    /* align-items: center; */
 }
 
 #title {
@@ -17,26 +19,25 @@
 .section {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
     margin-bottom: 4rem;
     background-color: rgb(255, 255, 255);
-    /* padding: 1.5rem; */
 }
 
-/* .container {
-    padding: 3rem 0.8rem;
-    background-color: rgb(255, 217, 91);
-} */
 
 #welcome {
     display: flex;
     justify-content: start;
     align-items: start;
-    font-size: 2.5em;
+    font-size: 2em;
+    font-weight: 400;
 }
 
 #text-container {
-    margin: 1rem 1.5rem;
+    padding: 1rem 1.5rem;
+    max-width: 34rem; 
+    align-self: center;
 }
 
 #body-text {
@@ -46,9 +47,30 @@
 #items-heading {
     margin: 1.5rem;
     font-size: 2em;
-    font-weight: 500;
-    /* text-decoration: underline; */
-    /* display: flex;
-    justify-content: center;
-    align-items: center; */
+    font-weight: 400;
+}
+
+@media (min-width: 768px) and (max-width: 963px) {
+    /* CSS styles for tablets */
+}
+
+@media (min-width: 960px) {
+    .section {
+        flex-direction: row;
+        align-items: start;
+    }
+
+    .items-grid {
+        display: grid;
+        grid-gap: 2rem;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        max-width: 100%;
+    }
+
+    #items-heading {
+        margin: 3rem;
+    }
 }

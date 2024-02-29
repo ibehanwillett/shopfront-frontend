@@ -8,11 +8,11 @@ import { v4 } from 'uuid'
 
 
 
-// UPDATE (PUT) item in DB
+// UPDATE (PUT) item in MongoDB.
 const ItemUpdate = () => {
-
+    // Provide items and updateItem from ItemsContext.
     const { items, updateItem } = useContext(ItemsContext)
-
+    // Create useStates for item properties with inital state.
     const [selectedItem, setSelectedItem] = useState("disabled")
     const [selectName, setSelectName] = useState('')
     const [selectCategory, setSelectCategory] = useState('disabled')
@@ -25,7 +25,11 @@ const ItemUpdate = () => {
    
     // Update selectedItem state on selection change
     const handleSelectionChange = (event) => {
-
+        // Using the selected item's properties, the fields will be
+        // updated with their value. This allows the user easier 
+        // changes to existing data. All fields are required to
+        // make an update. If all fields aren't filled, the setters
+        // will update the state back to defaults.
         const newSelectedItemId = event.target.value;
         setSelectedItem(event.target.value)
         const selectedItem = items.find(item => item._id === newSelectedItemId)
@@ -50,7 +54,8 @@ const ItemUpdate = () => {
             alert('Failed to update item')
         }
     }
-
+    // handleImageChange is passed to an onClick
+    // event for the imgInput. It sets the selected image.
     const handleImageChange = (event) => {
         if (event.target.files[0]) {
             setSelectImage(event.target.files[0])
@@ -58,7 +63,8 @@ const ItemUpdate = () => {
             setSelectImage(null)
         }
     }
-
+    // Checks are made to make sure there are no empty values
+    // for all required fields.
     const handleSubmit = async (event) => {
         event.preventDefault()
 
@@ -68,11 +74,16 @@ const ItemUpdate = () => {
             selectCategory === '' ||
             selectSize === '' ||
             selectFeatured === '' ||
-            selectPrice === '') {
+            selectPrice === '' ||
+            selectImage === null) {
             alert('Please make sure to fill in all the fields.')
             return;
         }
 
+        // Images are given a unique identifier via the imported v4() function
+        // THe imagesare stored in Firebase storage, the name of the image is
+        // then assigned to downloadURL which is stored as  value for image
+        // in the object.
         const imageRef = ref(storage, `images/${selectImage.name + v4()}`)
         uploadBytes(imageRef, selectImage).then((uploadResult) => {
             // After successful upload, get the download URL
@@ -82,10 +93,10 @@ const ItemUpdate = () => {
 
             // Now, include the downloadURL in the updatedItem object
             const updatedItem = {
-                _id: selectedItem, // Make sure this is the ID of the item being updated
+                _id: selectedItem,
                 name: selectName,
                 description: selectDescription,
-                image: downloadURL, // Use the URL from the upload
+                image: downloadURL,
                 category: selectCategory,
                 price: selectPrice,
                 featured: selectFeatured,
@@ -110,6 +121,11 @@ const ItemUpdate = () => {
         })
     }
 
+
+    // JSX for the component. There are multiple textareas, selects,
+    // and inputs that display in the user interface. ALl of them 
+    // provide a means to gather the user input which is gathered
+    // to construct the object in MongoDB.
     return(
         <>  
             <form onSubmit={handleSubmit}>
@@ -128,6 +144,7 @@ const ItemUpdate = () => {
                         name="name" 
                         placeholder="Name" 
                         id="name"
+                        maxLength="18"
                         value={selectName}
                         onChange={(e) => setSelectName(e.target.value)}
                     ></textarea>
@@ -136,6 +153,7 @@ const ItemUpdate = () => {
                         name="description" 
                         placeholder="Description" 
                         id="description"
+                        maxLength="60"
                         value={selectDescription}
                         onChange={(e) => setSelectDescription(e.target.value)}
                     ></textarea>
@@ -179,16 +197,23 @@ const ItemUpdate = () => {
                     </select>
                         
                     <div id="contain">
-                        <textarea 
-                            name="price" 
-                            placeholder="Price" 
-                            id="price"
+                        
+                        <input 
+                            id="price" 
+                            type="number"
                             value={selectPrice}
-                            onChange={(e) => setSelectPrice(e.target.value ? parseFloat(e.target.value) : '')}
-                        ></textarea>
+                            placeholder="Price"
+                            maxLength="5"
+                            onChange={(e) => {
+                                const value = e.target.value
+                                if (value.length <= 5) {
+                                    setSelectPrice(e.target.value ? parseFloat(e.target.value) : '')
+                                }
+                            }} 
+                        />
 
                         <div id="inputContainer">
-                            <label id="imgInputLabel">Upload Image</label>
+                            <label id="imgInputLabel" htmlFor="imgInput">Upload Image</label>
                             <input 
                                 id="imgInput" 
                                 type="file"

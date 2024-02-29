@@ -9,8 +9,11 @@ import { v4 } from 'uuid'
 
 
 // CREATE (POST) item to the DB
+// Very Similar to ItemUpdate component, minus the drop-down 
+// selector to choose an existing item in MongoDB.
 const ItemCreate = () => {
 
+    // initial states are set for each of the item props.
     const [name, setName] = useState('')
     const [description, setDescription] = useState('')
     const [category, setCategory] = useState('disabled')
@@ -19,10 +22,11 @@ const ItemCreate = () => {
     const [image, setImage] = useState(null)
     const [price, setPrice] = useState('')
 
+    // Reset trigger is used to set the state of the TextAreaField
     const [resetTrigger, setResetTrigger] = useState(false)
-
+    
     const { addItem } = useContext(ItemsContext)
-
+    // handler for the image change onClick
     const handleImageChange = (event) => {
         setImage(event.target.files[0])
     }
@@ -36,12 +40,13 @@ const ItemCreate = () => {
             category === '' ||
             size === '' ||
             featured === '' ||
-            price === '') {
-            alert('Please make sure to fill in all the fields.')
+            price === '' ||
+            image === null) {
+            alert('Please make sure to fill in all the fields and include an image.')
             return;
         }
-
-        const imageRef = ref(storage, `images/${image.name + v4()}`)
+        const imageName = image.name + v4()
+        const imageRef = ref(storage, `images/${imageName}`)
         uploadBytes(imageRef, image).then((uploadResult) => {
             // After successful upload, get the download URL
             return getDownloadURL(uploadResult.ref)
@@ -62,6 +67,7 @@ const ItemCreate = () => {
         // Add the newItem to your database or state
         console.log(newItem)
         addItem(newItem)
+
         setName('')
         setDescription('')
         setCategory('disabled')
@@ -86,7 +92,8 @@ const ItemCreate = () => {
 
                     <TextAreaField 
                         id="name" 
-                        placeholder="Name" 
+                        placeholder="Name"
+                        maxLength="18"
                         onChange={setName} 
                         resetTrigger={resetTrigger}
                     ></TextAreaField>
@@ -95,6 +102,7 @@ const ItemCreate = () => {
                         id="description" 
                         placeholder="Description" 
                         onChange={setDescription} 
+                        maxLength="60"
                         resetTrigger={resetTrigger}
                     ></TextAreaField>
 
@@ -137,15 +145,21 @@ const ItemCreate = () => {
                     </select>
                         
                     <div id="contain">
-                        <input 
+                    <input 
                             id="price" 
                             type="number"
                             value={price}
-                            placeholder="Price" 
-                            onChange={(e) => setPrice(e.target.value ? parseFloat(e.target.value) : '')} 
+                            placeholder="Price"
+                            maxLength="5"
+                            onChange={(e) => {
+                                const value = e.target.value
+                                if (value.length <= 5) {
+                                    setPrice(e.target.value ? parseFloat(e.target.value) : '')
+                                }
+                            }} 
                         />
                          <div id="inputContainer">
-                            <label id="imgInputLabel">Upload Image</label>
+                            <label id="imgInputLabel" htmlFor="imgInput">Upload Image</label>
                             <input id="imgInput" type="file" onChange={handleImageChange}/>
                         </div>
 

@@ -5,7 +5,9 @@ import ItemDelete from "./ItemDelete.jsx"
 import ItemUpdate from "./ItemUpdate.jsx"
 
 
-
+// Artist portal is made up of 4 main elements, title,
+// item create, item update, item delete. It's one of
+// provided in App.
 const ArtistPortal = () => {
     return (
         <>

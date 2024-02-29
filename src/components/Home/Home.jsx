@@ -29,11 +29,11 @@ const Home = () => {
         <div id="text-container">
           <h2 id="welcome">WELCOME</h2>
           <p id="body-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-          sed do eiusmod tempor incididunt ut labore et dolore magna 
-          aliqua. Ut enim ad minim veniam, quis nostrud exercitation 
-          ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Welcome to the official site of Nicole Nightmare.
+            Dive into the vibrant world where Brisbane meets boundless 
+            creativity. Here, you'll discover an exclusive collection of 
+            artworks that celebrate the dynamic beauty and spirit of the 
+            Sunshine State through Nicole's unique lense. 
           </p>
         </div>
       </div>

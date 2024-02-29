@@ -88,7 +88,8 @@ const ItemCreate = () => {
 
                     <TextAreaField 
                         id="name" 
-                        placeholder="Name" 
+                        placeholder="Name"
+                        maxLength="14"
                         onChange={setName} 
                         resetTrigger={resetTrigger}
                     ></TextAreaField>

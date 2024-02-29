@@ -8,11 +8,11 @@ import { v4 } from 'uuid'
 
 
 
-// UPDATE (PUT) item in DB
+// UPDATE (PUT) item in MongoDB.
 const ItemUpdate = () => {
-
+    // Provide items and updateItem from ItemsContext.
     const { items, updateItem } = useContext(ItemsContext)
-
+    // Create useStates for item properties with inital state.
     const [selectedItem, setSelectedItem] = useState("disabled")
     const [selectName, setSelectName] = useState('')
     const [selectCategory, setSelectCategory] = useState('disabled')
@@ -25,7 +25,11 @@ const ItemUpdate = () => {
    
     // Update selectedItem state on selection change
     const handleSelectionChange = (event) => {
-
+        // Using the selected item's properties, the fields will be
+        // updated with their value. This allows the user easier 
+        // changes to existing data. All fields are required to
+        // make an update. If all fields aren't filled, the setters
+        // will update the state back to defaults.
         const newSelectedItemId = event.target.value;
         setSelectedItem(event.target.value)
         const selectedItem = items.find(item => item._id === newSelectedItemId)
@@ -50,7 +54,8 @@ const ItemUpdate = () => {
             alert('Failed to update item')
         }
     }
-
+    // handleImageChange is passed to an onClick
+    // event for the imgInput. It sets the selected image.
     const handleImageChange = (event) => {
         if (event.target.files[0]) {
             setSelectImage(event.target.files[0])
@@ -83,10 +88,10 @@ const ItemUpdate = () => {
 
             // Now, include the downloadURL in the updatedItem object
             const updatedItem = {
-                _id: selectedItem, // Make sure this is the ID of the item being updated
+                _id: selectedItem,
                 name: selectName,
                 description: selectDescription,
-                image: downloadURL, // Use the URL from the upload
+                image: downloadURL,
                 category: selectCategory,
                 price: selectPrice,
                 featured: selectFeatured,
@@ -129,6 +134,7 @@ const ItemUpdate = () => {
                         name="name" 
                         placeholder="Name" 
                         id="name"
+                        maxLength="14"
                         value={selectName}
                         onChange={(e) => setSelectName(e.target.value)}
                     ></textarea>

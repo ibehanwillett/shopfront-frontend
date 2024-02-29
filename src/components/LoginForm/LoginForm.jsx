@@ -14,7 +14,7 @@ const LoginForm = () => {
 
   useEffect(() => {
     async function autoLogin() {
-      const response = await fetch("http://localhost:4001/users/autoLogin", {
+      const response = await fetch("https://shopfront-backend.onrender.com/users/autoLogin", {
         method: "GET",
         credentials: "include",
       });

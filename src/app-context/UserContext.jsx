@@ -24,8 +24,7 @@ const UserProvider = ({children}) => {
           }
     
         console.log(JSON.stringify(credentials))
-    // 'https://shopfront-backend.onrender.com/users/login'
-        const response =  await fetch('http://localhost:4001/users/login', {
+        const response =  await fetch('https://shopfront-backend.onrender.com/users/login', {
     
         method: 'POST',
         credentials: "include",
@@ -56,8 +55,7 @@ const UserProvider = ({children}) => {
           }
     
         console.log(JSON.stringify(credentials))
-    // 'https://shopfront-backend.onrender.com/users/login'
-        const response =  await fetch(`http://localhost:4001/users/${activeUser._id}`, {
+        const response =  await fetch(`https://shopfront-backend.onrender.com/users/${activeUser._id}`, {
     
         method: 'PATCH',
         credentials: "include",

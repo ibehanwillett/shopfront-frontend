@@ -9,7 +9,7 @@ const LogOut = () => {
   const [ show, setShow ] = useState(false)
 
   const handleClick = async () => {
-            const response = await fetch("http://localhost:4001/users/logout", {
+            const response = await fetch("https://shopfront-backend.onrender.com/users/logout", {
                 method: "GET",
                 credentials: "include",
             });

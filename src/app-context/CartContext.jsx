@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect } from "react"
 import { useLocalStorage } from "react-use"
 
 
-export const CartContext = createContext()
+export const CartContext = createContext({})
 export const CartContextProvider = CartContext.Provider
 export const useCartContext = () => useContext(CartContext)
 

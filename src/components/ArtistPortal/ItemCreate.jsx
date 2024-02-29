@@ -36,12 +36,13 @@ const ItemCreate = () => {
             category === '' ||
             size === '' ||
             featured === '' ||
-            price === '') {
-            alert('Please make sure to fill in all the fields.')
+            price === '' ||
+            image === null) {
+            alert('Please make sure to fill in all the fields and include an image.')
             return;
         }
-
-        const imageRef = ref(storage, `images/${image.name + v4()}`)
+        const imageName = image.name + v4()
+        const imageRef = ref(storage, `images/${imageName}`)
         uploadBytes(imageRef, image).then((uploadResult) => {
             // After successful upload, get the download URL
             return getDownloadURL(uploadResult.ref)
@@ -62,6 +63,7 @@ const ItemCreate = () => {
         // Add the newItem to your database or state
         console.log(newItem)
         addItem(newItem)
+
         setName('')
         setDescription('')
         setCategory('disabled')
@@ -145,7 +147,7 @@ const ItemCreate = () => {
                             onChange={(e) => setPrice(e.target.value ? parseFloat(e.target.value) : '')} 
                         />
                          <div id="inputContainer">
-                            <label id="imgInputLabel">Upload Image</label>
+                            <label id="imgInputLabel" htmlFor="imgInput">Upload Image</label>
                             <input id="imgInput" type="file" onChange={handleImageChange}/>
                         </div>
 

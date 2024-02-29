@@ -79,7 +79,7 @@ const UserProvider = ({children}) => {
         body: JSON.stringify(credentials)
      
       })
-        // If the response.status of the response is 200 the function returns true
+        // If the response.status of the response is 201 the function returns true
        if (response.status === 201) {
         return true
      }

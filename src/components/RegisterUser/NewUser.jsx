@@ -10,7 +10,7 @@ const NewUser =  async (submittedEmail, submittedFirstName, submittedLastName, s
 
     console.log(JSON.stringify(credentials))
 // 'https://shopfront-backend.onrender.com/users/'
-    const response =  await fetch('http://localhost:4001/users/', {
+    const response =  await fetch('https://shopfront-backend.onrender.com/users/', {
 
     method: 'POST',
     credentials: "include",

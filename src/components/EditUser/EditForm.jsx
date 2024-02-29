@@ -28,11 +28,12 @@ const EditForm = () => {
         <h3> Change password</h3>
         <form onSubmit={handleSubmit}>
             <div>
-        <TextAreaField
-        id="password" 
-        placeholder="Password" 
-        onChange={setPassword} 
-        resetTrigger={resetTrigger} />
+        <input 
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        />
         </div> 
         <button>Submit</button>
       </form>

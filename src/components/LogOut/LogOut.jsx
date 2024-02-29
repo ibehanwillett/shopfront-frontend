@@ -38,7 +38,7 @@ const LogOut = () => {
   return (
     <>
     <h3 id="log-title">You're logged in</h3>
-    <div class="flex-container">
+    <div className="flex-container">
     <button onClick={handleClick}>Log out?</button> 
     <button onClick={showEdit}>Account Settings</button>
     {show && <EditForm/>}

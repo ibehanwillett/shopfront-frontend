@@ -93,7 +93,7 @@ const ItemCreate = () => {
                     <TextAreaField 
                         id="name" 
                         placeholder="Name"
-                        maxLength="14"
+                        maxLength="18"
                         onChange={setName} 
                         resetTrigger={resetTrigger}
                     ></TextAreaField>
@@ -102,7 +102,7 @@ const ItemCreate = () => {
                         id="description" 
                         placeholder="Description" 
                         onChange={setDescription} 
-                        maxLength="50"
+                        maxLength="60"
                         resetTrigger={resetTrigger}
                     ></TextAreaField>
 
@@ -145,13 +145,18 @@ const ItemCreate = () => {
                     </select>
                         
                     <div id="contain">
-                        <input 
+                    <input 
                             id="price" 
                             type="number"
                             value={price}
                             placeholder="Price"
                             maxLength="5"
-                            onChange={(e) => setPrice(e.target.value ? parseFloat(e.target.value) : '')} 
+                            onChange={(e) => {
+                                const value = e.target.value
+                                if (value.length <= 5) {
+                                    setPrice(e.target.value ? parseFloat(e.target.value) : '')
+                                }
+                            }} 
                         />
                          <div id="inputContainer">
                             <label id="imgInputLabel" htmlFor="imgInput">Upload Image</label>

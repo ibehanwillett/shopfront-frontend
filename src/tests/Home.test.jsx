@@ -6,8 +6,6 @@ import { ItemsContext } from '../app-context/ItemsContext'
 import {MemoryRouter } from 'react-router-dom'
 
 
-
-
 const mockItem = {
     id_: '123', 
     category: 'Art',

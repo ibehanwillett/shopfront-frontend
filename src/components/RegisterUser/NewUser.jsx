@@ -1,6 +1,6 @@
 import React from 'react'
 
-// Function for creating a new user. 
+// Function for sending a new user to the API. 
 const NewUser =  async (submittedEmail, submittedFirstName, submittedLastName, submittedPassword) => {
   // credentials is an object with the values being passed in as arguments.
     const credentials = {

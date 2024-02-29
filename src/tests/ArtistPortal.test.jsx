@@ -6,7 +6,7 @@ import ArtistPortal from '../components/ArtistPortal/ArtistPortal'
 
 describe('App Component', () => {
 
-    it('renders the Home component', () => {
+    it('renders the Artist Portal component', () => {
         const { container } = render(<ArtistPortal/>)
         expect(container.querySelector('h2')).toHaveTextContent('Hi, Nicole')
     })

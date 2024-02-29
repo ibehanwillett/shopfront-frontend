@@ -9,18 +9,26 @@
     margin: 2rem;
 }
 
+.featured-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
 #shop-items {
     display: flex;
     flex-direction: column;
     margin: 2rem 0;
+    max-width: 34rem;
     /* border: 6px solid rgb(0, 0, 0); */
     /* box-shadow: 5px; */
-    max-width: 100vw;
     /* box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5) */
 }
 
 #item-image {
-    max-width: 100vw;
+    max-width: 100%;
 }
 
 #category-items a:hover {

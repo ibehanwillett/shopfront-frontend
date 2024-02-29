@@ -1,0 +1,29 @@
+#login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+div {
+    padding: 0.5em
+}
+
+#login-btn {
+    background-color: #a5d6c0;
+    margin: 0.5rem;
+    transition: color 1s;
+}
+
+#login-btn:hover {
+    background-color: #91e6ab;
+    border-color: #17723d;
+}
+
+#new-account-link {
+    margin: 1rem 0 0 0;
+}
+
+#new-account-link:hover {
+    text-decoration-line: underline;
+}

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate, Link } from "react-router-dom"
 import TextAreaField from "../ArtistPortal/ItemComponents/TextAreaField.jsx"
 import { useUserContext } from '../../app-context/UserContext.jsx'
-
+import "../styles/login-style.css"
 
 
 const LoginForm = () => {
@@ -46,24 +46,27 @@ const LoginForm = () => {
 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form id="login-form" onSubmit={handleSubmit}>
       <div>
-        <TextAreaField
-        id="email" 
-        placeholder="Email" 
-        onChange={setEmail} 
-        resetTrigger={resetTrigger} />
+      <input 
+        type="email"
+        placeholder="Email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        />
       </div>
       <div>
-        <TextAreaField
-        id="password" 
-        placeholder="Password" 
-        onChange={setPassword} 
-        resetTrigger={resetTrigger} />
+        <input 
+        type="password"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        />
       </div>  
-      <button type="submit" disabled={!validateForm()}>Log In</button>
+      <button id="login-btn" type="submit" disabled={!validateForm()}>Log In</button>
+      <Link to='/register' id="new-account-link">Make new account</Link>
   </form>
-  <Link to='/register'>Make new account</Link>
+  
     </>
   )
 }

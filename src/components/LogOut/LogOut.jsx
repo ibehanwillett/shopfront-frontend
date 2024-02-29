@@ -3,6 +3,7 @@ import EditForm from '../EditUser/EditForm'
 import { useUserContext } from '../../app-context/UserContext'
 import { useNavigate } from "react-router-dom"
 
+
 const LogOut = () => {
   const navigate = useNavigate()
   const { setActiveUser, setIsAdmin, isAdmin } = useUserContext()

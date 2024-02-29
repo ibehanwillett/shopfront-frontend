@@ -27,13 +27,13 @@ const Home = () => {
           <img id="home-image" src={picture} alt="Nicole Nightmare Home Image" />
         </div>
         <div id="text-container">
-          <h2 id="welcome">WELCOME</h2>
-          <p id="body-text">
+          <h2 className="welcome">WELCOME</h2>
+          <p className="body-text">
             Welcome to the official site of Nicole Nightmare.
             Dive into the vibrant world where Brisbane meets boundless 
             creativity. Here, you'll discover a collection of 
             artworks that celebrate the beauty of the 
-            Sunshine State through Nicole's unique lense. 
+            Sunshine State through Nicole's unique lense.
           </p>
         </div>
       </div>

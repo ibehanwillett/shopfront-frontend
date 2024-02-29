@@ -144,7 +144,7 @@ const ItemUpdate = () => {
                         name="name" 
                         placeholder="Name" 
                         id="name"
-                        maxLength="14"
+                        maxLength="18"
                         value={selectName}
                         onChange={(e) => setSelectName(e.target.value)}
                     ></textarea>
@@ -153,7 +153,7 @@ const ItemUpdate = () => {
                         name="description" 
                         placeholder="Description" 
                         id="description"
-                        maxLength="50"
+                        maxLength="60"
                         value={selectDescription}
                         onChange={(e) => setSelectDescription(e.target.value)}
                     ></textarea>
@@ -197,14 +197,20 @@ const ItemUpdate = () => {
                     </select>
                         
                     <div id="contain">
-                        <textarea 
-                            name="price" 
-                            placeholder="Price" 
-                            id="price"
-                            maxLength="5"
+                        
+                        <input 
+                            id="price" 
+                            type="number"
                             value={selectPrice}
-                            onChange={(e) => setSelectPrice(e.target.value ? parseFloat(e.target.value) : '')}
-                        ></textarea>
+                            placeholder="Price"
+                            maxLength="5"
+                            onChange={(e) => {
+                                const value = e.target.value
+                                if (value.length <= 5) {
+                                    setSelectPrice(e.target.value ? parseFloat(e.target.value) : '')
+                                }
+                            }} 
+                        />
 
                         <div id="inputContainer">
                             <label id="imgInputLabel" htmlFor="imgInput">Upload Image</label>

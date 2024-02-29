@@ -31,8 +31,8 @@ const Home = () => {
           <p id="body-text">
             Welcome to the official site of Nicole Nightmare.
             Dive into the vibrant world where Brisbane meets boundless 
-            creativity. Here, you'll discover an exclusive collection of 
-            artworks that celebrate the dynamic beauty and spirit of the 
+            creativity. Here, you'll discover a collection of 
+            artworks that celebrate the beauty of the 
             Sunshine State through Nicole's unique lense. 
           </p>
         </div>

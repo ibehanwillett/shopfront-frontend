@@ -2,18 +2,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 0 2rem;
+    margin: 2.5rem 2rem;
     max-width: 30rem;
 }
 
-#about-body-text {
+#about-body-text, .color-block {
     margin: 1rem 0;
 }
 
 #about-title {
-    margin: 0 0 1rem 0;
+    margin: 0 0 1.5rem 0;
     line-height:1.2em;
-    font-style: italic;
 }
 
 .color-block {

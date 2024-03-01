@@ -8,6 +8,7 @@ import "../styles/login-style.css"
 const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [errorMessage, setErrorMessage] = useState('')
   const { UserLogin, adminAndUserSet, isAdmin } = useUserContext()
   const navigate = useNavigate()
 
@@ -37,8 +38,10 @@ const LoginForm = () => {
     event.preventDefault()
     const worked = await UserLogin(email, password)
     if (worked) {
-      navigate("/")
-      }
+      navigate("/");
+    } else {
+      setErrorMessage("Email or password incorrect. Please try again.");
+    }
   }
 
   
@@ -63,7 +66,8 @@ const LoginForm = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         />
-      </div>  
+      </div> 
+      {errorMessage && <div className="error-message">{errorMessage}</div>} 
       <button id="login-btn" type="submit" disabled={!validateForm()}>Log In</button>
       <Link to='/register' id="new-account-link">Make new account</Link>
   </form>

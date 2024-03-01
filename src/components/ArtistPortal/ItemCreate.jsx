@@ -144,8 +144,8 @@ const ItemCreate = () => {
                             <option value="false">false</option>
                     </select>
                         
-                    <div id="contain">
-                    <input 
+                    <div id="contain-price">
+                        <input 
                             id="price" 
                             type="number"
                             value={price}
@@ -162,7 +162,6 @@ const ItemCreate = () => {
                             <label id="imgInputLabel" htmlFor="imgInput">Upload Image</label>
                             <input id="imgInput" type="file" onChange={handleImageChange}/>
                         </div>
-
                     </div>
 
                     <button id="submit-button" type="submit">Add</button>

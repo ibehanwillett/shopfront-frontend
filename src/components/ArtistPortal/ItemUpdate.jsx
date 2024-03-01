@@ -196,8 +196,7 @@ const ItemUpdate = () => {
                             <option value="false">false</option>
                     </select>
                         
-                    <div id="contain">
-                        
+                    <div id="contain-price">  
                         <input 
                             id="price" 
                             type="number"

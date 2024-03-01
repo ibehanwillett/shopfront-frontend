@@ -90,18 +90,18 @@ div.category-section {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    #category-title {
+    /* #category-title {
         margin: 3rem 0 0 3rem;
-    }
+    } */
 
     #shop-items {
         transition: 0.3s;
     }
 
-    #shop-items:hover {
+    /* #shop-items:hover {
         transform: scale(1.02);
         transition: 0.3s ease-out;
-    }
+    } */
 
     #item-details {
         display: flex;

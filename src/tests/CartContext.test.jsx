@@ -8,7 +8,7 @@ import { BrowserRouter } from 'react-router-dom';
 
 
 describe('<CartProvider />', () => {
-    test('provides expected CartContext obj to child elements', () => {
+    it('provides expected CartContext obj to child elements', () => {
       render(
         <CartProvider>
             <BrowserRouter>
@@ -16,7 +16,7 @@ describe('<CartProvider />', () => {
           </BrowserRouter>
         </ CartProvider>
       );
-      expect(screen.querySelector('h2')).toBeDefined
+      expect(screen.getByRole('heading', {level: 2})).toBeInTheDocument();
     })
   })
 

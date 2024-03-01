@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import '../styles/shop-styles.css'
 
 
+// Component to render items on the shopfront.
 const ShopfrontItem = ({link, item, name, price, description, image, disableLink}) => {
 
   return (

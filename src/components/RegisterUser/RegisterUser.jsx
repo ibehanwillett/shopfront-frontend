@@ -45,6 +45,7 @@ const RegisterUser = () => {
     <form onSubmit={handleSubmit}>
       <div>
       <input 
+        id="email"
         type="email"
         placeholder="Email"
         value={email}
@@ -67,6 +68,7 @@ const RegisterUser = () => {
       </div>
       <div>
         <input 
+        id="password"
         type="password"
         placeholder="Password"
         value={password}

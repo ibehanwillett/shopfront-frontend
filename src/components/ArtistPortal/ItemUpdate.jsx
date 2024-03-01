@@ -5,7 +5,7 @@ import { ItemsContext } from '../../app-context/ItemsContext'
 import { storage } from '../../Firebase.js'
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 import { v4 } from 'uuid'
-// import defaultImage from '../../assets/no-image'
+import defaultImage from '../../assets/no-image.png'
 
 // UPDATE (PUT) item in MongoDB.
 const ItemUpdate = () => {

@@ -52,34 +52,7 @@ describe('ItemCreate Component', () => {
         fireEvent.change(getByText('M'), { target: { value: 'M' } })
         fireEvent.change(getByText('true'), { target: { value: 'true' } })
         fireEvent.change(getByPlaceholderText('Price'), { target: { value: 20 } })
-    })
-    
-    // it('calls addItem on form submission with values', async () => {
-    //     const { getByPlaceholderText, getByText } = render(
-    //         <MemoryRouter>
-    //             <ItemsContext.Provider value={ mockContext }>
-    //                 <ItemCreate />
-    //             </ItemsContext.Provider>
-    //         </MemoryRouter>
-    //     )
-
-    //     fireEvent.change(getByPlaceholderText('Name'), { target: { value: 'New Item' } })
-    //     fireEvent.change(getByPlaceholderText('Description'), { target: { value: 'New Description' } })
-    //     fireEvent.change(getByText('Art'), { target: { value: 'Art' } })
-    //     fireEvent.change(getByText('M'), { target: { value: 'M' } })
-    //     fireEvent.change(getByText('true'), { target: { value: 'true' } })
-    //     fireEvent.change(getByPlaceholderText('Price'), { target: { value: 20 } })
-    //     const file = new File(['ooooo'], 'image.png', { type: 'image/png' });
-    //     fireEvent.change(screen.getByLabelText('Upload Image'), { target: { files: [file] } });
-
-    //     fireEvent.click(getByText('Add'))
-
-    //     await waitFor(() => {
-    //         expect(mockAddItem).toHaveBeenCalled();
-    // })
-    // })
-
-    
+    }) 
 })
 
 describe('ItemDelete Component', () => {

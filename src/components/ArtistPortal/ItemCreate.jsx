@@ -30,10 +30,10 @@ const ItemCreate = () => {
     const handleImageChange = (event) => {
         setImage(event.target.files[0])
     }
-    
+    // A function handle to handle form submission.
     const handleSubmit = async (event) => {
         event.preventDefault()
-
+        // Check are made to make sure all the fields have been filled 
         if (
             name === '' ||
             description === '' ||
@@ -45,6 +45,7 @@ const ItemCreate = () => {
             alert('Please make sure to fill in all the fields and include an image.')
             return;
         }
+        // The uploaded image is given a unique id 
         const imageName = image.name + v4()
         const imageRef = ref(storage, `images/${imageName}`)
         uploadBytes(imageRef, image).then((uploadResult) => {
@@ -67,7 +68,7 @@ const ItemCreate = () => {
         // Add the newItem to your database or state
         console.log(newItem)
         addItem(newItem)
-
+        // The setters are all reset to their default values
         setName('')
         setDescription('')
         setCategory('disabled')
@@ -82,7 +83,10 @@ const ItemCreate = () => {
             alert('Upload failed. Please try again.')
         });
 };
-
+    // There are multiple textareas, selects,
+    // and inputs that display in the user interface. ALl of them 
+    // provide a means to gather the user input which is gathered
+    // to construct the object in MongoDB.
     return(
         <>
             <form onSubmit={handleSubmit}>

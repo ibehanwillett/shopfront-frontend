@@ -1,5 +1,18 @@
 # Full Stack Application
 Team members: *Imogen Behan-Willett, Valentinas Kornijenka and Isaac Eveans Mellonie*
+
+# R10 
+
+[Deployed site URL](https://nicolenightmare.xyz/)
+
+# R11
+
+[Frontend Repository](https://github.com/ibehanwillett/shopfront-frontend)
+
+[Backend Repository](https://github.com/ibehanwillett/shopfront-backend)
+
+# R12: 
+
 # R1
 ---
 ### Description of website
@@ -163,3 +176,45 @@ Screenshots as of the 16/02/24
 
 ![Trello board as of the 14/02/24](./docs/16.2_pt1.png)
 ![Trello board as of the 14/02/24](./docs/16.2_pt2.png)
+
+
+# R13
+
+Screenshots as of the 20/02/24
+
+![Trello board as of the 20/02/24](./docs/20.2_pt1.png)
+![Trello board as of the 20/02/24](./docs/20.2_pt2.png)
+
+Screenshots as of the 21/02/24
+
+![Trello board as of the 21/02/24](./docs/21.2_pt1.png)
+![Trello board as of the 21/02/24](./docs/21.2_pt2.png)
+
+Screenshots as of the 22/02/24
+
+![Trello board as of the 22/02/24](./docs/22.2_pt1.png)
+![Trello board as of the 22/02/24](./docs/22.2_pt2.png)
+
+Screenshots as of the 25/02/24
+
+![Trello board as of the 25/02/24](./docs/25.2_pt1.png)
+![Trello board as of the 25/02/24](./docs/25.2_pt2.png)
+
+Screenshots as of the 26/02/24
+
+![Trello board as of the 26/02/24](./docs/26.2_pt1.png)
+![Trello board as of the 26/02/24](./docs/26.2_pt2.png)
+
+Screenshots as of the 27/02/24
+
+![Trello board as of the 27/02/24](./docs/27.2_pt1.png)
+
+Screenshots as of the 28/02/24
+
+![Trello board as of the 28/02/24](./docs/28.2_pt1.png)
+![Trello board as of the 28/02/24](./docs/28.2_pt2.png)
+
+Screenshots as of the 01/03/24
+
+![Trello board as of the 01/03/24](./docs/1.3_pt1.png)
+![Trello board as of the 01/03/24](./docs/1.3_pt2.png)

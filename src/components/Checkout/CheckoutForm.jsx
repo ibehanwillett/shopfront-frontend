@@ -4,29 +4,6 @@ import { useCartContext } from "../../app-context/CartContext";
 import { useNavigate } from "react-router-dom";
 import "../styles/checkoutForm.css";
 
-const CARD_ELEMENT_OPTIONS = {
-  style: {
-    base: {
-      iconColor: "#666EE8",
-      color: "#31325F",
-      fontWeight: "300",
-      fontFamily: "Arial, sans-serif",
-      fontSize: "14px",
-      fontSmoothing: "antialiased",
-      ":-webkit-autofill": { color: "#fce883" },
-      "::placeholder": { color: "#121212" },
-      backgroundColor: "#ffffff",
-    },
-    invalid: {
-      iconColor: "#ffc7ee",
-      color: "#ffc7ee",
-    },
-    complete: {
-      color: "#30e189",
-    },
-  },
-};
-
 const CheckoutForm = () => {
   const stripe = useStripe();
   const elements = useElements();
@@ -88,12 +65,11 @@ const CheckoutForm = () => {
   return (
     <form onSubmit={handleSubmit} className="checkout-form">
       <div className="credit-card-info">
-        <CardElement options={CARD_ELEMENT_OPTIONS} />
+        <CardElement />
       </div>
       <input type="text" className="full-width-input" placeholder="Last Name" />
       <input type="text" className="full-width-input" placeholder="Address" />
       <input type="text" className="full-width-input" placeholder="Phone" />
-      <p>TEST_Subtotal: ${subtotal.toFixed(2)}</p>
       <button type="submit">Pay Now</button>
     </form>
   );

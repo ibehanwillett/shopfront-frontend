@@ -3,6 +3,10 @@ import '../styles/shop-styles.css'
 import '../styles/home-styles.css'
 import '../styles/about-styles.css'
 
+
+// Main component for the About page. Basic layout with the artist
+// title and a description of their work. All element are layed out 
+// with display flex and text is styled accordingly.
 const About = () => {
   return (
     <>
@@ -33,8 +37,6 @@ const About = () => {
         </div>
       </div>
     </main>
-    
-    
     </>
   )
 }

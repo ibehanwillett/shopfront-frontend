@@ -1,14 +1,17 @@
 import { createContext, useContext, useState } from "react"
 
-
+// Intializes the UserContext and UserContext providers. Creates a shorthand way to use the UserContext context particularly.
 export const UserContext = createContext()
-export const UserContextProvider = UserContext.Provider
 export const useUserContext = () => useContext(UserContext)
+const UserContextProvider = UserContext.Provider
+
 
 const UserProvider = ({children}) => {
+  // Creates a state to hold the user object of who is currently logged in, and a state to hold a Boolean value indicating whether that user is an admin.
     const [activeUser, setActiveUser] = useState('')
     const [isAdmin, setIsAdmin] = useState(false)
-
+    
+  // A function for setting the active user. If that user is an admin it also updates the isAdmin state to true from the default false.
     const adminAndUserSet = (dbUser) => {
         setActiveUser(dbUser)
         if (dbUser.admin) {
@@ -44,8 +47,11 @@ const UserProvider = ({children}) => {
         // console.log(user.admin)
         adminAndUserSet(user)
         return true
-     } else {
+     } else if (response.status === 401) {
+        alert("Incorrect username or password")
         return false
+     } else {
+      console.error("Unknown error")
      }
     }
 

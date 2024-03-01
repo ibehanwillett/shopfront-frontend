@@ -49,4 +49,3 @@ const LogOut = () => {
 }
 
 export default LogOut
-// add edit account w/  delete funtionality

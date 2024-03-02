@@ -10,7 +10,6 @@
   line-height: 1.5;
   font-weight: 400;
 
-  /* color-scheme: light dark; */
   color: rgba(0, 0, 0, 0.87);
   background-color: #ffffff;
 
@@ -21,20 +20,15 @@
 }
 
 a {
-  /* font-weight: 500; */
-  /* color: #495057; */
   text-decoration: inherit;
 }
 
 a:hover {
-  /* color: #535bf2; */
   text-decoration: underline;
 }
 
 body {
   margin: 0;
-  /* display: flex; */
-  /* place-items: center; */
   min-width: 320px;
   min-height: 100vh;
   width: 100%;

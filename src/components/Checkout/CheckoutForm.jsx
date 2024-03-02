@@ -44,7 +44,7 @@ const CheckoutForm = () => {
       };
 
       // Make a POST request to the server to process the payment.
-      fetch("http://localhost:4001/payment/process-payment", { 
+      fetch("https://shopfront-backend.onrender.com/payment/process-payment", { 
         method: "POST",
         headers: {
           "Content-Type": "application/json",

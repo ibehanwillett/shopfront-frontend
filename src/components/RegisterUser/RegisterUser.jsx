@@ -42,7 +42,7 @@ const RegisterUser = () => {
   // Creates a form with four areas of input. 
   return (
     <>
-    <form onSubmit={handleSubmit}>
+    <form id="register-user" onSubmit={handleSubmit}>
       <div>
       <input 
         id="email"

@@ -74,9 +74,9 @@ const ItemUpdate = () => {
         if (
             selectName === '' ||
             selectDescription === '' ||
-            selectCategory === '' ||
-            selectSize === '' ||
-            selectFeatured === '' ||
+            selectCategory === 'disabled' ||
+            selectSize === 'disabled' ||
+            selectFeatured === 'disabled' ||
             selectPrice === ''
         ) {
             alert('Please make sure to fill in all the fields.')
@@ -111,6 +111,7 @@ const ItemUpdate = () => {
 
             // Reset form fields after successful update
             resetForm()
+            alert('Update Successful')
     }
 
     const resetForm = () => {

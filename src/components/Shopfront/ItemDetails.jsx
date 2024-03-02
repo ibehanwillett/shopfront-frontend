@@ -33,7 +33,7 @@ const ItemDetails = () => {
                 </div>
                 
                 {/* Paragraph displaying the item's description. */}
-                <p>{item.description}</p>
+                <p id="item-details-description">{item.description}</p>
                 <div className="price-add">
                     <div>
                         <p>Size</p>

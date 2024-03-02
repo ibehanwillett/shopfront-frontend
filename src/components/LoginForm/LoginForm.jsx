@@ -52,6 +52,7 @@ const LoginForm = () => {
     const worked = await UserLogin(email, password)
     // If worked evaluates to true then navigate to the home page.
     if (worked) {
+      alert('Login successful!')
       navigate("/");
     } else {
       setErrorMessage("Email or password incorrect. Please try again.");

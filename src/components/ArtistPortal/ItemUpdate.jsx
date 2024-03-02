@@ -20,6 +20,8 @@ const ItemUpdate = () => {
     const [selectSize, setSelectSize] = useState('disabled')
     const [selectFeatured, setSelectFeatured] = useState('disabled')
     const [selectImage, setSelectImage] = useState(null)
+    const [isImageUpdated, setIsImageUpdated] = useState(false)
+    const [initialImageUrl, setInitialImageUrl] = useState('');
 
    
     // Update selectedItem state on selection change
@@ -30,30 +32,26 @@ const ItemUpdate = () => {
         // make an update. If all fields aren't filled, the setters
         // will update the state back to defaults.
         const newSelectedItemId = event.target.value;
-        setSelectedItem(event.target.value)
+        setSelectedItem(newSelectedItemId)
         const selectedItem = items.find(item => item._id === newSelectedItemId)
         console.log(selectedItem.image)
         if (selectedItem) {
             setSelectName(selectedItem.name)
             setSelectDescription(selectedItem.description)
-            setSelectImage(selectedItem.image)
+            setInitialImageUrl(selectedItem.image)
+            setIsImageUpdated(false)
+            // setSelectImage(selectedItem.image)
             setSelectCategory(selectedItem.category)
             setSelectSize(selectedItem.size)
             setSelectFeatured(selectedItem.featured)
             setSelectPrice(selectedItem.price)
+            
         } else {
-            setSelectName('')
-            setSelectDescription('')
-            setSelectCategory('disabled')
-            setSelectImage(null)
-            setSelectSize('disabled')
-            setSelectFeatured('disabled')
-            setSelectPrice('')
-            setSelectedItem('disabled')
-
+            resetForm()
             alert('Failed to update item')
         }
     }
+
     // handleImageChange is passed to an onClick
     // event for the imgInput. It sets the selected image.
     const handleImageChange = (event) => {
@@ -63,6 +61,7 @@ const ItemUpdate = () => {
             setSelectImage(null)
         }
     }
+
     // Checks are made to make sure there are no empty values
     // for all required fields.
     const handleSubmit = async (event) => {
@@ -74,8 +73,8 @@ const ItemUpdate = () => {
             selectCategory === '' ||
             selectSize === '' ||
             selectFeatured === '' ||
-            selectPrice === '' ||
-            selectImage === null) {
+            selectPrice === ''
+        ) {
             alert('Please make sure to fill in all the fields.')
             return;
         }
@@ -84,19 +83,19 @@ const ItemUpdate = () => {
         // THe imagesare stored in Firebase storage, the name of the image is
         // then assigned to downloadURL which is stored as  value for image
         // in the object.
-        const imageRef = ref(storage, `images/${selectImage.name + v4()}`)
-        uploadBytes(imageRef, selectImage).then((uploadResult) => {
-            // After successful upload, get the download URL
-            return getDownloadURL(uploadResult.ref)
-        }).then((downloadURL) => {
-            alert('Upload successful')
+        let imageUrl = initialImageUrl
+        if (isImageUpdated && selectImage) { // Only update if a new image has been uploaded
+            const imageRef = ref(storage, `images/${selectImage.name + v4()}`);
+            const uploadResult = await uploadBytes(imageRef, selectImage);
+            imageUrl = await getDownloadURL(uploadResult.ref); // Update the image URL if a new image has been uploaded
+        }
 
             // Now, include the downloadURL in the updatedItem object
             const updatedItem = {
                 _id: selectedItem,
                 name: selectName,
                 description: selectDescription,
-                image: downloadURL,
+                image: imageUrl,
                 category: selectCategory,
                 price: selectPrice,
                 featured: selectFeatured,
@@ -107,18 +106,20 @@ const ItemUpdate = () => {
             updateItem(updatedItem)
 
             // Reset form fields after successful update
-            setSelectName('')
-            setSelectDescription('')
-            setSelectCategory('disabled')
-            setSelectSize('disabled')
-            setSelectFeatured('disabled')
-            setSelectPrice('')
-            setSelectImage(null)
-            setSelectedItem('disabled')
-        }).catch((error) => {
-            console.error("Error uploading image: ", error)
-            alert('Upload failed. Please try again.')
-        })
+            resetForm()
+    }
+
+    const resetForm = () => {
+        setSelectName('')
+        setSelectDescription('')
+        setSelectCategory('disabled')
+        setSelectSize('disabled')
+        setSelectFeatured('disabled')
+        setSelectPrice('')
+        setSelectImage(null)
+        setSelectedItem('disabled')
+        setIsImageUpdated(false)
+        setInitialImageUrl('')
     }
 
 

@@ -25,23 +25,22 @@ function App() {
     <UserProvider>
       <ItemsProvider>
         <CartProvider>
-          <BrowserRouter>
-              <Navbar />
-              <Routes>
+          <BrowserRouter> {/* Enables navigation and URL management. */}
+              <Navbar /> {/* Renders the navigation bar. */}
+              <Routes> {/* Container for all the route definitions within the application. */}
+                  {/* Defining routes for the application. Each Route associates a path with a component. */}
                   <Route path="/" element={<Home />} />
                   <Route path="/shop" element={<ShopFront/>}/>
-                  <Route path="/item/:id" element={<ItemDetails/>}/>
+                  <Route path="/item/:id" element={<ItemDetails/>}/> {/* Dynamic route for item details, using URL params. */}
                   <Route path="/about" element={<About />}/>
                   <Route path="/login" element={<LoginForm />}/>
                   <Route path="/logout" element={<LogOut />}/>
                   <Route path="/register" element={<RegisterUser />}/>
-                  <Route path="/artistportal" element={
-                    <Protected>
-                      <ArtistPortal />
-                  </Protected> 
-                  }/>
+                  {/* Protected route wrapping the ArtistPortal component, restricting access based on wether or not the user is an admin. */}
+                  <Route path="/artistportal" element={<Protected><ArtistPortal /></Protected>}/>
                   <Route path="/checkout" element={<Checkout />}/>
                   <Route path="/cart" element={<Cart />}/>
+                  {/* Route for order confirmation, utilizing dynamic URL params for orderId. */}
                   <Route path="/order-confirmation/:orderId" element={<OrderConfirmation />} />
               </Routes>
           </BrowserRouter>

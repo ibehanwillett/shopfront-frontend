@@ -2,10 +2,15 @@
 Team members: *Imogen Behan-Willett, Valentinas Kornijenka and Isaac Eveans Mellonie*
 
 # R10 
+
 [Deployed site URL](https://nicolenightmare.xyz/)
+
 # R11
+
 [Frontend Repository](https://github.com/ibehanwillett/shopfront-frontend)
+
 [Backend Repository](https://github.com/ibehanwillett/shopfront-backend)
+
 # R12: 
 
 # R1

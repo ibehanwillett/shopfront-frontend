@@ -45,6 +45,8 @@ const ItemUpdate = () => {
             setSelectSize(selectedItem.size)
             setSelectFeatured(selectedItem.featured)
             setSelectPrice(selectedItem.price)
+            setIsImageUpdated(false)
+            setSelectImage(null)
             
         } else {
             resetForm()
@@ -56,9 +58,11 @@ const ItemUpdate = () => {
     // event for the imgInput. It sets the selected image.
     const handleImageChange = (event) => {
         if (event.target.files[0]) {
-            setSelectImage(event.target.files[0])
+            setSelectImage(event.target.files[0]);
+            setIsImageUpdated(true) 
         } else {
-            setSelectImage(null)
+            setSelectImage(null);
+            setIsImageUpdated(false)
         }
     }
 
@@ -83,12 +87,12 @@ const ItemUpdate = () => {
         // THe imagesare stored in Firebase storage, the name of the image is
         // then assigned to downloadURL which is stored as  value for image
         // in the object.
-        let imageUrl = initialImageUrl
-        if (isImageUpdated && selectImage) { // Only update if a new image has been uploaded
+        let imageUrl = initialImageUrl;
+        if (isImageUpdated && selectImage) {
             const imageRef = ref(storage, `images/${selectImage.name + v4()}`);
             const uploadResult = await uploadBytes(imageRef, selectImage);
-            imageUrl = await getDownloadURL(uploadResult.ref); // Update the image URL if a new image has been uploaded
-        }
+            imageUrl = await getDownloadURL(uploadResult.ref); // Assign new URL if new image is uploaded
+}
 
             // Now, include the downloadURL in the updatedItem object
             const updatedItem = {

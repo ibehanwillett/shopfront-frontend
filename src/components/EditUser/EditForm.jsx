@@ -18,6 +18,7 @@ const EditForm = () => {
         const worked = await UserEdit(password)
         if (worked) {
           // if the function return true then the page navigates to home
+          alert("Password successfully updated!")
           navigate("/")
         }
 
